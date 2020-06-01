@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta  charset="utf-8">
     <link rel="icon" type="image/jpg" href="img/98306.jpg">
+    <link rel="shortcut icon" type="image/jpg" href="img/98306.jpg">
+    <link rel="apple-touch-icon" type="image/jpg" href="img/98306.jpg">
+
     <title>四択!!英単語クイズ</title>
     <style>
       #Q{
-        width: 200px;
+        width: 300px;
         height: 80px;
         border: 4px solid #EAB857;
-        
+        text-align:justify;
+        margin: 40px;
         
       }
       
@@ -43,15 +48,34 @@
       #Number{
         width: 100px;
         height: 160pxpx;
+        margin: 40px;
+      }
+
+      #form{
+        margin: 20px 400px ;
+      }
+
+      #ggl{
+        margin-top: 50px;
+      }
+
+      #btns{
+        margin-top: -100px;
+        margin-left: 200px;
+      }
+
+      #yans{
+        margin-top: 5px;
+        margin-left: 200px;
       }
     </style>
   </head>
   <body>
-
+    <form id="form">
     <div id="Q">
 
     </div>
-    <input type="button" id="stbtn" value="Start">
+    
 
     <ul id="pl">
       <li id="A1"></li>
@@ -64,7 +88,7 @@
 
 
     <select  id="Number" size="4">
-      <option value="1~4 で選択">1~4 で選択</option>
+      <option value="1~4 で選択" selected>1~4 で選択</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -85,15 +109,28 @@
       <option value="3"></option>
       <option value="4"></option>
     </datalist>-->
+
+    <div id="btns">
+    <input type="button" id="stbtn" value="Start">
     <input type="button" id="go"value="Go">
-
-    <div id="ans"></div>
-
-
+    </div>
 
     <div id="yans"></div>
+    <audio id="sound-file" preload="auto">
+      <source src="music/Quiz-Correct_Answer01-mp3/Quiz-Correct_Answer01-1.mp3" type="audio/mp3">
+      
+    </audio>
+    <audio id="sound-file2" preload="auto">
+      <source src="music/Quiz-Wrong_Buzzer01-mp3/Quiz-Wrong_Buzzer01-1.mp3" type="audio/wav">
+      
+    </audio>
 
-    
+
+    <!--<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdImD_08laJ9Rhip6ig-BFVbWnqEHM6QchXqQM6wvCtuw4OTA/viewform?embedded=true" id="ggl"  width="640" height="1473" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>-->
+
+  </form>
+
+    <div id="ans"></div>
     <script>
 
       const stbtn=document.getElementById('stbtn');
@@ -144,7 +181,7 @@
         a4.classList.remove('p');
 
         yn.innerText="";
-        number.value="";
+        number.selectedIndex = 0;
 
         var Eword=['accident','pain','ill','die','remind','inform','convince','warn','suspect','contract','innocent','justice','legal','prison','expose','emerge','reveal','imply','arise','generate','appetite','diet','hunger','ripe','thirst','apply','application','invent','develop','advance','minute','moment','rapid','brief','due','current','instantly','repeat','whisper','pronounce','excuse'];
 
@@ -411,10 +448,25 @@ console.log('AAA');
           console.log(aaa);
          console.log("正解");
          yans.innerHTML="正解！！ 解答　"+qan2;
+
+        //  var audioElem;
+        // audioElem = new Audio();
+        // audioElem.src = "music\Quiz-Correct_Answer01-mp3\Quiz-Correct_Answer01-1.mp3";
+        // audioElem.play();
+
+        //document.getElementById( 'music/Quiz-Correct_Answer01-mp3/Quiz-Correct_Answer01-1.mp3' ).play() ;
+   
         
        }else{
          console.log("不正解"); 
          yans.innerHTML="不正解！！　解答　"+qan2;
+
+        //  var audioElem;
+        // audioElem = new Audio();
+        // audioElem.src = "music\Quiz-Wrong_Buzzer01-mp3";
+        // audioElem.play();
+
+        //document.getElementById( 'music/Quiz-Wrong_Buzzer01-mp3/Quiz-Wrong_Buzzer01-1.mp3' ).play() ;
        }
        
        
