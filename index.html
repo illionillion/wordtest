@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta  charset="utf-8">
+    <link rel="icon" type="image/jpg" href="img/98306.jpg">
+    <title>四択!!英単語クイズ</title>
+    <style>
+      #Q{
+        width: 200px;
+        height: 80px;
+        border: 4px solid #EAB857;
+        
+        
+      }
+      
+      #pl li{
+        list-style: none;
+        /*background: linear-gradient(#ff6347,#dc143c);*/
+        background: yellow;
+        border: 1px solid black;
+        padding: 5px;
+        width: 300px;
+        height: 50px;
+        border-radius: 20%;
+        transition: 0.5s;
+        margin-bottom: 10px;
+      }
+
+      #num{
+        width: 80px;
+      }
+
+      #ans{
+        margin-left: -100px;
+      }
+
+      .p{
+        background: linear-gradient(#ff6347,#dc143c) !important;
+        color: white;
+        margin-left: 20px;
+      }
+
+      #Number{
+        width: 90px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="Q">
+
+    </div>
+    <input type="button" id="stbtn" value="Start">
+
+    <ul id="pl">
+      <li id="A1"></li>
+      <li id="A2"></li>
+      <li id="A3"></li>
+      <li id="A4"></li>
+      
+
+    </ul>
+
+    <select  id="Number">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      </select>
+    <!--<datalist id="pnumber">
+      <option value="1"></option>
+      <option value="2"></option>
+      <option value="3"></option>
+      <option value="4"></option>
+    </datalist>-->
+    <input type="button" id="go"value="Go">
+
+    <div id="ans"></div>
+
+
+
+    <div id="yans"></div>
+
+    
+    <script>
+
+      const stbtn=document.getElementById('stbtn');
+      const QD=document.getElementById('Q');   
+      const tl=document.getElementById('pl');
+      const go=document.getElementById('go');
+      const number=document.getElementById('Number');
+      const qan=document.getElementById('ans');
+      const yn=document.getElementById('yans');
+      const a1=document.getElementById('A1');
+      const a2=document.getElementById('A2');
+      const a3=document.getElementById('A3');
+      const a4=document.getElementById('A4');
+                      
+      number.onchange=function touch(){
+
+        var d=number.value;
+
+        console.log(d);
+
+        switch(Number(d)){
+          case 1:
+            a1.click();
+            break;
+          case 2:
+            a2.click();
+            break;
+          case 3:
+            a3.click();
+            break;
+          case 4:
+            a4.click();
+            break;
+
+            default:
+            a1.classList.remove('p');
+            a2.classList.remove('p');
+            a3.classList.remove('p');
+            a4.classList.remove('p');
+        }
+
+      }
+      stbtn.onclick=function Start(){
+
+        a1.classList.remove('p');
+        a2.classList.remove('p');
+        a3.classList.remove('p');
+        a4.classList.remove('p');
+
+        yn.innerText="";
+        number.value="";
+
+        var Eword=['accident','pain','ill','die','remind','inform','convince','warn','suspect','contract','innocent','justice','legal','prison','expose','emerge','reveal','imply','arise','generate','appetite','diet','hunger','ripe','thirst','apply','application','invent','develop','advance','minute','moment','rapid','brief','due','current','instantly','repeat','whisper','pronounce','excuse'];
+
+        var Jword=['事故','痛み','病気で','死ぬ','に思い出させる','に知らせる','に納得させる','に警告する','を疑う','契約','無実の','公正、正義','合法的な','刑務所','をさらす、暴露する','現れる、明らかになる','を明らかにする、を暴露する','を示唆する、をほのめかす','生まれる、発生する：起こる','を生む出す、を発生させる、を起こす','食欲、欲望、欲求','規定食、食事制限、日常の食事、国会','飢え、空腹、切望','熟した、円熟した','のどの渇き、切望','を応用する','応用、適用、申し込み、出願、アプリケーション','を発明する、をでっちあげる','を発達させる：発達する、を開発する','進歩、前進、進歩する、前進する、を進める、を深める','分、少しの間','少しの間','速い、急速な','短時間の、簡潔な、要約','到着する予定で、当然の：正当な','現在の、流行の、流れ、風潮、電流','すぐに、即座に','繰り返す、繰り返して言う','ささやく、ひそひそと話す、ささやき、うわさ','発音する','を許す、を多めに見る、言い訳をする、弁解、言い訳'];
+
+       
+
+
+        var QEword=Math.floor(Math.random()* Eword.length);
+          console.log(Eword[QEword]);//問題の英単語
+            QD.innerHTML=Eword[QEword];
+
+            //var ssup = new SpeechSynthesisUtterance();
+            var ssup2=new SpeechSynthesisUtterance();
+            //ssup.text = "この英単語の意味は？";
+            ssup2.text=Eword[QEword];
+            //ssup.lang = 'ja-JP';
+            ssup2.lang='en-EN';
+            //speechSynthesis.speak(ssup);
+            speechSynthesis.speak(ssup2);
+
+        var Aword=Jword[QEword];
+          console.log(Aword);//英単語の答え
+              
+          var num=['1','2','3','4'];
+
+
+            var NR=Math.floor(Math.random()* num.length);
+
+              console.log(num[NR]);
+
+              //return{NR:NR};
+
+              qan.innerHTML=num[NR];
+
+              switch(num[NR]){
+              case '1':
+                a1.innerHTML='1.'+Aword;
+              break;
+
+              case '2':
+                a2.innerHTML='2.'+Aword;
+              break;
+              case '3':
+                a3.innerHTML='3.'+Aword;
+              break;
+
+              case '4':
+                a4.innerHTML='4.'+Aword;
+              break;
+            }
+                  
+         
+
+         
+        Jword.splice(QEword,1);
+          console.log(Jword);
+
+          num.splice(NR,1);
+
+          console.log(num);
+
+
+        var Aword1=Math.floor(Math.random()* Jword.length);
+          console.log(Jword[Aword1]);//ダミー1
+
+          var NR2=Math.floor(Math.random()* num.length); 
+            console.log(num[NR2]);
+
+          switch(num[NR2]){
+              case '1':
+                a1.innerHTML='1.'+Jword[Aword1];
+              break;
+
+              case '2':
+                a2.innerHTML='2.'+Jword[Aword1];
+              break;
+              case '3':
+                a3.innerHTML='3.'+Jword[Aword1];
+              break;
+
+              case '4':
+                a4.innerHTML='4.'+Jword[Aword1];
+              break;
+            }
+
+       
+            
+        Jword.splice(Aword1,1);
+          console.log(Jword);
+          num.splice(NR2,1);
+                    console.log(num);
+
+        var Aword2=Math.floor(Math.random()* Jword.length);
+          console.log(Jword[Aword2]);//ダミー2
+          var NR3=Math.floor(Math.random()* num.length);
+                console.log(num[NR3]);
+
+                switch(num[NR3]){
+              case '1':
+                a1.innerHTML='1.'+Jword[Aword2];
+              break;
+
+              case '2':
+                a2.innerHTML='2.'+Jword[Aword2];
+              break;
+              case '3':
+                a3.innerHTML='3.'+Jword[Aword2];
+              break;
+
+              case '4':
+                a4.innerHTML='4.'+Jword[Aword2];
+              break;
+            }
+
+          
+           
+
+        Jword.splice(Aword2,1);
+          console.log(Jword);
+          num.splice(NR3,1);
+                    console.log(num);
+
+                
+
+        var Aword3=Math.floor(Math.random()* Jword.length);
+        
+          console.log(Jword[Aword3]);//ダミー3   
+          
+          var NR4=Math.floor(Math.random()* num.length);
+
+                    console.log(num[NR4]);
+
+                    switch(num[NR4]){
+              case '1':
+                a1.innerHTML='1.'+Jword[Aword3];
+              break;
+
+              case '2':
+                a2.innerHTML='2.'+Jword[Aword3];
+              break;
+              case '3':
+                a3.innerHTML='3.'+Jword[Aword3];
+              break;
+
+              case '4':
+                a4.innerHTML='4.'+Jword[Aword3];
+              break;
+            }
+
+            
+        }
+
+
+a1.onclick=function A1(){
+
+  var ran=qan.innerHTML;
+  
+  console.log(ran);
+
+  if(ran<1){
+
+   
+    console.log('AAA');
+  }else{
+    
+    number.value="1";
+  a1.classList.toggle('p');
+  a2.classList.remove('p');
+  a3.classList.remove('p');
+  a4.classList.remove('p');
+  }
+  
+}
+a2.onclick=function A2(){
+
+  var ran=qan.innerHTML;
+  
+  console.log(ran);
+
+
+  if(ran<1){
+
+   
+console.log('AAA');
+}else{
+  number.value="2";
+  a2.classList.toggle('p');
+  a1.classList.remove('p');
+  a3.classList.remove('p');
+  a4.classList.remove('p');
+}
+}
+a3.onclick=function A3(){
+
+  var ran=qan.innerHTML;
+  
+  console.log(ran);
+
+
+  if(ran<1){
+
+   
+console.log('AAA');
+}else{
+  number.value="3";
+  a3.classList.toggle('p');
+  a2.classList.remove('p');
+  a1.classList.remove('p');
+  a4.classList.remove('p');
+}
+}
+a4.onclick=function A4(){
+
+  var ran=qan.innerHTML;
+  
+  console.log(ran);
+
+
+  if(ran<1){
+
+   
+console.log('AAA');
+}else{
+  number.value="4";
+  a4.classList.toggle('p');
+  a2.classList.remove('p');
+  a3.classList.remove('p');
+  a1.classList.remove('p');
+}
+}
+
+
+
+        
+ go.onclick=function Go(){
+
+       var an= number.value;
+
+       console.log(an);
+
+       var qan2=qan.textContent;
+
+       
+
+       console.log(qan2);
+    if(qan2==""){
+      console.log("始まってない")
+    }else{
+      if(an==qan2){
+        
+        switch(qan2){
+          case 1:
+            var aaa=document.a1.innerText;
+            break;
+          case 2:
+            var aaa=document.a2.innerText;
+          case 3:
+            var aaa=document.a3.innerText;
+            break;
+          case 4:
+            var aaa=document.a4.innerText;
+        }
+          console.log(aaa);
+         console.log("正解");
+         yans.innerHTML="正解！！ 解答　"+qan2;
+        
+       }else{
+         console.log("不正解"); 
+         yans.innerHTML="不正解！！　解答　"+qan2;
+       }
+       
+       
+       //setInterval ('Start()',1000);
+    }
+
+       
+ }           
+            
+       
+//  function sample(name) {
+
+//   var age=Math.floor(Math.random()*90);
+ 
+//  console.log(name + 'さんの年齢は' + age + 'です！');
+
+// }
+
+// //引数に値を渡す
+// sample('太郎');
+
+
+
+        
+        
+        
+       
+
+        
+      
+
+    </script>
+  </body>
+</html>
