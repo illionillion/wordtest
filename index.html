@@ -118,8 +118,11 @@
     </datalist>-->
 
     <div id="btns">
+    <div id="mondaic"></div>
     <input type="button" id="stbtn" value="Start">
     <input type="button" id="go"value="Go">
+    <input type="button" id="reset"value="Reset">
+    
     </div>
 
     <div id="yans"></div>
@@ -151,7 +154,9 @@
       const a2=document.getElementById('A2');
       const a3=document.getElementById('A3');
       const a4=document.getElementById('A4');
-                      
+      const momo=document.getElementById('mondaic');
+      const reset=document.getElementById('reset');
+
       number.onchange=function touch(){
 
         var d=number.value;
@@ -194,12 +199,53 @@
 
         var Jword=['事故','痛み','病気で','死ぬ','に思い出させる','に知らせる','に納得させる','に警告する','を疑う','契約','無実の','公正、正義','合法的な','刑務所','をさらす、暴露する','現れる、明らかになる','を明らかにする、を暴露する','を示唆する、をほのめかす','生まれる、発生する：起こる','を生む出す、を発生させる、を起こす','食欲、欲望、欲求','規定食、食事制限、日常の食事、国会','飢え、空腹、切望','熟した、円熟した','のどの渇き、切望','を応用する','応用、適用、申し込み、出願、アプリケーション','を発明する、をでっちあげる','を発達させる：発達する、を開発する','進歩、前進、進歩する、前進する、を進める、を深める','分、少しの間','少しの間','速い、急速な','短時間の、簡潔な、要約','到着する予定で、当然の：正当な','現在の、流行の、流れ、風潮、電流','すぐに、即座に','繰り返す、繰り返して言う','ささやく、ひそひそと話す、ささやき、うわさ','発音する','を許す、を多めに見る、言い訳をする、弁解、言い訳'];
 
-       
+       var Elength=Eword.length;
+       var Jlength=Jword.length;
 
+       console.log('単語の数'+Elength);//数を記録
 
+          var nnn=sessionStorage.length;
+
+          console.log(nnn);
+        switch(nnn){
+          case 0:
+          console.log('no data...');
+          
+        break;
+
+          default:
+
+          for (let step = 0; step < nnn; step++){
+
+            var calling =sessionStorage.key(step);
+
+              console.log(calling);
+
+              var key =sessionStorage.key(step);
+              var val = sessionStorage.getItem(key);
+              var idx = Eword.indexOf(val);
+              if(idx >= 0){
+                  Eword.splice(idx, 1);
+                  Jword.splice(idx,1);
+                  console.log(Eword);
+                  console.log(Jword);
+              }
+
+          }
+
+           
+
+        }
         var QEword=Math.floor(Math.random()* Eword.length);
           console.log(Eword[QEword]);//問題の英単語
             QD.innerHTML=Eword[QEword];
+
+            
+            nnn=nnn+1;
+            sessionStorage.setItem(nnn,Eword[QEword]);//保存
+            
+            const lp =nnn+'/'+Elength;
+            momo.innerHTML=lp; 
 
             //var ssup = new SpeechSynthesisUtterance();
             var ssup2=new SpeechSynthesisUtterance();
@@ -338,7 +384,7 @@
                 a4.innerHTML='4.'+Jword[Aword3];
               break;
             }
-
+            console.log("処理終了")
             number.focus();
         }
 
@@ -419,6 +465,8 @@ console.log('AAA');
   a3.classList.remove('p');
   a1.classList.remove('p');
 }
+
+
 }
 
 
@@ -497,7 +545,12 @@ console.log('AAA');
 
 
 
-        
+        reset.onclick=function Reset(){
+
+          sessionStorage.clear();
+          location.reload();
+
+        }
         
         
        
