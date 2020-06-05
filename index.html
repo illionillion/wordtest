@@ -9,6 +9,9 @@
 
     <title>四択!!英単語クイズ</title>
     <style>
+      /*html, body{
+        overflow: hidden;
+      }*/
       #Q{
         width: 300px;
         height: 80px;
@@ -18,6 +21,10 @@
         
       }
       
+      #pl{
+        transition:0.5s !important;
+      }
+
       #pl li{
         list-style: none;
         /*background: linear-gradient(#ff6347,#dc143c);*/
@@ -26,7 +33,7 @@
         padding: 5px;
         width: 300px;
         height: 50px;
-        border-radius: 20%;
+        border-radius: 25px;
         transition: 0.5s;
         margin-bottom: 10px;
       }
@@ -60,15 +67,42 @@
       }
 
       #btns{
-        margin-top: -100px;
-        margin-left: 200px;
+        margin-top: 0px;
+        margin-left: 150px;
+      }
+
+      #stbtn,#go,#reset{
+        width: 100px;
+        display: block;
+        margin-bottom: 5px;
       }
 
       #yans{
         margin-top: 5px;
-        margin-left: 200px;
+        margin-left: 60px;
       }
 
+      #mondaic{
+        margin-bottom: 10px;
+        margin-top: -160px;
+        margin-left: 60px;
+        border-bottom: 1px solid black;
+        width: 100px;
+        height: 20px;
+      }
+
+      .k{       
+        margin-left: -900px !important;
+      }
+
+      
+
+      #course{
+        margin-left: 170px;
+        margin-top: -20px;
+        margin-bottom: 5px;
+        display: block;
+      }
       @media screen and (max-width:415px){
         #form{
           margin: 0;
@@ -84,11 +118,11 @@
     </div>
     
 
-    <ul id="pl">
-      <li id="A1"></li>
-      <li id="A2"></li>
-      <li id="A3"></li>
-      <li id="A4"></li>
+    <ul id="pl" class="k">
+      <li id="A1" class="k1"></li>
+      <li id="A2" class="k2"></li>
+      <li id="A3" class="k1"></li>
+      <li id="A4" class="k2"></li>
       
 
     </ul>
@@ -116,12 +150,23 @@
       <option value="3"></option>
       <option value="4"></option>
     </datalist>-->
+      <div id="mondaic"></div>
 
+      <select id="course">
+        <option value="">コースを選ぶ(ノーマル)</option>
+        <optgroup label="データベース">
+          <option value="14~19">14~19</option>
+         
+        </optgroup>
+        <!--<optgroup label="中国語">
+          <option value="初級">初級</option>
+        </optgroup>-->
+      </select>
     <div id="btns">
-    <div id="mondaic"></div>
-    <input type="button" id="stbtn" value="Start">
-    <input type="button" id="go"value="Go">
-    <input type="button" id="reset"value="Reset">
+    
+    <input type="button" id="stbtn" value="問題を出す">
+    <input type="button" id="go"value="解答する">
+    <input type="button" id="reset"value="リセットする">
     
     </div>
 
@@ -156,6 +201,7 @@
       const a4=document.getElementById('A4');
       const momo=document.getElementById('mondaic');
       const reset=document.getElementById('reset');
+      const ccc=document.getElementById('course');
 
       number.onchange=function touch(){
 
@@ -184,6 +230,8 @@
             a4.classList.remove('p');
         }
 
+        
+
       }
       stbtn.onclick=function Start(){
 
@@ -191,13 +239,32 @@
         a2.classList.remove('p');
         a3.classList.remove('p');
         a4.classList.remove('p');
+     
+        tl.classList.remove('k');
+
+        const course=ccc.value;
+        console.log(course);
 
         yn.innerText="";
         number.selectedIndex = 0;
 
-        var Eword=['accident','pain','ill','die','remind','inform','convince','warn','suspect','contract','innocent','justice','legal','prison','expose','emerge','reveal','imply','arise','generate','appetite','diet','hunger','ripe','thirst','apply','application','invent','develop','advance','minute','moment','rapid','brief','due','current','instantly','repeat','whisper','pronounce','excuse'];
+        switch(course){
+          case '':
+                    var Eword=['accident','pain','ill','die','remind','inform','convince','warn','suspect','contract','innocent','justice','legal','prison','expose','emerge','reveal','imply','arise','generate','appetite','diet','hunger','ripe','thirst','apply','application','invent','develop','advance','minute','moment','rapid','brief','due','current','instantly','repeat','whisper','pronounce','excuse'];
 
-        var Jword=['事故','痛み','病気で','死ぬ','に思い出させる','に知らせる','に納得させる','に警告する','を疑う','契約','無実の','公正、正義','合法的な','刑務所','をさらす、暴露する','現れる、明らかになる','を明らかにする、を暴露する','を示唆する、をほのめかす','生まれる、発生する：起こる','を生む出す、を発生させる、を起こす','食欲、欲望、欲求','規定食、食事制限、日常の食事、国会','飢え、空腹、切望','熟した、円熟した','のどの渇き、切望','を応用する','応用、適用、申し込み、出願、アプリケーション','を発明する、をでっちあげる','を発達させる：発達する、を開発する','進歩、前進、進歩する、前進する、を進める、を深める','分、少しの間','少しの間','速い、急速な','短時間の、簡潔な、要約','到着する予定で、当然の：正当な','現在の、流行の、流れ、風潮、電流','すぐに、即座に','繰り返す、繰り返して言う','ささやく、ひそひそと話す、ささやき、うわさ','発音する','を許す、を多めに見る、言い訳をする、弁解、言い訳'];
+                    var Jword=['事故','痛み','病気で','死ぬ','に思い出させる','に知らせる','に納得させる','に警告する','を疑う','契約','無実の','公正、正義','合法的な','刑務所','をさらす、暴露する','現れる、明らかになる','を明らかにする、を暴露する','を示唆する、をほのめかす','生まれる、発生する：起こる','を生む出す、を発生させる、を起こす','食欲、欲望、欲求','規定食、食事制限、日常の食事、国会','飢え、空腹、切望','熟した、円熟した','のどの渇き、切望','を応用する','応用、適用、申し込み、出願、アプリケーション','を発明する、をでっちあげる','を発達させる：発達する、を開発する','進歩、前進、進歩する、前進する、を進める、を深める','分、少しの間','少しの間','速い、急速な','短時間の、簡潔な、要約','到着する予定で、当然の：正当な','現在の、流行の、流れ、風潮、電流','すぐに、即座に','繰り返す、繰り返して言う','ささやく、ひそひそと話す、ささやき、うわさ','発音する','を許す、を多めに見る、言い訳をする、弁解、言い訳'];
+          break;
+
+          case '14~19':
+
+          var Eword=['weather','temperature','wind','ray','view','fine','calm','answer','approach','attend','discuss','enter','plant','blossom','bloom','leaf','fruit','pick','grow','marry','mention','obey','reach','resemble','survive','continent','area','part','horizon','border','foregin','apologize','argue','complain','graduate','agree'];
+
+          var Jword=['天気、気候','温度、気温　体温','風　を巻く　曲がりくねる','光線；放射線','眺め、視界　見解、意見','晴れた　立派な　細かい','穏やかな、落ち着いた、静かな 落ち着かせる、を静める；静まる','に答える　に応答する答え、解決策、返事','に近づく　に取り組む　方法　接近','に出席する　・・・に注意を払う','について議論する、を論じる','に入る；に入学する','植物　工場　を植える　を植え付ける','花；開花　開く；栄える','花　開花；花盛り　開く；栄える','葉　１枚','果物、実　成果','を積む　を拾う','成長する、大きくなる　を育てる　～になる','と結婚する　結婚させる','と述べる　に言及する','に従う　に服従する','に達する　に手が届く　に着く　届く範囲','に似ている','を生き延びる；生き残る　をうまく切り抜ける；うまくやっていく','大陸','地域、区域　範囲','部分；部品　地域　役(割)　を分ける　別れる；離れる','地平線、水平線','国境、境界　ヘリ、境目','外国の　異質な','謝罪する、わびる','を言い争う　議論する','不平を言う、苦情を言う','卒業する','意見が一致する、同意する、賛成する'];
+
+          break;
+                  }
+
+        
 
        var Elength=Eword.length;
        var Jlength=Jword.length;
@@ -553,7 +620,9 @@ console.log('AAA');
         }
         
         
-       
+       ccc.onchange=function lolo(){
+        sessionStorage.clear();
+       }
 
         
       
