@@ -166,9 +166,10 @@
       <div id="mondaic"></div>
 
       <select id="course">
-        <option value="">コースを選ぶ(ノーマル)</option>
+
         <optgroup label="データベース">
-          <option value="14~19">14~19</option>
+          <option value="1">p26=p31</option>          
+          <option value="2">p32=p37</option>          
          
         </optgroup>
         <!--<optgroup label="中国語">
@@ -262,36 +263,57 @@
         number.selectedIndex = 0;
 
         switch(course){
-          case '':
-                    var Eword=['accident','pain','ill','die','remind','inform','convince','warn','suspect','contract','innocent','justice','legal','prison','expose','emerge','reveal','imply','arise','generate','appetite','diet','hunger','ripe','thirst','apply','application','invent','develop','advance','minute','moment','rapid','brief','due','current','instantly','repeat','whisper','pronounce','excuse'];
+          case '1':
+                    var Eword={proud :'誇りに思って',grateful:'感謝して',afraid:'恐れて、心配して',anxious:'心配して 切望して',ashamed:'恥じて',angry:'怒って',miserable:'みじめな;不幸な',ask:'を尋ねる;を頼む を求める',cost :'費用がかかる、を払わせる 費用、経費;犠牲',save:'を省く、を節約する を救う を蓄える',envy:'をうらやむ;をねたむ ねたみ',spare:'をさく をなしですます 余分の、予備の'
+,age:'年齢 時代 年をとる',kid:'子ども 冗談を言う;からかう',cousin:'いとこ',host:'主人 司会者;主催者',female:'女性;雌 女性の;雌の',male:'男性;雄 男性の;雄の',human:'人間、人類 人間の;人間的な',owe:'(お金)を借りている を負っている を受けている',allow:'を許す を取っておく',cause :'(苦痛・被害)をもたらす を引き起こす、の原因となる',charge:'を請求する 料金 責任',loan:'(お金)を貸し付ける、～を貸す 貸付(金)',false:'誤った、いつわりの 本当でない',bitter:'つらい 苦い',empty:'からの;空虚な をからにする',short:'不足した 短い;背の低い',absent:'不在で、欠席で',waste:'(お金・時間)を無駄に使う、を浪費する を荒廃させる 浪費;廃棄物',trouble:'を悩ませる;に迷惑をかける 心配;迷惑;困難;もめごと',leave:'～をそのままにしておく を去る;出発する を置き忘れる を～に任せる 休暇;許可',find:'が～だとわかる を見つける に判決を下す',elect:'を～に選出する',believe:'が～だと思う を信じる'};
+                    
+                    // ['accident','pain','ill','die','remind','inform','convince','warn','suspect','contract','innocent','justice','legal','prison','expose','emerge','reveal','imply','arise','generate','appetite','diet','hunger','ripe','thirst','apply','application','invent','develop','advance','minute','moment','rapid','brief','due','current','instantly','repeat','whisper','pronounce','excuse'];
 
-                    var Jword=['事故','痛み','病気で','死ぬ','に思い出させる','に知らせる','に納得させる','に警告する','を疑う','契約','無実の','公正、正義','合法的な','刑務所','をさらす、暴露する','現れる、明らかになる','を明らかにする、を暴露する','を示唆する、をほのめかす','生まれる、発生する：起こる','を生む出す、を発生させる、を起こす','食欲、欲望、欲求','規定食、食事制限、日常の食事、国会','飢え、空腹、切望','熟した、円熟した','のどの渇き、切望','を応用する','応用、適用、申し込み、出願、アプリケーション','を発明する、をでっちあげる','を発達させる：発達する、を開発する','進歩、前進、進歩する、前進する、を進める、を深める','分、少しの間','少しの間','速い、急速な','短時間の、簡潔な、要約','到着する予定で、当然の：正当な','現在の、流行の、流れ、風潮、電流','すぐに、即座に','繰り返す、繰り返して言う','ささやく、ひそひそと話す、ささやき、うわさ','発音する','を許す、を多めに見る、言い訳をする、弁解、言い訳'];
+                    // var Jword=['事故','痛み','病気で','死ぬ','に思い出させる','に知らせる','に納得させる','に警告する','を疑う','契約','無実の','公正、正義','合法的な','刑務所','をさらす、暴露する','現れる、明らかになる','を明らかにする、を暴露する','を示唆する、をほのめかす','生まれる、発生する：起こる','を生む出す、を発生させる、を起こす','食欲、欲望、欲求','規定食、食事制限、日常の食事、国会','飢え、空腹、切望','熟した、円熟した','のどの渇き、切望','を応用する','応用、適用、申し込み、出願、アプリケーション','を発明する、をでっちあげる','を発達させる：発達する、を開発する','進歩、前進、進歩する、前進する、を進める、を深める','分、少しの間','少しの間','速い、急速な','短時間の、簡潔な、要約','到着する予定で、当然の：正当な','現在の、流行の、流れ、風潮、電流','すぐに、即座に','繰り返す、繰り返して言う','ささやく、ひそひそと話す、ささやき、うわさ','発音する','を許す、を多めに見る、言い訳をする、弁解、言い訳'];
           break;
 
-          case '14~19':
+          case '2':
 
-          var Eword=['weather','temperature','wind','ray','view','fine','calm','answer','approach','attend','discuss','enter','plant','blossom','bloom','leaf','fruit','pick','grow','marry','mention','obey','reach','resemble','survive','continent','area','part','horizon','border','foregin','apologize','argue','complain','graduate','agree'];
-
-          var Jword=['天気、気候','温度、気温　体温','風　を巻く　曲がりくねる','光線；放射線','眺め、視界　見解、意見','晴れた　立派な　細かい','穏やかな、落ち着いた、静かな 落ち着かせる、を静める；静まる','に答える　に応答する答え、解決策、返事','に近づく　に取り組む　方法　接近','に出席する　・・・に注意を払う','について議論する、を論じる','に入る；に入学する','植物　工場　を植える　を植え付ける','花；開花　開く；栄える','花　開花；花盛り　開く；栄える','葉　１枚','果物、実　成果','を積む　を拾う','成長する、大きくなる　を育てる　～になる','と結婚する　結婚させる','と述べる　に言及する','に従う　に服従する','に達する　に手が届く　に着く　届く範囲','に似ている','を生き延びる；生き残る　をうまく切り抜ける；うまくやっていく','大陸','地域、区域　範囲','部分；部品　地域　役(割)　を分ける　別れる；離れる','地平線、水平線','国境、境界　ヘリ、境目','外国の　異質な','謝罪する、わびる','を言い争う　議論する','不平を言う、苦情を言う','卒業する','意見が一致する、同意する、賛成する'];
+          var Eword={tourist:'観光客',travel:'旅行 旅行する 進む',voyage:'航海;船旅;空の旅',rest:'休息 残り 休む;を休ませる',leisure:'余暇、ひま',airport:'空港',abroad:'外国へ、海外に',sightseeing:'観光、見物',rise:'上がる、昇る 立ち上がる;起床する 上昇;増加',raise:'を上げる を育てる',lie:'横たわる、横になる ある うそを言う うそ',lay:'を横たえる、を置く',conversation:'会話',speech:'演説 話すこと 話し方',attention:'注目;注意',contact:'接触、連絡 に連絡する、に接触する',remain:'～のままである 残っている 遺跡 残り物 遺体;化石',own:'を所有している 自分自身の',belong:'...に所属している ...のものである',contain:'を含む を抑える',exist:'存在する',hate:'を憎む;をひどく嫌う 嫌悪;憎悪',understand:'を理解する;わかる',subject:'話題、題目 学科 主語 受けやすい',matter:'問題、事柄 物質 重要である',opinion:'意見;考え',fact:'事実、現実',example:'例;手本',reason:'理由 理性 道理 を推論する;思考する',knowledge:'知識',make:'...に～させる を作る ～になる',let:'...に～させる ～しよう',have:'...に～させる ...を～される、...を～してもらう を食べる; を飲む'} ;
+          
 
           break;
+
+          // case '20~25':
+
+          //           var Eword={creature:'生き物、動物',tail:'尾、しっぽ', alive: '生きている　生き生きとして',bite: 'をかむ；かみつく　かむこと、一口分',dig: 'を掘る；を掘り出す',feel: '～の感じがする　を感じる；と感じる　触ってみる',smell: '～のにおいがする　をかぐ　におい、嗅覚'};
                   }
 
         
 
-       var Elength=Eword.length;
-       var Jlength=Jword.length;
+       var Elength=Object.keys(Eword).length;
+       //var Jlength=Jword.length;
 
        console.log('単語の数'+Elength);//数を記録
 
           var nnn=sessionStorage.length;
 
           console.log(nnn);
-        switch(nnn){
+       
+
+        var Eword2=[];
+        var Jword=[];
+        var Elength2=Object.keys(Eword).length;
+        console.log(Elength2);
+
+          for(let step=0; step < Elength; step++){
+            Eword2.push(Object.keys(Eword)[step]);
+            
+
+            Jword.push(Eword [Object.keys(Eword)[step]]);
+            
+          }
+          
+          switch(nnn){
           case 0:
           console.log('no data...');
           
-        break;
+          break;
 
           default:
 
@@ -302,12 +324,16 @@
               console.log(calling);
 
               var key =sessionStorage.key(step);
+              console.log('AAA '+step);
               var val = sessionStorage.getItem(key);
-              var idx = Eword.indexOf(val);
+              console.log('AAA '+val);
+              delete Eword.val;
+              console.log(Eword);
+              var idx = Eword2.indexOf(val);
               if(idx >= 0){
-                  Eword.splice(idx, 1);
+                  Eword2.splice(idx, 1);
                   Jword.splice(idx,1);
-                  console.log(Eword);
+                  console.log(Eword2);
                   console.log(Jword);
               }
 
@@ -316,13 +342,15 @@
            
 
         }
-        var QEword=Math.floor(Math.random()* Eword.length);
-          console.log(Eword[QEword]);//問題の英単語
-            QD.innerHTML=Eword[QEword];
+            console.log(Eword2);
+            console.log(Jword);
+        var QEword=Math.floor(Math.random()* Eword2.length);
+          console.log(Eword2[QEword]);//問題の英単語
+            QD.innerHTML=Eword2[QEword];
 
             
             nnn=nnn+1;
-            sessionStorage.setItem(nnn,Eword[QEword]);//保存
+            sessionStorage.setItem(nnn,Eword2[QEword]);//保存
             
             const lp =nnn+'/'+Elength;
             momo.innerHTML=lp; 
@@ -330,7 +358,7 @@
             //var ssup = new SpeechSynthesisUtterance();
             var ssup2=new SpeechSynthesisUtterance();
             //ssup.text = "この英単語の意味は？";
-            ssup2.text=Eword[QEword];
+            ssup2.text=Eword2[QEword];
             //ssup.lang = 'ja-JP';
             ssup2.lang='en-EN';
             //speechSynthesis.speak(ssup);
