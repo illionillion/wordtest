@@ -193,11 +193,16 @@
       <select id="course">
 
         <optgroup label="データベース">
+          <option value="0">p14~p19</option>          
+          <option value="0.5">p20~p25</option>          
           <option value="1">p26~p31</option>          
           <option value="2">p32~p37</option>          
           <option value="3">p38~p43</option>          
           <option value="4">p44~p49</option>          
          
+        </optgroup>
+        <optgroup label="古文単語">
+          <option value="A1">p230~p247</option>
         </optgroup>
         <!--<optgroup label="中国語">
           <option value="初級">初級</option>
@@ -293,13 +298,54 @@
         number.selectedIndex = 0;
 
         switch(course){
+
+          case '0':
+
+          var oldE=['accident','pain','ill','die','remind','inform','convince','warn','suspect','contract','innocent','justice','legal','prison','expose','emerge','reveal','imply','arise','generate','appetite','diet','hunger','ripe','thirst','apply','application','invent','develop','advance','minute','moment','rapid','brief','due','current','instantly','repeat','whisper','pronounce','excuse']
+
+          var oldJ=['事故','痛み','病気で','死ぬ','に思い出させる','に知らせる','に納得させる','に警告する','を疑う','契約','無実の','公正、正義','合法的な','刑務所','をさらす、暴露する','現れる、明らかになる','を明らかにする、を暴露する','を示唆する、をほのめかす','生まれる、発生する：起こる','を生む出す、を発生させる、を起こす','食欲、欲望、欲求','規定食、食事制限、日常の食事、国会','飢え、空腹、切望','熟した、円熟した','のどの渇き、切望','を応用する','応用、適用、申し込み、出願、アプリケーション','を発明する、をでっちあげる','を発達させる：発達する、を開発する','進歩、前進、進歩する、前進する、を進める、を深める','分、少しの間','少しの間','速い、急速な','短時間の、簡潔な、要約','到着する予定で、当然の：正当な','現在の、流行の、流れ、風潮、電流','すぐに、即座に','繰り返す、繰り返して言う','ささやく、ひそひそと話す、ささやき、うわさ','発音する','を許す、を多めに見る、言い訳をする、弁解、言い訳']
+
+          var Eword={}
+
+            var oldnum=oldE.length;
+
+            for(let step=0; step < oldnum; step++){
+
+            //console.log(oldE[step]);
+            Eword[oldE[step]]=oldJ[step];
+            
+          }
+          //console.log(oldnum);
+          console.log(Eword);
+
+          break;
+
+          case '0.5':
+
+            var oldE=['weather','temperature','wind','ray','view','fine','calm','answer','approach','attend','discuss','enter','plant','blossom','bloom','leaf','fruit','pick','grow','marry','mention','obey','reach','resemble','survive','continent','area','part','horizon','border','foregin','apologize','argue','complain','graduate','agree']
+
+            var oldJ=['天気、気候','温度、気温　体温','風　を巻く　曲がりくねる','光線；放射線','眺め、視界　見解、意見','晴れた　立派な　細かい','穏やかな、落ち着いた、静かな 落ち着かせる、を静める；静まる','に答える　に応答する答え、解決策、返事','に近づく　に取り組む　方法　接近','に出席する　・・・に注意を払う','について議論する、を論じる','に入る；に入学する','植物　工場　を植える　を植え付ける','花；開花　開く；栄える','花　開花；花盛り　開く；栄える','葉　１枚','果物、実　成果','を積む　を拾う','成長する、大きくなる　を育てる　～になる','と結婚する　結婚させる','と述べる　に言及する','に従う　に服従する','に達する　に手が届く　に着く　届く範囲','に似ている','を生き延びる；生き残る　をうまく切り抜ける；うまくやっていく','大陸','地域、区域　範囲','部分；部品　地域　役(割)　を分ける　別れる；離れる','地平線、水平線','国境、境界　ヘリ、境目','外国の　異質な','謝罪する、わびる','を言い争う　議論する','不平を言う、苦情を言う','卒業する','意見が一致する、同意する、賛成する']
+
+            var Eword={}
+
+            var oldnum=oldE.length;
+
+            for(let step=0; step < oldnum; step++){
+
+            //console.log(oldE[step]);
+            Eword[oldE[step]]=oldJ[step];
+            
+          }
+          //console.log(oldnum);
+          console.log(Eword);
+
+          break;
+
           case '1':
                     var Eword={proud :'誇りに思って',grateful:'感謝して',afraid:'恐れて、心配して',anxious:'心配して 切望して',ashamed:'恥じて',angry:'怒って',miserable:'みじめな;不幸な',ask:'を尋ねる;を頼む を求める',cost :'費用がかかる、を払わせる 費用、経費;犠牲',save:'を省く、を節約する を救う を蓄える',envy:'をうらやむ;をねたむ ねたみ',spare:'をさく をなしですます 余分の、予備の'
 ,age:'年齢 時代 年をとる',kid:'子ども 冗談を言う;からかう',cousin:'いとこ',host:'主人 司会者;主催者',female:'女性;雌 女性の;雌の',male:'男性;雄 男性の;雄の',human:'人間、人類 人間の;人間的な',owe:'(お金)を借りている を負っている を受けている',allow:'を許す を取っておく',cause :'(苦痛・被害)をもたらす を引き起こす、の原因となる',charge:'を請求する 料金 責任',loan:'(お金)を貸し付ける、～を貸す 貸付(金)',false:'誤った、いつわりの 本当でない',bitter:'つらい 苦い',empty:'からの;空虚な をからにする',short:'不足した 短い;背の低い',absent:'不在で、欠席で',waste:'(お金・時間)を無駄に使う、を浪費する を荒廃させる 浪費;廃棄物',trouble:'を悩ませる;に迷惑をかける 心配;迷惑;困難;もめごと',leave:'～をそのままにしておく を去る;出発する を置き忘れる を～に任せる 休暇;許可',find:'が～だとわかる を見つける に判決を下す',elect:'を～に選出する',believe:'が～だと思う を信じる'};
                     
-                    // ['accident','pain','ill','die','remind','inform','convince','warn','suspect','contract','innocent','justice','legal','prison','expose','emerge','reveal','imply','arise','generate','appetite','diet','hunger','ripe','thirst','apply','application','invent','develop','advance','minute','moment','rapid','brief','due','current','instantly','repeat','whisper','pronounce','excuse'];
-
-                    // var Jword=['事故','痛み','病気で','死ぬ','に思い出させる','に知らせる','に納得させる','に警告する','を疑う','契約','無実の','公正、正義','合法的な','刑務所','をさらす、暴露する','現れる、明らかになる','を明らかにする、を暴露する','を示唆する、をほのめかす','生まれる、発生する：起こる','を生む出す、を発生させる、を起こす','食欲、欲望、欲求','規定食、食事制限、日常の食事、国会','飢え、空腹、切望','熟した、円熟した','のどの渇き、切望','を応用する','応用、適用、申し込み、出願、アプリケーション','を発明する、をでっちあげる','を発達させる：発達する、を開発する','進歩、前進、進歩する、前進する、を進める、を深める','分、少しの間','少しの間','速い、急速な','短時間の、簡潔な、要約','到着する予定で、当然の：正当な','現在の、流行の、流れ、風潮、電流','すぐに、即座に','繰り返す、繰り返して言う','ささやく、ひそひそと話す、ささやき、うわさ','発音する','を許す、を多めに見る、言い訳をする、弁解、言い訳'];
+                    
           break;
 
           case '2':
@@ -321,9 +367,13 @@
 
           break;
 
-          // case '20~25':
+          case 'A1':
 
-          //           var Eword={creature:'生き物、動物',tail:'尾、しっぽ', alive: '生きている　生き生きとして',bite: 'をかむ；かみつく　かむこと、一口分',dig: 'を掘る；を掘り出す',feel: '～の感じがする　を感じる；と感じる　触ってみる',smell: '～のにおいがする　をかぐ　におい、嗅覚'};
+          var Eword={'わぶ':'つらく思う。困惑する。落ちぶれる。みじめな暮らしになる。～かねる。～し続けにくく感じる。','わびし':'情けない。つまらない。ものさびしい。心細い。貧しい。みすぼらしい','あらまし':'計画。予定。心づもり。','うつつ':'現実。生きている状態。正気。気が確かな状態。','せうそこ':'手紙。伝言。取り次ぎの挨拶。来意。','そのかみ':'その時。当時。その昔。','みち':'道理。筋道。仏道。仏の教え。歌道。茶道。','まらうと':'客','ふるさと':'住み慣れた所。以前住んでいた土地。自宅。我が家。','ひま':'すき間。合間。絶え間。よい機会。','ようい':'気遣い。配慮。','なにがし・それがし':'だれそれ。私。','よし':'由緒。由来。いわれ。理由。口実。次第。経緯。趣旨。手段。方法。風情。趣。ふり。そぶり。','よしなし':'無益だ。甲斐がない。つまらない。取るに足らない。無関係だ。','なほ':'やはり。もっと。さらに。','すべからく～べし':'当然～すべきだ。','はやく～けり':'なんとまあ～たよ。','かまへて～':'ぜひ～せよ。～してほしい。～しよう。決して～するな。絶対に～してはいけない。','あなかしこ～':'決して～するな。絶対に～してはいけない。','ゆめ・ゆめゆめ～':'決して～するな。絶対に～してはいけない。まったく～ない。少しも～ない。','やおら':'そっと。静かに。おもむろに。','わざと':'わざわざ。ことさらに。とくべつに。とりわけ。本格的に。正式に。','さながら':'そのまま。すべて。そっくりそのまま。','せめて':'しいて。無理に。ひどく。とても。','すなはち':'すぐに。そこで。その時。','うたて':'情けなく。不快なことに。気味悪く。異様に。いやに。','なでふ':'どんな。どのような。どうして。','～がり':'もとに。ところに。','こころをつくす':'あれこれ悩む。限りなく物思いする。'};
+
+          break;
+
+         
                   }
 
         
@@ -399,12 +449,13 @@
 
             //var ssup = new SpeechSynthesisUtterance();
             var ssup2=new SpeechSynthesisUtterance();
-            //ssup.text = "この英単語の意味は？";
+            //ssup.text =Eword2[QEword];
             ssup2.text=Eword2[QEword];
             //ssup.lang = 'ja-JP';
             ssup2.lang='en-EN';
-            //speechSynthesis.speak(ssup);
+            //ssup.lang='ja-JP';
             speechSynthesis.speak(ssup2);
+            //speechSynthesis.speak(ssup);
 
         var Aword=Jword[QEword];
           console.log(Aword);//英単語の答え
