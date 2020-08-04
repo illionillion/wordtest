@@ -539,7 +539,10 @@
             const lp =nnn+'/'+Elength;
             momo.innerHTML=lp; 
 
-            switch(lang){
+            if ('speechSynthesis' in window) {
+              console.log("このブラウザは音声合成に対応しています! ^_^");
+
+              switch(lang){
 
               case 'eng':
                 var ssup2=new SpeechSynthesisUtterance();
@@ -574,6 +577,12 @@
 
 
             }
+            } else {
+
+              console.log("このブラウザは音声合成に対応していません。 T_T");
+            }
+
+            
 
             
 
