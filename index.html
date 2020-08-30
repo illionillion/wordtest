@@ -173,7 +173,7 @@
 
 
     <select  id="Number" size="4">
-      <option value="1~4 で選択" selected>1~4 で選択</option>
+      <option value="" selected>1~4 で選択</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -876,9 +876,12 @@ console.log('AAA');
 
        var qan2=qan.textContent;
 
+       var ynn=yn.textContent;
+
        
 
        console.log(qan2);
+
     if(qan2==""){
       console.log("始まってない")
     }else{
@@ -906,12 +909,23 @@ console.log('AAA');
    
         
        }else{
-         console.log("不正解"); 
-         yans.innerHTML="不正解！！　解答　"+qan2;
 
-        var audioElem = new Audio();
-        audioElem.src = "music/incorrect1.mp3";
-        audioElem.play();
+         switch(an){
+           case '':
+
+           break;
+           default:
+          
+                  console.log("不正解"); 
+                  yans.innerHTML="不正解！！　解答　"+qan2;
+
+                  var audioElem = new Audio();
+                  audioElem.src = "music/incorrect1.mp3";
+                  audioElem.play();
+
+         }
+
+         
 
         // document.getElementById( 'music/Quiz-Wrong_Buzzer01-mp3/Quiz-Wrong_Buzzer01-1.mp3' ).play() ;
 
