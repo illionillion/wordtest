@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta  charset="utf-8">
+    <link rel="icon" type="image/jpg" href="img/98306.jpg">
+    <link rel="shortcut icon" type="image/jpg" href="img/98306.jpg">
+    <link rel="apple-touch-icon" type="image/jpg" href="img/98306.jpg">
+    <meta name="author" content="ichinose">
+    <meta name="keywords" content="四択クイズ,四択テスト,英語,四択!!英単語クイズ,ihciichi">
+    <meta name="theme-color" content="#4285f4">
+    <meta name="description" content="四択クイズです。おいでませ。">
+    <meta property="og:title" content="四択!!英単語クイズ" />
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://illionillion.github.io/wordtest/" />
+    <meta property="og:description" content="四択クイズです。おいでませ。" />
+    <meta property="og:site_name" content="四択!!英単語クイズ" />
+    <meta property="og:image" content="https://illionillion.github.io/wordtest/img/98306.jpg" />
+    <meta name="twitter:card"       content="summary">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J2NSEJD050"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J2NSEJD050');
+</script>
+
+    <title>四択!!英単語クイズ</title>
+
+<style>
+  *{
+    outline: 1px solid black;
+  }
+
+  body{
+    text-align: center;
+  }
+
+  #ans{
+    display: none;
+  }
+
+  #form{
+    margin: 0 auto;
+    width: 320px;
+  }
+
+  #Q{
+        width: 300px;
+        height: 80px;
+        border: 4px solid #EAB857;
+        text-align:center;
+        font-size: 40px;
+        margin: 0 auto;
+        
+      }
+
+  ul{
+    padding: 0;
+  }
+  #pl{
+        transition:0.5s !important;
+        text-align: center;
+      }
+
+      #pl li{
+        list-style: none;
+        /*background: linear-gradient(#ff6347,#dc143c);*/
+        background: yellow;
+        border: 1px solid black;
+        padding: 5px;
+        width: 310px;
+        height: 50px;
+        border-radius: 25px;
+        transition: 0.5s !important;
+        cursor: pointer;
+        /* margin:5px auto; */
+        text-align: left;
+        margin-bottom: 5px;
+
+      }
+
+     
+      /* .panel{
+        display: grid;
+        grid-template: 
+        'p1 p2'25px
+        'p1 p3'25px
+        'p1 p4'50px
+        'p1 p5'50px
+        /150px 150px
+
+        ;
+      } */
+
+      #number{
+        grid-area: p1;
+        width: 100px;
+      }
+
+      #mondaic{
+        grid-area: p2;
+        border-bottom: 1px solid black;
+      }
+
+      #course{
+        grid-area: p3;
+      }
+
+      #btns{
+              display: flex;
+              flex-direction: column;
+              grid-area: p4;
+            }
+      
+      #btns input{
+        border-radius: 25px;
+        
+      }
+
+      #yans{
+        grid-area: p5;
+      }
+
+      .p{
+        background: linear-gradient(#ff6347,#dc143c) !important;
+        color: white;
+        margin-left: 15px !important;
+        /* margin-left: 50.5% !important; */
+      }
+
+      .k{       
+        margin-left: -2000px !important;
+        opacity:0;
+      }
+
+      
+</style>
+
+  </head>
+  <body>
+    <form id="form">
+    <div id="Q">
+
+    </div>
+    
+
+    <ul id="pl" class="k">
+      <li id="A1" class="k1"></li>
+      <li id="A2" class="k2"></li>
+      <li id="A3" class="k1"></li>
+      <li id="A4" class="k2"></li>
+      
+
+    </ul>
+
+    <div class="panel">
+    <select  id="Number" size="4">
+      <option value="" selected>1~4 で選択</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      </select>
+   <!-- <input type="number" min="0" max="4" value="" placeholder="1~4まで" id="Number" list="pnumber">
+     
+    <datalist id="pnumber">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      </datalist>
+    <datalist id="pnumber">
+      <option value="1"></option>
+      <option value="2"></option>
+      <option value="3"></option>
+      <option value="4"></option>
+    </datalist>-->
+
+      <div id="mondaic"></div>
+
+      <select id="course">
+
+        <optgroup label="データベース">
+          <option value="0">p14~p19</option>          
+          <option value="0.5">p20~p25</option>          
+          <option value="1">p26~p31</option>          
+          <option value="2">p32~p37</option>          
+          <option value="3">p38~p43</option>          
+          <option value="4">p44~p49</option>          
+          <option value="5">p50~p55</option>          
+          <option value="6">p56~p79</option>          
+          <option value="7">p80~p85</option>          
+          <option value="8">p86~p91</option>          
+          <option value="9">p104~p109</option>          
+          <option value="10">p110~p115</option>          
+          <option value="11">p116~p121</option>          
+          <option value="12">p140~p145</option>          
+          <option value="13">p146~p151</option>          
+          <option value="14">p152~p157</option>          
+         
+        </optgroup>
+        <optgroup label="cloud">
+          <option value="C1">Unit1</option>
+          <option value="C2">Unit2</option>
+          <!--<option value="C3">Unit3</option>
+          <option value="C4">Unit4</option>-->
+        </optgroup>
+        <optgroup label="古文単語">
+          <option value="A1">p230~p247</option>
+        </optgroup>
+        <optgroup label="中国語">
+          <option value="B1">基本動詞</option>
+          <option value="B2">基本形容詞</option>
+        </optgroup>
+        <!--<optgroup label="中国語">
+          <option value="初級">初級</option>
+        </optgroup>-->
+      </select>
+    <div id="btns">
+    
+    <input type="button" id="stbtn" value="問題を出す">
+    <input type="button" id="go"value="解答する">
+    <input type="button" id="reset"value="リセットする">
+    
+    </div>
+
+    <div id="yans"></div>
+
+  </div>
+
+    <audio id="sound-file">
+      <source src="music/correct2.mp3" type="audio/mp3">
+      
+    </audio>
+    <audio id="sound-file2">
+      <source src="music/incorrect1.mp3" type="audio/mp3">
+      
+    </audio>
+
+
+    <!--<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdImD_08laJ9Rhip6ig-BFVbWnqEHM6QchXqQM6wvCtuw4OTA/viewform?embedded=true" id="ggl"  width="640" height="1473" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>-->
+
+  </form>
+
+    <div id="ans"></div>
+    <script>
+
+      const stbtn=document.getElementById('stbtn');
+      const QD=document.getElementById('Q');   
+      const tl=document.getElementById('pl');
+      const go=document.getElementById('go');
+      const number=document.getElementById('Number');
+      const qan=document.getElementById('ans');
+      const yn=document.getElementById('yans');
+      const a1=document.getElementById('A1');
+      const a2=document.getElementById('A2');
+      const a3=document.getElementById('A3');
+      const a4=document.getElementById('A4');
+      const momo=document.getElementById('mondaic');
+      const reset=document.getElementById('reset');
+      const ccc=document.getElementById('course');
+
+      number.onchange=function touch(){
+
+        var d=number.value;
+
+        console.log(d);
+
+        switch(Number(d)){
+          case 1:
+            a1.click();
+            break;
+          case 2:
+            a2.click();
+            break;
+          case 3:
+            a3.click();
+            break;
+          case 4:
+            a4.click();
+            break;
+
+            default:
+            a1.classList.remove('p');
+            a2.classList.remove('p');
+            a3.classList.remove('p');
+            a4.classList.remove('p');
+        }
+
+        
+
+      }
+      stbtn.onclick=function Start(){
+
+        a1.classList.remove('p');
+        a2.classList.remove('p');
+        a3.classList.remove('p');
+        a4.classList.remove('p');
+     
+        tl.classList.remove('k');
+
+        const course=ccc.value;
+        console.log(course);
+
+        yn.innerText="";
+        number.selectedIndex = 0;
+
+        switch(course){//単語選び//////////////////////////////////////////////////////
+
+          case '0':
+
+          var oldE=['accident','pain','ill','die','remind','inform','convince','warn','suspect','contract','innocent','justice','legal','prison','expose','emerge','reveal','imply','arise','generate','appetite','diet','hunger','ripe','thirst','apply','application','invent','develop','advance','minute','moment','rapid','brief','due','current','instantly','repeat','whisper','pronounce','excuse']
+
+          var oldJ=['事故','痛み','病気で','死ぬ','に思い出させる','に知らせる','に納得させる','に警告する','を疑う','契約','無実の','公正、正義','合法的な','刑務所','をさらす、暴露する','現れる、明らかになる','を明らかにする、を暴露する','を示唆する、をほのめかす','生まれる、発生する：起こる','を生む出す、を発生させる、を起こす','食欲、欲望、欲求','規定食、食事制限、日常の食事、国会','飢え、空腹、切望','熟した、円熟した','のどの渇き、切望','を応用する','応用、適用、申し込み、出願、アプリケーション','を発明する、をでっちあげる','を発達させる：発達する、を開発する','進歩、前進、進歩する、前進する、を進める、を深める','分、少しの間','少しの間','速い、急速な','短時間の、簡潔な、要約','到着する予定で、当然の：正当な','現在の、流行の、流れ、風潮、電流','すぐに、即座に','繰り返す、繰り返して言う','ささやく、ひそひそと話す、ささやき、うわさ','発音する','を許す、を多めに見る、言い訳をする、弁解、言い訳']
+
+          var Eword={}
+
+            var oldnum=oldE.length;
+
+            for(let step=0; step < oldnum; step++){
+
+            //console.log(oldE[step]);
+            Eword[oldE[step]]=oldJ[step];
+
+            var lang='eng';
+            
+          }
+          //console.log(oldnum);
+          console.log(Eword);
+
+          break;
+
+          case '0.5':
+
+            var oldE=['weather','temperature','wind','ray','view','fine','calm','answer','approach','attend','discuss','enter','plant','blossom','bloom','leaf','fruit','pick','grow','marry','mention','obey','reach','resemble','survive','continent','area','part','horizon','border','foregin','apologize','argue','complain','graduate','agree']
+
+            var oldJ=['天気、気候','温度、気温　体温','風　を巻く　曲がりくねる','光線；放射線','眺め、視界　見解、意見','晴れた　立派な　細かい','穏やかな、落ち着いた、静かな 落ち着かせる、を静める；静まる','に答える　に応答する答え、解決策、返事','に近づく　に取り組む　方法　接近','に出席する　・・・に注意を払う','について議論する、を論じる','に入る；に入学する','植物　工場　を植える　を植え付ける','花；開花　開く；栄える','花　開花；花盛り　開く；栄える','葉　１枚','果物、実　成果','を積む　を拾う','成長する、大きくなる　を育てる　～になる','と結婚する　結婚させる','と述べる　に言及する','に従う　に服従する','に達する　に手が届く　に着く　届く範囲','に似ている','を生き延びる；生き残る　をうまく切り抜ける；うまくやっていく','大陸','地域、区域　範囲','部分；部品　地域　役(割)　を分ける　別れる；離れる','地平線、水平線','国境、境界　ヘリ、境目','外国の　異質な','謝罪する、わびる','を言い争う　議論する','不平を言う、苦情を言う','卒業する','意見が一致する、同意する、賛成する']
+
+            var Eword={}
+
+            var oldnum=oldE.length;
+
+            for(let step=0; step < oldnum; step++){
+
+            //console.log(oldE[step]);
+            Eword[oldE[step]]=oldJ[step];
+            
+          }
+          //console.log(oldnum);
+          console.log(Eword);
+
+          var lang='eng';
+
+          break;
+
+          case '1':
+                    var Eword={proud :'誇りに思って',grateful:'感謝して',afraid:'恐れて、心配して',anxious:'心配して 切望して',ashamed:'恥じて',angry:'怒って',miserable:'みじめな;不幸な',ask:'を尋ねる;を頼む を求める',cost :'費用がかかる、を払わせる 費用、経費;犠牲',save:'を省く、を節約する を救う を蓄える',envy:'をうらやむ;をねたむ ねたみ',spare:'をさく をなしですます 余分の、予備の'
+,age:'年齢 時代 年をとる',kid:'子ども 冗談を言う;からかう',cousin:'いとこ',host:'主人 司会者;主催者',female:'女性;雌 女性の;雌の',male:'男性;雄 男性の;雄の',human:'人間、人類 人間の;人間的な',owe:'(お金)を借りている を負っている を受けている',allow:'を許す を取っておく',cause :'(苦痛・被害)をもたらす を引き起こす、の原因となる',charge:'を請求する 料金 責任',loan:'(お金)を貸し付ける、～を貸す 貸付(金)',false:'誤った、いつわりの 本当でない',bitter:'つらい 苦い',empty:'からの;空虚な をからにする',short:'不足した 短い;背の低い',absent:'不在で、欠席で',waste:'(お金・時間)を無駄に使う、を浪費する を荒廃させる 浪費;廃棄物',trouble:'を悩ませる;に迷惑をかける 心配;迷惑;困難;もめごと',leave:'～をそのままにしておく を去る;出発する を置き忘れる を～に任せる 休暇;許可',find:'が～だとわかる を見つける に判決を下す',elect:'を～に選出する',believe:'が～だと思う を信じる'};
+
+
+          var lang='eng';
+                    
+                    
+          break;
+
+          case '2':
+ 
+          var Eword={tourist:'観光客',travel:'旅行 旅行する 進む',voyage:'航海;船旅;空の旅',rest:'休息 残り 休む;を休ませる',leisure:'余暇、ひま',airport:'空港',abroad:'外国へ、海外に',sightseeing:'観光、見物',rise:'上がる、昇る 立ち上がる;起床する 上昇;増加',raise:'を上げる を育てる',lie:'横たわる、横になる ある うそを言う うそ',lay:'を横たえる、を置く',conversation:'会話',speech:'演説 話すこと 話し方',attention:'注目;注意',contact:'接触、連絡 に連絡する、に接触する',remain:'～のままである 残っている 遺跡 残り物 遺体;化石',own:'を所有している 自分自身の',belong:'...に所属している ...のものである',contain:'を含む を抑える',exist:'存在する',hate:'を憎む;をひどく嫌う 嫌悪;憎悪',understand:'を理解する;わかる',subject:'話題、題目 学科 主語 受けやすい',matter:'問題、事柄 物質 重要である',opinion:'意見;考え',fact:'事実、現実',example:'例;手本',reason:'理由 理性 道理 を推論する;思考する',knowledge:'知識',make:'...に～させる を作る ～になる',let:'...に～させる ～しよう',have:'...に～させる ...を～される、...を～してもらう を食べる; を飲む'} ;
+
+          var lang='eng';
+          
+
+          break;
+
+          case '3':
+
+          var Eword={stranger:'見知らぬ人　不案内な人',safe:'金庫　安全な　無事な',copy:'～部　～冊　写し、コピー　を模写する：をまねる',line:'職業、商売　線　列；行',word:'単語；ことば',ring:'～鳴ること；を鳴らすこと に電話をかけること (指)輪',hear:'が聞こえる',listen:'～を聴く、聞く',see:'(が)見える に会う (が)わかる 目撃する',watch:'をよく見る (に)注意する 腕時計',situation:'状況 立場 位置',position:'位置、場所 地位',front:'前部　 正面',bottom:'(最)下部,(最)低部',neighborhood:'近所,付近 近所の人',point:'点,地点;先端 要点 得点 (を)指し示す',want:'に～してほしいと思っている',enable:'に～することを可能にする',persuade:'を説得して～させる を納得させる',encourage:'に～するように励ます を勇気づける',expect:'が～するだろうと思う を予期する',invite:'に～するように依頼する[誘う] を招待する,を誘う',clothes:'服,衣服;着物',comb:'くし (くしで)髪をとかす',case:'箱 場合 事件',gift:'贈り物 (生まれつきの)才能 を贈る',seat:'座席 を着席させる',cover:'カバー,覆い;(本の)表紙 避難場所 を覆う,を包む (範囲が)にわたる',force:'に～することを強制する を押しつける 武力;暴力',compel:'に～することを強いる を強要する',oblige:'に～することを義務づける',require:'～をするように要求する[義務づける] を必要とする',permit:'が～することを許す[可能にする]'}
+
+          var lang='eng';
+
+          break;
+
+          case '4':
+
+          var Eword={factory:'工場,製作所',museum:'博物館,美術館',store:'店 蓄え を蓄える',office:'事務所;会社官職(の地位)',story:'(建物)の階 話,物語',frame:'骨組み 枠 を組み立てる',afford:'～する余裕がある,～できる を与える',attempt:'～することを試みる を企てる 試み,企て;努力',fail:'～しそこなう (を)失敗する',hope:'～したいと思う (を)望む,(を)期待する 希望;見込み',intend:'～するつもりである を意図する',manage:'どうにかして～する を経営する を管理する',nature:'自然 性格 性質',source:'水源 出所,源 原因',desert:'砂漠 を見捨てる',space:'宇宙 空間;余地',even:'平らな 等しい 偶数の　～でさえ さらに',pretend:'～するふりをする と偽る',refuse:'～することを拒む を断る (許可)を与えない',promise:'～することを約束する ～する見込みがある 約束 見込み',offer:'～することを申し出る を提供する 申し出,提案',desire:'～することを強く望む を強く望む 願望,要望,欲望',plan:'～することを計画する ～するつもりである 計画,案 予定',chance:'機会,好機 見込み',courage:'勇気',familiar:'よく知られた 親しい',sure:'確信して;堅実な',true:'本当の;本物の;真実で',enjoy:'～して楽しむ を楽しむ;を享受する',avoid:'～するのを避ける を避ける',finish:'～し終える を終える;終わる 終わり;仕上げ',mind:'(を)いやだと思う,(を)気にする (に)気をつける 考え 理性;正気',stop:'～するのをやめる 止まる を止める 停止 停留所'};
+
+          var lang='eng';
+
+          break;
+          case '5':
+
+          var Eword={'close':'近い,接近した 親密な,きめ細かい 近くに,接近して 閉まる;を閉める を終える','far':'遠い 遠くに 遥かに','distant':'遠い,離れた','upstairs':'階上に,2階で','forgive':'(を)許す','practice':'～を練習する を実行する (を)開業している 練習 実践 慣習,習慣','consider':'～するのをよく考える を～と思う[見なす]','escape':'～するのをまぬがれる 逃げる 逃亡','admit':'～したのを認める 許可する','deny':'～したのを否定する を拒む;認めない','miss':'～しそこなう に乗り遅れる がないのに気づく,を恋しく思う をまぬがれる','important':'重要な,大切な','precious':'貴重な,大切な 高価な','main':'おもな,主要な','perfect':'完全な,完ぺきな','need':'を必要とする 必要,要求','remember':'を覚えている,を思い出す','forget':'を忘れる','try':'を試みる,試す 試み,努力','mean':'を意味する;を意図する 卑劣な,意地の悪い','certain':'確実な；確信して','likely':'ありそうな','almost':'ほとんど,もう少しで','become':'似合う ～になる','count':'重要である,価値がある を数える','face':'に直面する に面する 顔;表面','follow':'…ということになる (に)ついて行く;(に)続く','last':'続く 持ちこたえる 最後の この前の もっとも～しそうにない 最後に','run':'を経営する を動かす 立候補する 流れる 走る','stand':'をがまんする 立つ 立場','wear':'をすり減らす;すり減る を身につけている 摩擦,耐久性','pay':'得になる (に)報いる (を)払う 給料,手当','read':'解釈される,読める 読む,読解する','sell':'売れる を売る'};
+
+          var lang='eng';
+
+          break;
+
+          case '6':
+
+          var Eword={'change':'つり銭,小銭 変化 を変える;変わる を取り替える','mine':'鉱山,鉱坑 地雷,機雷 私のもの','fire':'を解雇する を興奮させる を発砲する 火;火事','book':'(を)予約する 本','can':'缶 ～できる ～してもよい ～してくれますか ～でありうる ～しうる','break':'休憩 を壊す;壊れる を折る;折れる','hand':'手渡す;渡す 手 側,面 手助け,人手','place':'地位,身分 場所,位置 ～を置く','flat':'パンクした,空気が抜けた 平らな;平たい きっかり アパート','lot':'運命 一区画 くじ たくさんのこと','will':'遺言(書) 意欲;意志 ～だろう ～するつもりだ ～してくれませんか','well':'うまく 井戸 健康で さて,おや,まあ','end':'目的 終わり 端 終わる;を終える','elaborate':'手の込んだ,複雑な 入念な を精巧に作り上げる 詳しく述べる','table':'表,目録 テーブル,卓','spell':'期間 呪文 をつづる','touch':'少量 触れること,感触 (に)触れる,(を)感動せせる','game':'獲物 ゲーム,遊び 競技,試合','room':'場所,あき 余地,機会 部屋,室','match':'(と)調和する;調和させる,組み合わせる に匹敵する;よい相手となる 試合 競争相手;好敵手 似合いの人・もの マッチ(棒)','fall':'秋 滝 落ちること 落ちる 倒れる 下がる','park':'駐車する 公園 駐車場','be made from':'から作られている','be made of':'でできている','be made up of':'で構成されている','make into':'…を～に加工する','make up one`s mind to do':'～しようと決心する','make a point of ing':'～することにしている','make progress in':'…において進歩をとげる','come across':'に出くわす,に偶然出会う','come true':'実現する','come to':'意識を取り戻す','come to do':'～するようになる','come off':'行われる 落ちる,取れる,はがれる','come to think of it':'考えてみると,そう言えば','come by':'を手に入れる 立ち寄る'};
+
+          var lang='eng';
+
+          break;
+
+          case '7':
+
+          var Eword={'company':'会社 仲間 同席すること','project':'計画,企画,事業 を予測する を映写する','career':'仕事,職業;経歴','clerk':'店員 事務員','document':'文書,書類','envelope':'封筒','rob':'を奪う,を強奪する','deprive':'を奪う,を剥奪する','cure':'を治す,を治療する 治療(法);回復','cheat':'をだます;をだまし取る カンニングをする','clear':'を片づける を取り除く 晴れる はっきりした 晴れた','relieve':'を和らげる を安心させる','rid':'を取り除く','act':'行動する (を)演じる 行為;法律','bear':'(苦痛などに)耐える (責任など)を負う (重さなど)を支える (子)を産む','burn':'燃える;を燃やす 焦げる;を焦がす','continue':'続く;を続ける','gather':'集まる;を集める (速度など)を増す','include':'を含む,を含める','spend':'(お金)を費やす,を使う (時間)を費やす,を過ごす','wake':'を起こす;目が覚める','prevent':'を妨げる;を防ぐ','keep':'を妨げる を持っている を取っておく を～の状態にしておく','prohibit':'を禁止する','discourage':'にやる気をなくさせる,落胆させる','personality':'個性,性格;人格','shy':'恥ずかしがりの;内気な おくびょうな','brave':'勇敢な,勇気のある','smart':'頭のよい,賢い しゃれた','lazy':'怠惰な,怠け者の','independent':'独立した','serve':'(に)仕える (食事など)(を)出す 役立つ','provide':'を供給する を提供する 備える','supply':'を供給する 供給','present':'を贈る を示す;を見せる 贈り物 現在 出席[存在]している'};
+
+          var lang='eng';
+
+          break;
+
+          case '8':
+
+          var Eword={'shape':'形,姿 を形づくる','surface':'表面,外面 表面の;外面の','spot':'場所,地点 はん点 しみ','thick':'厚い 太い 濃い','tight':'きつい きつく;しっかりと','rough':'(表面が)でこぼこした,ざらざらした 荒っぽい おおよその','dull':'鈍い,くすんだ 退屈な 切れ味の悪い','blame':'を非難する の責任にする 非難','praise':'を賞賛する,をほめる 賞賛','criticize':'を批判する','punish':'を罰する','thank':'に感謝する 感謝,謝意','alone':'ひとりで','liable':'しやすい 責任がある','home':'わが家へ[に] 十分に;痛烈に 家庭,自宅','much':'とても,非常に たくさんの','respectively':'それぞれに,めいめいに','ever':'かつて,これまでに いまだかつて','badly':'ひどく 悪く とても','first':'まず最初に 初めて 第1の 1日 初め,始まり 第1位','take':'を取る を持っていく,を連れていく を必要とする を～とみなす,を～と思う','bring':'を持ってくる (ある状態)に導く をもたらす','traffic':'交通,交通量','transportation':'輸送機関;輸送','path':'小道,細道','fuel':'燃料 (に)燃料を補給する','move':'動く;を動かす 引っ越す を感動させる','cross':'(を)横切る を交差させる 十字架 交差点','return':'戻る;を戻す 戻すこと,返却','turn':'回る;を回す 向く;を向ける 曲がる;を曲げる 回転 順番','spread':'広がる;を広げる 広まり,広がり','hurry':'急ぐ;を急がせる 急ぐこと','ride':'(車など)(に)乗る 乗ること'};
+
+          var lang='eng';
+
+          break;
+
+          case '9':
+
+          var Eword={'complete':'完全な,全部の 完成した を完成する,を仕上げる','ideal':'理想的な 想像上の 理想','complex':'複雑な:複合の 複合体:合成物 固定観念,コンプレックス','general':'概略の,全体の,一般の','plain':'明らかな;分かりやすい 質素な;無地の 味付けしていない','available':'利用できる,入手できる','fortunately':'幸運にも','borrow':'(無料で)借りる,(考え,言葉)を借用する','rent':'(土地・家など)を賃借りする (土地・家など)を賃貸しする 使用料,賃貸料,家賃','use':'(一時的に)を借りる を使う を利用する 使用 用途 役立つこと','lend':'(もの・金)を貸す','excellent':'優れた;優秀な','essential':'不可欠の;本質的な 不可欠のもの','proper':'適切な,ふさわしい','worth':'～の価値がある 価値','severe':'(人が規律が)厳しい (天候が)厳しい (痛みが)ひどい','awful':'ひどい;恐ろしい;ものすごい','evil':'邪悪な 不吉な;不幸な 悪 害悪','ugly':'醜い 不快な','increase':'増える;を増やす 増加','reduce':'を減らす,を縮小する 減少;割引','lose':'を失う,をなくす (に)負ける を見失う','produce':'を生産する,を製造する を演出する (農)産物','period':'期間 時代 授業時間 終止符','former':'前の,元の 前者(の)','latter':'あとの;後半の 後者(の)','modern':'現代[近代]の,現代[近代]的な;最新(式)の','ancient':'古代の 時代がかった,古臭い 古代人','afterword(s)':'あとで そのあと','tell':'(を)話す に知らせる,に教える <人>に～するように命じる','say':'…と言う;(本などに)…と書いてある (を)言う','speak':'話す (言語)を話す','talk':'話す'};
+
+          var lang='eng';
+
+          break;
+          case '10':
+
+          var Eword={'fashion':'流行,ファッション やり方','crowd':'群衆,人ごみ (に)群がる','avenue':'大通り','suburb':'郊外,近郊 郊外の1地区','local':'地元の,その土地の 各駅停車の','suppose':'…と思う;…と推測する もし…なら','associate':'…で～を連想する …と交際する 仲間','regart':'…を～と見なす を尊敬する 配慮 敬意,尊敬','wonder':'～だろうかと思う;(に)驚く 驚き;驚くべきもの','determine':'を決心する;を決心させる を決定する','identify':'がだれの[何]だかわかる;(身元)を確認する','wrap':'を包む;(布など)を巻きつける 包むもの;ラップ','press':'(を)押す;(を)押しつける 押すこと','polish':'を磨く;のつやを出す つや出し','pack':'を詰め込む (を)荷造りする 包み,荷物','mend':'を修繕する,を直す','hang':'を掛ける;掛かる をぶら下げる;ぶら下がる を絞首刑にする','excite':'を興奮させる','exciting':'興奮させる,わくわくさせる','excited':'(人が)興奮した,わくわくした','fasten':'を固定する,を締める','fold':'を折りたたむ;(手・腕など)を組む','pour':'(液体など)を注ぐ 流れ出る 雨が激しく降る','fit':'(に)合う;を合わせる,を適合させる','care':'を気にかける;気にかける 心配 注意 世話','interest':'に興味を持たせる 興味,関心 利害;利益 利子','interesting':'興味深い,おもしろい','interested':'(人が)興味を持った','satisfy':'を満足させる を満たす','satisfying':'満足のいく,満足な','satisfied':'満足した','tire':'を疲れさせる を飽きさせる タイヤ','tiring':'疲れる;退屈な','tired':'疲れた;飽きた'};
+
+          var lang='eng';
+
+          break;
+          case '11':
+
+          var Eword={'occur':'起こる (心に)浮かぶ','quit':'(を)やめる','retire':'退職する,引退する','settle':'を解決する 定住する;定住させる;入植する を静める;静まる;を落ち着かせる','amaze':'をびっくりさせる,を驚嘆させる','amazing':'びっくりするような,驚くべき','amazed':'(人が)びっくりした,驚嘆した','amuse':'をおもしろがらせる,を楽しませる','amusing':'おもしろい,楽しませる','amused':'(人が)おもしろがって,楽しそうな','bore':'を退屈させる 退屈な人[こと]','boring':'退屈な','bored':'(人が)退屈した','religion':'宗教','soul':'魂;精神','miracle':'奇跡,奇跡的なこと','ghost':'幽霊','annoy':'をいらいらさせる,を悩ませる','annoying':'いらいらさせる,うっとうしい','annoyed':'(人が)いらいらした','confuse':'を混乱させる,をまごつかせる,を混同する','confusing':'混乱させる(ような),わかりにくい','confused':'(人が)混乱した,困惑した,途方に暮れた','disappoint':'を失望させる,をがっかりさせる','disappointing':'失望させる,期待外れの','disappointed':'(人が)失望した,がっかりした','furious':'激怒した 猛烈な,激しい','glad':'うれしい,喜んで','happy':'幸福な,うれしい','sorry':'気の毒で,すまなく思って','thankful':'感謝して,ありがたく思って','shock':'に衝撃を与える 衝撃的なこと;ショック','shocking':'ぞっとするような,ショッキングな','shocked':'衝撃を受けた','surprise':'驚かせる 驚き','surprising':'驚くべき,意外な','surprised':'驚いて'};
+
+          var lang='eng';
+
+          break;
+          case '12':
+
+          var Eword={'technique':'(専門)技術;技法','method':'方法 筋道,順序','manufacture':'製造,生産 製品 (工場などで)を製造する','harm':'に害を与える,を傷つける 害;損害 悪意','suffer':'苦しむ;(苦痛・損害)を受ける','hurt':'を傷つける;(感情)を害する 痛む 傷,けが','injure':'にけがさせる,を傷つける','crash':'(車が)衝突する,(飛行機が)墜落する (激しい音を立てて)壊れる 衝突,墜落','destroy':'を破壊する','ruin':'を台なしにする を破滅させる 荒廃;廃墟;遺跡','explode':'爆発する;を爆発させる','shoot':'(を)打つ シュートする 芽,発芽する 撮影','recover':'回復する を取り戻す','volcano':'火山','dust':'ほこり,ちり をふりかける のほこりを取る','soil':'土,土壌 土地 を汚す','jewel':'宝石 宝飾品','grain':'穀物 粒','dessert':'デザート','raw':'生の 加工されていない,原料のまま','shrimp':'(小)エビ','bake':'(パンなどを)焼く;焼ける','boil':'を彷彿させる,沸騰する を煮る;煮える','melt':'を溶かす;溶ける','feed':'にえさをあげる,に食べ物を与える (家族など)を養う えさ,飼料','blood':'血,血液','breath':'息,呼吸','birth':'誕生,生まれ','disease':'病気','fever':'熱 熱狂','cough':'せき せきをする','aid':'手当 助力,援助 を助ける,を援助する','pale':'青ざめた (色が)薄い','comfortable':'快適な,心地よい くつろいで','asleep':'眠って','hardly':'ほとんど～ない','scarcely':'ほとんど～ない','rarely':'めったに～ない','seldom':'めったに～ない'};
+
+          var lang='eng';
+
+          break;
+
+          case '13':
+
+          var Eword={'government':'政府 政治','politics':'政治(学) 政策','policy':'政策 方針','democracy':'民主主義;民主主義国家','system':'制度,組織 体系','president':'大統領 社長','citizen':'市民;国民','official':'公式の,公の 公務員;高官','suspect':'...だろうと思う (を)疑う 容疑者','doubt':'...でないと思う (を)疑う 疑い','write':'(文字など)を書く 手紙を書く','draw':'を描く;(線)を引く を引く;引き出す 近づく','challenge':'に異議を唱える に挑む を要求する 挑戦','struggle':'闘う,奮闘する もがく 奮闘,努力 もがき','chase':'を追跡する;を追い求める 追跡','careless':'不注意な,軽率な','wise':'賢明な,賢い','foolish':'愚かな,思慮のない','clever':'利口な,頭がよい 器用な 巧妙な','stupid':'ばかな,愚かな くだらない','kind':'親切な 優しい　種類','considerate':'思いやりがある,理解がある','polite':'礼儀正しい,丁寧な','rude':'失礼な,無礼な','cruel':'残酷な,むごい','frequently':'頻繁に,しばしば','occasionally':'たまに,時折','gradually':'だんだんと,次第に','finally':'ようやく;ついに;最後に','exercise':'運動する を訓練する を行使する 運動,練習;練習問題','operate':'(機械など)を操作する 作動する (に)手術する','bow':'お辞儀をする,(頭)を下げる お辞儀','lift':'を持ち上げる;持ち上がる リフト;昇降機  エレベーター','row':'ボートをこぐ;をこぐ 列;並び','roll':'転がる;を転がす を巻く 巻いたもの;ロールパン','float':'浮かぶ;を浮かべる 漂う','eliminate':'を削除する,を取り除く'};
+
+          var lang='eng';
+
+          break;
+
+          case '14':
+
+          var Eword={'confidence':'信頼;自信 秘密','effort':'努力','favor':'好意;親切な行為','responsible':'責任のある','serious':'真剣な,真面目な 重大な','curious':'好奇心の強い','aggressive':'攻撃的な,好戦的な','superior':'優れた','inferior':'劣った','senior':'年上の;;上位の 先輩 上級生','junior':'年下の;下位の 後輩;下級生','prefer':'を好む','thief':'泥棒,空き巣','crime':'罪;犯罪','battle':'戦闘;闘い 闘争 戦う','weapon':'武器,兵器','enemy':'敵','alarm':'警報(器),報知器;目覚まし(時計) 驚き;恐怖 をはっとさせる に警告を発する','guilty':'有罪の,罪を犯した','delinquent':'非行の,軽犯罪の;義務を怠る','pity':'あわれみ 残念なこと かわいそうに思う','dislike':'を嫌がる,を嫌う 反感','hesitate':'をためらう,を躊躇する','regret':'を後悔する,を残念に思う 後悔,遺憾','lead':'を導く,の先頭に立つ;を案内する(道などが)通じる 首位,リード;手本','conduct':'を行う,を運営する を指揮する 行為,ふるまい 運営','direct':'を向ける を指揮する に道を教える 直接の;まっすぐな 直に','influence':'に(間接的な)影響を与える 影響,影響力','affect':'に(直接的な)影響を与える,(病気が)を冒す を感動させる','exert':'(力・影響力など)を使う;に及ぼす 努力する','favorite':'お気に入りの,一番好きな お気に入りの人[もの]','favorable':'(返事などが)好意的な,賛成の 好都合な,有利な','industrial':'産業の,工業の','indutrious':'勤勉な,よく働く','sensitive':'敏感な;(人が)傷つきやすい,傷ついて','sensible':'分別のある,賢明な'};
+
+          var lang='eng';
+
+          break;
+
+          // case '':
+
+          // var Eword={'':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':''};
+
+          // var lang='eng';
+
+          // break;
+
+          case 'C1':
+
+          var Eword={'co-worker':'同僚','trend':'傾向,動向','take a look at':'～に軽く目を通す','follow':'～を理解する','represent':'を表す','start with ～':'～で[から]始める','remain':'～のままである','constant':'一定の,不変の','figure':'数字','achieve':'～を達成する','advertising campaign':'広告[宣伝]活動','release':'～を発売する','keen':'激しい','initial':'最初の','dip':'一時的な低下','close':'～を終える','advanced':'進歩した,上級の','version':'版','amount':'量,金額','make':'(金を)得る,稼ぐ','impressive':'印象的な,素晴らしい','record':'～を記録する','hand':'～を手渡す,与える','massive':'巨大な','global':'世界的な','award':'賞','consequently':'その結果','rocket':'急上昇する','Good for ～':'(～は)やるじゃないか,いいぞ','significant':'重要な'};
+
+          var lang='eng';
+
+          break;
+
+          case 'C2':
+
+          var Eword={'evolve':'進化する','period':'時代','tendency':'傾向','laughter':'笑い','flourish':'栄える','art':'技術','cultivate':'～養う,伸ばす','endure':'接続する,がまんする','boast':'～を誇る','appreciate':'～の真価を認める','to ～ extent':'～の程度まで','dominate':'～を支配する','compared to ～':'～に比べて','resident':'住民','mix':'混合物','accordingly':'したがって,だから','distinctive':'特有の','strict':'厳格な','characteristic':'特有の','horizontal':'水平の','organize':'～を組織する','harmonious':'調和のとれた','care about ～':'～を気にかける','status':'地位','thus':'このように,だから','socialize with ～':'～と交際する','pay attention to ～':'～に注意を払う','vertical':'垂直の','mind-set':'考え方,態度','predominate':'優位を占める','commercial':'商業の','view A as B':'AをBとみなす','bring A close to B':'AをBに近づける','foremost':'第一の,主要な','concern':'関心(事)','relationship':'関係','get along with ～':'～と仲良くやっていく','negotiation':'交渉','verbal':'言葉の','lighten':'～を明るくする','atmosphere':'雰囲気','play a ～ role':'～な役割を果たす','nuance':'ニュアンス','intonation':'音調,抑揚','dialect':'方言','in a way that ～':'方法で','value':'～を重視する','A as well as B':'AだけでなくBも','laugh away ～':'～を笑い飛ばす','recover':'～を回復する','peace of mind':'心の平穏','exert':'～を行使する','go bankrupt':'破産する','option':'選択肢','struggle':'奮闘する','invaluable':'非常に重要な','cheer ～ up':'～を励ます','burden':'重荷,重圧','free A from B':'AからBを解放する','that is':'つまり','depression':'憂鬱','release A from B':'AからBを解放する'};
+
+          var lang='eng';
+
+          break;
+
+          case 'A1':
+
+          var Eword={'わぶ':'つらく思う。困惑する。落ちぶれる。みじめな暮らしになる。～かねる。～し続けにくく感じる。','わびし':'情けない。つまらない。ものさびしい。心細い。貧しい。みすぼらしい','あらまし':'計画。予定。心づもり。','うつつ':'現実。生きている状態。正気。気が確かな状態。','せうそこ':'手紙。伝言。取り次ぎの挨拶。来意。','そのかみ':'その時。当時。その昔。','みち':'道理。筋道。仏道。仏の教え。歌道。茶道。','まらうと':'客','ふるさと':'住み慣れた所。以前住んでいた土地。自宅。我が家。','ひま':'すき間。合間。絶え間。よい機会。','ようい':'気遣い。配慮。','なにがし・それがし':'だれそれ。私。','よし':'由緒。由来。いわれ。理由。口実。次第。経緯。趣旨。手段。方法。風情。趣。ふり。そぶり。','よしなし':'無益だ。甲斐がない。つまらない。取るに足らない。無関係だ。','なほ':'やはり。もっと。さらに。','すべからく～べし':'当然～すべきだ。','はやく～けり':'なんとまあ～たよ。','かまへて～':'ぜひ～せよ。～してほしい。～しよう。決して～するな。絶対に～してはいけない。','あなかしこ～':'決して～するな。絶対に～してはいけない。','ゆめ・ゆめゆめ～':'決して～するな。絶対に～してはいけない。まったく～ない。少しも～ない。','やおら':'そっと。静かに。おもむろに。','わざと':'わざわざ。ことさらに。とくべつに。とりわけ。本格的に。正式に。','さながら':'そのまま。すべて。そっくりそのまま。','せめて':'しいて。無理に。ひどく。とても。','すなはち':'すぐに。そこで。その時。','うたて':'情けなく。不快なことに。気味悪く。異様に。いやに。','なでふ':'どんな。どのような。どうして。','～がり':'もとに。ところに。','こころをつくす':'あれこれ悩む。限りなく物思いする。'};
+
+          var lang='ja';
+
+          break;
+
+          case 'B1':
+
+          var Eword={'是':'～です','有':'ある いる 持っている','在':'いる ～にいる ～している','要':'いる ほしい 必要','来':'来る','去':'行く','吃':'食べる','喝':'飲む','看':'見る','听':'聞く','说':'話す','写':'書く','买':'買う','唱':'歌う','坐':'座る','住':'とまる','打':'(球技)～をする','给':'与える あげる','问':'質問する','开始':'開始する','学习':'学習する','工作':'仕事する','玩儿':'遊ぶ','休息':'休む','知道':'知ってる 知る','喜欢':'好き','上课':'授業を受ける','睡觉':'寝る'};
+
+          var lang='cha';
+
+          break;
+
+          case 'B2':
+
+          var Eword={'大':'大きい','小':'小さい','多':'多い','少':'少ない','早':'(時間)早い','晩':'(時間)遅い','快':'(スピード) 速い','慢':'(スピード) 遅い','热':'熱い','冷':'寒い','远':'遠い','近':'近い','贵':'(値段が)高い','便宜':'(値段が)安い','难':'難しい','容易':'簡単','好':'好き','好吃':'(食べ物)おいしい','好喝':'(飲み物)おいしい','忙':'忙しい','高兴':'楽しい うれしい','不错':'悪くない'};
+
+          var lang='cha';
+
+          break;
+
+         
+                  }
+
+        
+
+       var Elength=Object.keys(Eword).length;
+       //var Jlength=Jword.length;
+
+       console.log('単語の数'+Elength);//数を記録
+
+          var nnn=sessionStorage.length;
+
+          console.log(nnn);
+       
+
+        var Eword2=[];
+        var Jword=[];
+        var Elength2=Object.keys(Eword).length;
+        console.log(Elength2);
+
+          for(let step=0; step < Elength; step++){
+            Eword2.push(Object.keys(Eword)[step]);
+            
+
+            Jword.push(Eword [Object.keys(Eword)[step]]);
+            
+          }
+          
+          switch(nnn){
+          case 0:
+          console.log('no data...');
+          
+          break;
+
+          default:
+
+          for (let step = 0; step < nnn; step++){
+
+            var calling =sessionStorage.key(step);
+
+              console.log(calling);
+
+              var key =sessionStorage.key(step);
+              console.log('AAA '+step);
+              var val = sessionStorage.getItem(key);
+              console.log('AAA '+val);
+              delete Eword.val;
+              console.log(Eword);
+              var idx = Eword2.indexOf(val);
+              if(idx >= 0){
+                  Eword2.splice(idx, 1);
+                  Jword.splice(idx,1);
+                  console.log(Eword2);
+                  console.log(Jword);
+              }
+
+          }
+
+           
+
+        }
+            console.log(Eword2);
+            console.log(Jword);
+        var QEword=Math.floor(Math.random()* Eword2.length);
+          console.log(Eword2[QEword]);//問題の英単語
+            QD.innerHTML=Eword2[QEword];
+
+            
+            nnn=nnn+1;
+            sessionStorage.setItem(nnn,Eword2[QEword]);//保存
+            
+            const lp =nnn+'/'+Elength;
+            momo.innerHTML=lp; 
+
+            if ('speechSynthesis' in window) {
+              console.log("このブラウザは音声合成に対応しています! ^_^");
+
+              switch(lang){
+
+              case 'eng':
+                var ssup2=new SpeechSynthesisUtterance();
+                ssup2.text=Eword2[QEword];
+                ssup2.lang='en-EN';
+                speechSynthesis.speak(ssup2);
+              break;
+
+              case 'ja':
+
+              var ssup = new SpeechSynthesisUtterance();
+              
+              ssup.text =Eword2[QEword];
+              
+              ssup.lang = 'ja-JP';
+              
+              speechSynthesis.speak(ssup);
+
+              break;
+
+              case 'cha':
+
+              var ssup = new SpeechSynthesisUtterance();
+              
+              ssup.text =Eword2[QEword];
+                           
+              ssup.lang='zh-CN';
+              
+              speechSynthesis.speak(ssup);
+
+              break;
+
+
+            }
+            } else {
+
+              console.log("このブラウザは音声合成に対応していません。 T_T");
+            }
+
+            
+
+            
+
+        var Aword=Jword[QEword];
+          console.log(Aword);//英単語の答え
+              
+          var num=['1','2','3','4'];
+
+
+            var NR=Math.floor(Math.random()* num.length);
+
+              console.log(num[NR]);
+
+              //return{NR:NR};
+
+              qan.innerHTML=num[NR];
+
+              switch(num[NR]){
+              case '1':
+                a1.innerHTML='1.'+Aword;
+              break;
+
+              case '2':
+                a2.innerHTML='2.'+Aword;
+              break;
+              case '3':
+                a3.innerHTML='3.'+Aword;
+              break;
+
+              case '4':
+                a4.innerHTML='4.'+Aword;
+              break;
+            }
+                  
+         
+
+         
+        Jword.splice(QEword,1);
+          console.log(Jword);
+
+          num.splice(NR,1);
+
+          console.log(num);
+
+
+        var Aword1=Math.floor(Math.random()* Jword.length);
+          console.log(Jword[Aword1]);//ダミー1
+
+          var NR2=Math.floor(Math.random()* num.length); 
+            console.log(num[NR2]);
+
+          switch(num[NR2]){
+              case '1':
+                a1.innerHTML='1.'+Jword[Aword1];
+              break;
+
+              case '2':
+                a2.innerHTML='2.'+Jword[Aword1];
+              break;
+              case '3':
+                a3.innerHTML='3.'+Jword[Aword1];
+              break;
+
+              case '4':
+                a4.innerHTML='4.'+Jword[Aword1];
+              break;
+            }
+
+       
+            
+        Jword.splice(Aword1,1);
+          console.log(Jword);
+          num.splice(NR2,1);
+                    console.log(num);
+
+        var Aword2=Math.floor(Math.random()* Jword.length);
+          console.log(Jword[Aword2]);//ダミー2
+          var NR3=Math.floor(Math.random()* num.length);
+                console.log(num[NR3]);
+
+                switch(num[NR3]){
+              case '1':
+                a1.innerHTML='1.'+Jword[Aword2];
+              break;
+
+              case '2':
+                a2.innerHTML='2.'+Jword[Aword2];
+              break;
+              case '3':
+                a3.innerHTML='3.'+Jword[Aword2];
+              break;
+
+              case '4':
+                a4.innerHTML='4.'+Jword[Aword2];
+              break;
+            }
+
+          
+           
+
+        Jword.splice(Aword2,1);
+          console.log(Jword);
+          num.splice(NR3,1);
+                    console.log(num);
+
+                
+
+        var Aword3=Math.floor(Math.random()* Jword.length);
+        
+          console.log(Jword[Aword3]);//ダミー3   
+          
+          var NR4=Math.floor(Math.random()* num.length);
+
+                    console.log(num[NR4]);
+
+                    switch(num[NR4]){
+              case '1':
+                a1.innerHTML='1.'+Jword[Aword3];
+              break;
+
+              case '2':
+                a2.innerHTML='2.'+Jword[Aword3];
+              break;
+              case '3':
+                a3.innerHTML='3.'+Jword[Aword3];
+              break;
+
+              case '4':
+                a4.innerHTML='4.'+Jword[Aword3];
+              break;
+            }
+            console.log("処理終了")
+            number.focus();
+        }
+
+
+a1.onclick=function A1(){
+
+  var ran=qan.innerHTML;
+  
+  console.log(ran);
+
+  if(ran<1){
+
+   
+    console.log('AAA');
+  }else{
+      number.value="1";
+    if( a1.classList.contains('p') == true ){
+      //何か処理を書く
+      number.value="";
+      }
+    
+    
+  a1.classList.toggle('p');
+  a2.classList.remove('p');
+  a3.classList.remove('p');
+  a4.classList.remove('p');
+  }
+  
+}
+a2.onclick=function A2(){
+
+  var ran=qan.innerHTML;
+  
+  console.log(ran);
+
+
+  if(ran<1){
+
+   
+console.log('AAA');
+}else{
+  number.value="2";
+  if( a2.classList.contains('p') == true ){
+      //何か処理を書く
+      number.value="";
+      }
+  a2.classList.toggle('p');
+  a1.classList.remove('p');
+  a3.classList.remove('p');
+  a4.classList.remove('p');
+}
+}
+a3.onclick=function A3(){
+
+  var ran=qan.innerHTML;
+  
+  console.log(ran);
+
+
+  if(ran<1){
+
+   
+console.log('AAA');
+}else{
+  number.value="3";
+  if( a3.classList.contains('p') == true ){
+      //何か処理を書く
+      number.value="";
+      }
+  a3.classList.toggle('p');
+  a2.classList.remove('p');
+  a1.classList.remove('p');
+  a4.classList.remove('p');
+}
+}
+a4.onclick=function A4(){
+
+  var ran=qan.innerHTML;
+  
+  console.log(ran);
+
+
+  if(ran<1){
+
+   
+console.log('AAA');
+}else{
+  number.value="4";
+  if( a4.classList.contains('p') == true ){
+      //何か処理を書く
+      number.value="";
+      }
+  a4.classList.toggle('p');
+  a2.classList.remove('p');
+  a3.classList.remove('p');
+  a1.classList.remove('p');
+}
+
+
+}
+
+
+
+        
+ go.onclick=function Go(){
+
+       var an= number.value;
+
+       console.log(an);
+
+       var qan2=qan.textContent;
+
+       var ynn=yn.textContent;
+
+       
+
+       console.log(qan2);
+
+    if(qan2==""){
+      console.log("始まってない")
+    }else{
+      if(an==qan2){
+        
+        switch(qan2){
+          case 1:
+            var aaaa=document.a1.innerHTML;
+            break;
+          case 2:
+            var aaaa=document.a2.innerHTML;
+          case 3:
+            var aaaa=document.a3.innerHTML;
+            break;
+          case 4:
+            var aaaa=document.a4.innerHTML;
+        }
+          console.log(aaaa);
+         console.log("正解");
+         yans.innerHTML="正解！！ 解答　"+qan2;
+
+         var audioElem = new Audio();
+        audioElem.src = "music/correct2.mp3";
+        audioElem.play();
+   
+        
+       }else{
+
+         switch(an){
+           case '':
+
+           break;
+           default:
+          
+                  console.log("不正解"); 
+                  yans.innerHTML="不正解！！　解答　"+qan2;
+
+                  var audioElem = new Audio();
+                  audioElem.src = "music/incorrect1.mp3";
+                  audioElem.play();
+
+         }
+
+         
+
+        // document.getElementById( 'music/Quiz-Wrong_Buzzer01-mp3/Quiz-Wrong_Buzzer01-1.mp3' ).play() ;
+
+        // dcoument.getElementById('sound-file2').play();
+       }
+       
+       
+       //setInterval ('Start()',1000);
+    }
+
+       
+ }           
+            
+       
+//  function sample(name) {
+
+//   var age=Math.floor(Math.random()*90);
+ 
+//  console.log(name + 'さんの年齢は' + age + 'です！');
+
+// }
+
+// //引数に値を渡す
+// sample('太郎');
+
+
+
+        reset.onclick=function Reset(){
+
+          sessionStorage.clear();
+          location.reload();
+
+        }
+        
+        
+       ccc.onchange=function lolo(){
+        sessionStorage.clear();
+       }
+
+        
+      
+
+    </script>
+  </body>
+</html>
