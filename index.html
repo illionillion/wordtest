@@ -796,8 +796,13 @@ a1.onclick=function A1(){
    
     console.log('AAA');
   }else{
+      number.value="1";
+    if( a1.classList.contains('p') == true ){
+      //何か処理を書く
+      number.value="";
+      }
     
-    number.value="1";
+    
   a1.classList.toggle('p');
   a2.classList.remove('p');
   a3.classList.remove('p');
@@ -818,6 +823,10 @@ a2.onclick=function A2(){
 console.log('AAA');
 }else{
   number.value="2";
+  if( a2.classList.contains('p') == true ){
+      //何か処理を書く
+      number.value="";
+      }
   a2.classList.toggle('p');
   a1.classList.remove('p');
   a3.classList.remove('p');
@@ -837,6 +846,10 @@ a3.onclick=function A3(){
 console.log('AAA');
 }else{
   number.value="3";
+  if( a3.classList.contains('p') == true ){
+      //何か処理を書く
+      number.value="";
+      }
   a3.classList.toggle('p');
   a2.classList.remove('p');
   a1.classList.remove('p');
@@ -856,6 +869,10 @@ a4.onclick=function A4(){
 console.log('AAA');
 }else{
   number.value="4";
+  if( a4.classList.contains('p') == true ){
+      //何か処理を書く
+      number.value="";
+      }
   a4.classList.toggle('p');
   a2.classList.remove('p');
   a3.classList.remove('p');
