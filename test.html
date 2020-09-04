@@ -109,14 +109,16 @@
         grid-area: p3;
       }
 
-      #btns{
+      /* #btns{
               display: flex;
               flex-direction: column;
               grid-area: p4;
-            }
+            } */
       
       #btns input{
-        border-radius: 25px;
+        border-radius: 50px;
+        width: 100px;
+        height: 100px;
         
       }
 
@@ -136,6 +138,9 @@
         opacity:0;
       }
 
+      #mondaic{
+        height: 25px;
+      }
       
 </style>
 
@@ -526,7 +531,18 @@
 
        console.log('単語の数'+Elength);//数を記録
 
-          var nnn=sessionStorage.length;
+       if(sessionStorage.hasOwnProperty('wordlog')) {
+
+        var datalist = JSON.parse(sessionStorage.getItem("wordlog"));
+
+        var nnn=Object.keys(datalist).length;
+
+        console.log(datalist);
+       }else{
+         var nnn=0;
+       }
+
+          
 
           console.log(nnn);
        
@@ -554,17 +570,20 @@
 
           for (let step = 0; step < nnn; step++){
 
-            var calling =sessionStorage.key(step);
+            var calling =JSON.parse(sessionStorage.getItem("wordlog"));
 
               console.log(calling);
 
-              var key =sessionStorage.key(step);
+              var key =Object.keys(calling);
+
+              var key2=key[step];
+
               console.log('AAA '+step);
               var val = sessionStorage.getItem(key);
               console.log('AAA '+val);
               delete Eword.val;
               console.log(Eword);
-              var idx = Eword2.indexOf(val);
+              var idx = Eword2.indexOf(key2);
               if(idx >= 0){
                   Eword2.splice(idx, 1);
                   Jword.splice(idx,1);
@@ -585,7 +604,36 @@
 
             
             nnn=nnn+1;
-            sessionStorage.setItem(nnn,Eword2[QEword]);//保存
+            // sessionStorage.setItem(nnn,Eword2[QEword]);//保存
+
+            if(sessionStorage.hasOwnProperty('wordlog')) {
+
+            var datalist = JSON.parse(sessionStorage.getItem("wordlog"));
+            datalist[Eword2[QEword]] = Jword[QEword];
+
+            //保存する
+            sessionStorage.setItem("wordlog", JSON.stringify(datalist));
+
+            }else{
+
+            var datalist={};
+
+            datalist[Eword2[QEword]] = Jword[QEword];
+
+            sessionStorage.setItem('wordlog',JSON.stringify(datalist));
+
+            var poo=sessionStorage.getItem('wordlog');
+
+            poo= JSON.parse(poo);
+
+            for (var i = 0; i < poo.length; i++) {
+                for (var key in poo[i]) {
+                  console.log(poo[i][key]);
+                }
+              }
+
+
+            }
             
             const lp =nnn+'/'+Elength;
             momo.innerHTML=lp; 
@@ -596,10 +644,12 @@
               switch(lang){
 
               case 'eng':
-                var ssup2=new SpeechSynthesisUtterance();
-                ssup2.text=Eword2[QEword];
-                ssup2.lang='en-EN';
-                speechSynthesis.speak(ssup2);
+                var ssup=new SpeechSynthesisUtterance();
+                ssup.text=Eword2[QEword];
+                ssup.lang='en-EN';
+                speechSynthesis.speak(ssup);
+
+                sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
               break;
 
               case 'ja':
@@ -612,6 +662,7 @@
               
               speechSynthesis.speak(ssup);
 
+              sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
               break;
 
               case 'cha':
@@ -624,6 +675,7 @@
               
               speechSynthesis.speak(ssup);
 
+              sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
               break;
 
 
@@ -868,6 +920,62 @@ console.log('AAA');
 }
 
 
+function loop(){
+  stbtn.click();
+}
+
+
+// function repeatname(){
+
+//   var lang=sessionStorage.getItem(ssup.lang,Eword2[QEword]);
+
+//   if ('speechSynthesis' in window) {
+//               console.log("このブラウザは音声合成に対応しています! ^_^");
+
+//               switch(lang){
+
+//               case 'eng':
+//                 var ssup=new SpeechSynthesisUtterance();
+//                 ssup.text=Eword2[QEword];
+//                 ssup.lang='en-EN';
+//                 speechSynthesis.speak(ssup);
+
+//                 sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
+//               break;
+
+//               case 'ja':
+
+//               var ssup = new SpeechSynthesisUtterance();
+              
+//               ssup.text =Eword2[QEword];
+              
+//               ssup.lang = 'ja-JP';
+              
+//               speechSynthesis.speak(ssup);
+
+//               sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
+//               break;
+
+//               case 'cha':
+
+//               var ssup = new SpeechSynthesisUtterance();
+              
+//               ssup.text =Eword2[QEword];
+                           
+//               ssup.lang='zh-CN';
+              
+//               speechSynthesis.speak(ssup);
+
+//               sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
+//               break;
+
+
+//             }
+//             } else {
+
+//               console.log("このブラウザは音声合成に対応していません。 T_T");
+//             }
+// }
 
         
  go.onclick=function Go(){
@@ -908,6 +1016,9 @@ console.log('AAA');
          var audioElem = new Audio();
         audioElem.src = "music/correct2.mp3";
         audioElem.play();
+
+        
+        setTimeout("loop()", 1000);
    
         
        }else{
