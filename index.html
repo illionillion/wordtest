@@ -28,27 +28,45 @@
 </script>
 
     <title>四択!!英単語クイズ</title>
-    <style>
-      /*html, body{
-        overflow: hidden;
-      }*/
 
-      
+<style>
+  /* *{
+    outline: 1px solid black;
+    
+  } */
 
-      #Q{
+  body{
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #ans{
+    display: none;
+  }
+
+  #form{
+    margin: 0 auto;
+    width: 320px;
+  }
+
+  #Q{
         width: 300px;
         height: 80px;
         border: 4px solid #EAB857;
         text-align:center;
         font-size: 40px;
-        margin-top: 0;
-        margin-right: auto;
-        margin-left: auto;
+        margin: 0 auto;
         
       }
-      
-      #pl{
+
+  ul{
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  #pl{
         transition:0.5s !important;
+        text-align: center;
       }
 
       #pl li{
@@ -57,103 +75,81 @@
         background: yellow;
         border: 1px solid black;
         padding: 5px;
-        width: 300px;
+        width: 310px;
         height: 50px;
         border-radius: 25px;
-        transition: 0.5s;
-        margin-bottom: 10px;
+        transition: 0.5s !important;
         cursor: pointer;
+        /* margin:5px auto; */
+        text-align: left;
+        margin-bottom: 5px;
+
       }
 
-      #num{
-        width: 80px;
+     
+      /* .panel{
+        display: grid;
+        grid-template: 
+        'p1 p2'25px
+        'p1 p3'25px
+        'p1 p4'50px
+        'p1 p5'50px
+        /150px 150px
+
+        ;
+      } */
+
+      #number{
+        grid-area: p1;
       }
 
-      #ans{
-        margin-left: -100px;
+      #mondaic{
+        grid-area: p2;
+        width: 100px;
+        margin: 0 auto;
+        border-bottom: 1px solid black;
+      }
+
+      #course{
+        grid-area: p3;
+      }
+
+      /* #btns{
+              display: flex;
+              flex-direction: column;
+              grid-area: p4;
+            } */
+      
+      #btns input{
+        border-radius: 50px;
+        margin-top: 10px;
+        width: 100px;
+        height: 100px;
+        
+      }
+
+      #yans{
+        grid-area: p5;
       }
 
       .p{
         background: linear-gradient(#ff6347,#dc143c) !important;
         color: white;
-        margin-left: 20px;
-      }
-
-      #Number{
-        width: 100px;
-        margin: 40px;
-      }
-
-      #form{
-        margin: 20px 480px ;
-      }
-
-      #ggl{
-        margin-top: 50px;
-      }
-
-      #btns{
-        margin-top: 0px;
-        margin-left: 150px;
-      }
-
-      #stbtn,#go,#reset{
-        width: 100px;
-        padding: 5px;
-        display: block;
-        margin-bottom: 10px;
-      }
-
-      #yans{
-        margin-top: 5px;
-        margin-left: 60px;
-      }
-
-      #mondaic{
-        margin-bottom: 10px;
-        margin-top: -160px;
-        margin-left: 60px;
-        border-bottom: 1px solid black;
-        width: 100px;
-        height: 20px;
+        margin-left: 15px !important;
+        /* margin-left: 50.5% !important; */
       }
 
       .k{       
-        margin-left: -900px !important;
+        margin-left: -2000px !important;
+        opacity:0;
       }
 
+      #mondaic{
+        height: 25px;
+      }
       
+</style>
 
-      #course{
-        margin-left: 170px;
-        margin-top: -20px;
-        margin-bottom: 5px;
-        display: block;
-      }
-
-      #btns input{
-        border-radius: 25px;
-        
-      }
-      @media screen and (max-width:415px){
-        #form{
-          margin: 0;
-          margin-left: -25px;
-        }
-
-        #pl{
-          margin-bottom: 80px;
-        }
-
-        #yans{
-          margin-top: 10px;
-        }
-
-        #Q{
-          margin-top: 0;
-        }
-      }
-    </style>
   </head>
   <body>
     <form id="form">
@@ -171,8 +167,8 @@
 
     </ul>
 
-
-    <select  id="Number" size="4">
+    <div class="panel">
+    <select  id="Number" size="4" style="height: 80px; width: 100px;">
       <option value="" selected>1~4 で選択</option>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -216,6 +212,8 @@
           <option value="12">p140~p145</option>          
           <option value="13">p146~p151</option>          
           <option value="14">p152~p157</option>          
+          <option value="15">p158~p163</option>          
+          <option value="16">p164~p169</option>          
          
         </optgroup>
         <optgroup label="cloud">
@@ -245,7 +243,7 @@
 
     <div id="yans"></div>
 
-  
+  </div>
 
     <audio id="sound-file">
       <source src="music/correct2.mp3" type="audio/mp3">
@@ -483,6 +481,14 @@
 
           break;
 
+          case '15':
+
+          var Eword={'display':'を陳列する;を示す を画面に表示する 陳列;展示 ディスプレー','arrange':'を手配する,を取り決める を配置する,をきちんと並べる','imitate':'をまねる,を模倣する を見習う','indicate':'を示す を暗示する','behave':'ふるまう','attract':'を引きつける,を魅惑する','successful':'成功した,うまくいっている','successive':'連続の','literate':'(人が)読み書きができる','literal':'文字通りの,逐語的な;実際の','literary':'文学の,文芸の','childish':'子どもっぽい,大人げない 子ども(特有)の,児童の','childlike':'子どもらしい,無邪気な','healthful':'健康によい,健康を促進させるような','healthy':'健康な,健全な 健康によい','invaluable':'非常に価値のある,大いに役立つ','valueless':'価値のない','manly':'(男性・ふるまいなどが)男らしい (女性が)男勝りの','mannish':'(女性・服装などが)男っぽい','social':'社会の;社交の','sociable':'社交的な','alike':'似ている 同様に,同等に','similar':'同類の,よく似た','equal':'等しい 平等な 対等の人 に等しい,に匹敵する','variety':'種類 多様性,変化','state':'を(はっきり)述べる,を表明する 状態 国家;州','refer':'言及する,述べる を参照する','claim':'を主張する を要求する,を求める 主張 要求','approve':'(に)賛成する,(を)認める','recommend':'を勧める;を推薦する','reply':'返事をする,答える 返事,答え','correct':'を訂正する 正しい,正確な','accept':'を受け入れる を受け取る','debate':'を討論する;議論する 討論;議論'};
+
+          var lang='eng';
+
+          break;
+          
           // case '':
 
           // var Eword={'':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':''};
@@ -541,7 +547,18 @@
 
        console.log('単語の数'+Elength);//数を記録
 
-          var nnn=sessionStorage.length;
+       if(sessionStorage.hasOwnProperty('wordlog')) {
+
+        var datalist = JSON.parse(sessionStorage.getItem("wordlog"));
+
+        var nnn=Object.keys(datalist).length;
+
+        console.log(datalist);
+       }else{
+         var nnn=0;
+       }
+
+          
 
           console.log(nnn);
        
@@ -569,17 +586,20 @@
 
           for (let step = 0; step < nnn; step++){
 
-            var calling =sessionStorage.key(step);
+            var calling =JSON.parse(sessionStorage.getItem("wordlog"));
 
               console.log(calling);
 
-              var key =sessionStorage.key(step);
+              var key =Object.keys(calling);
+
+              var key2=key[step];
+
               console.log('AAA '+step);
               var val = sessionStorage.getItem(key);
               console.log('AAA '+val);
               delete Eword.val;
               console.log(Eword);
-              var idx = Eword2.indexOf(val);
+              var idx = Eword2.indexOf(key2);
               if(idx >= 0){
                   Eword2.splice(idx, 1);
                   Jword.splice(idx,1);
@@ -600,7 +620,36 @@
 
             
             nnn=nnn+1;
-            sessionStorage.setItem(nnn,Eword2[QEword]);//保存
+            // sessionStorage.setItem(nnn,Eword2[QEword]);//保存
+
+            if(sessionStorage.hasOwnProperty('wordlog')) {
+
+            var datalist = JSON.parse(sessionStorage.getItem("wordlog"));
+            datalist[Eword2[QEword]] = Jword[QEword];
+
+            //保存する
+            sessionStorage.setItem("wordlog", JSON.stringify(datalist));
+
+            }else{
+
+            var datalist={};
+
+            datalist[Eword2[QEword]] = Jword[QEword];
+
+            sessionStorage.setItem('wordlog',JSON.stringify(datalist));
+
+            var poo=sessionStorage.getItem('wordlog');
+
+            poo= JSON.parse(poo);
+
+            for (var i = 0; i < poo.length; i++) {
+                for (var key in poo[i]) {
+                  console.log(poo[i][key]);
+                }
+              }
+
+
+            }
             
             const lp =nnn+'/'+Elength;
             momo.innerHTML=lp; 
@@ -611,10 +660,12 @@
               switch(lang){
 
               case 'eng':
-                var ssup2=new SpeechSynthesisUtterance();
-                ssup2.text=Eword2[QEword];
-                ssup2.lang='en-EN';
-                speechSynthesis.speak(ssup2);
+                var ssup=new SpeechSynthesisUtterance();
+                ssup.text=Eword2[QEword];
+                ssup.lang='en-EN';
+                speechSynthesis.speak(ssup);
+
+                sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
               break;
 
               case 'ja':
@@ -627,6 +678,7 @@
               
               speechSynthesis.speak(ssup);
 
+              sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
               break;
 
               case 'cha':
@@ -639,6 +691,7 @@
               
               speechSynthesis.speak(ssup);
 
+              sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
               break;
 
 
@@ -883,6 +936,62 @@ console.log('AAA');
 }
 
 
+function loop(){
+  stbtn.click();
+}
+
+
+// function repeatname(){
+
+//   var lang=sessionStorage.getItem(ssup.lang,Eword2[QEword]);
+
+//   if ('speechSynthesis' in window) {
+//               console.log("このブラウザは音声合成に対応しています! ^_^");
+
+//               switch(lang){
+
+//               case 'eng':
+//                 var ssup=new SpeechSynthesisUtterance();
+//                 ssup.text=Eword2[QEword];
+//                 ssup.lang='en-EN';
+//                 speechSynthesis.speak(ssup);
+
+//                 sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
+//               break;
+
+//               case 'ja':
+
+//               var ssup = new SpeechSynthesisUtterance();
+              
+//               ssup.text =Eword2[QEword];
+              
+//               ssup.lang = 'ja-JP';
+              
+//               speechSynthesis.speak(ssup);
+
+//               sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
+//               break;
+
+//               case 'cha':
+
+//               var ssup = new SpeechSynthesisUtterance();
+              
+//               ssup.text =Eword2[QEword];
+                           
+//               ssup.lang='zh-CN';
+              
+//               speechSynthesis.speak(ssup);
+
+//               sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
+//               break;
+
+
+//             }
+//             } else {
+
+//               console.log("このブラウザは音声合成に対応していません。 T_T");
+//             }
+// }
 
         
  go.onclick=function Go(){
@@ -923,6 +1032,9 @@ console.log('AAA');
          var audioElem = new Audio();
         audioElem.src = "music/correct2.mp3";
         audioElem.play();
+
+        
+        setTimeout("loop()", 1000);
    
         
        }else{
