@@ -281,7 +281,7 @@
 
         var d=number.value;
 
-        console.log(d);
+        // console.log(d);
 
         switch(Number(d)){
           case 1:
@@ -611,8 +611,8 @@
               if(idx >= 0){
                   Eword2.splice(idx, 1);
                   Jword.splice(idx,1);
-                  console.log(Eword2);
-                  console.log(Jword);
+                  // console.log(Eword2);
+                  // console.log(Jword);
               }
 
           }
@@ -715,6 +715,47 @@
 
         var Aword=Jword[QEword];
           console.log(Aword);//英単語の答え
+                  
+         
+
+         
+        
+
+          var minus=Elength-nnn;
+
+          if(minus<3){
+            console.log("球切れ");
+            var datalist = JSON.parse(sessionStorage.getItem("wordlog"));
+            var Dlength=Object.keys(datalist).length;
+            var deleteword=[];
+
+            for(let step=0; step < Dlength; step++){
+              // deleteword.push(Object.keys(datalist)[step]);
+              deleteword.push(datalist [Object.keys(datalist)[step]]);
+                       
+          }
+
+          console.log(deleteword);
+          
+          
+          var idx3 = deleteword.indexOf(Aword);
+          if(idx3 >= 0){
+            deleteword.splice(idx3, 1); 
+            console.log(deleteword);
+            Dlength=Dlength-1;
+
+            for(let step=0; step < Dlength; step++){
+              // deleteword.push(Object.keys(datalist)[step]);
+              Jword.push(deleteword[step]);
+                       
+          }
+            console.log(Jword);
+          }
+
+
+          }
+
+          
               
           var num=['1','2','3','4'];
 
@@ -743,11 +784,8 @@
                 a4.innerHTML='4.'+Aword;
               break;
             }
-                  
-         
-
-         
-        Jword.splice(QEword,1);
+          
+          Jword.splice(QEword,1);
           console.log(Jword);
 
           num.splice(NR,1);
@@ -755,8 +793,9 @@
           console.log(num);
 
 
-        var Aword1=Math.floor(Math.random()* Jword.length);
+          var Aword1=Math.floor(Math.random()* Jword.length);
           console.log(Jword[Aword1]);//ダミー1
+
 
           var NR2=Math.floor(Math.random()* num.length); 
             console.log(num[NR2]);
@@ -850,17 +889,18 @@ a1.onclick=function A1(){
 
   var ran=qan.innerHTML;
   
-  console.log(ran);
+  // console.log(ran);
 
   if(ran<1){
 
    
-    console.log('AAA');
+    // console.log('AAA');
   }else{
       number.value="1";
     if( a1.classList.contains('p') == true ){
       //何か処理を書く
       number.value="";
+      number.focus();
       }
     
     
@@ -868,6 +908,7 @@ a1.onclick=function A1(){
   a2.classList.remove('p');
   a3.classList.remove('p');
   a4.classList.remove('p');
+  number.focus();
   }
   
 }
@@ -875,13 +916,13 @@ a2.onclick=function A2(){
 
   var ran=qan.innerHTML;
   
-  console.log(ran);
+  // console.log(ran);
 
 
   if(ran<1){
 
    
-console.log('AAA');
+// console.log('AAA');
 }else{
   number.value="2";
   if( a2.classList.contains('p') == true ){
@@ -893,18 +934,20 @@ console.log('AAA');
   a3.classList.remove('p');
   a4.classList.remove('p');
 }
+
+number.focus();
 }
 a3.onclick=function A3(){
 
   var ran=qan.innerHTML;
   
-  console.log(ran);
+  // console.log(ran);
 
 
   if(ran<1){
 
    
-console.log('AAA');
+// console.log('AAA');
 }else{
   number.value="3";
   if( a3.classList.contains('p') == true ){
@@ -916,18 +959,20 @@ console.log('AAA');
   a1.classList.remove('p');
   a4.classList.remove('p');
 }
+
+number.focus();
 }
 a4.onclick=function A4(){
 
   var ran=qan.innerHTML;
   
-  console.log(ran);
+  // console.log(ran);
 
 
   if(ran<1){
 
    
-console.log('AAA');
+// console.log('AAA');
 }else{
   number.value="4";
   if( a4.classList.contains('p') == true ){
@@ -940,7 +985,7 @@ console.log('AAA');
   a1.classList.remove('p');
 }
 
-
+number.focus();
 }
 
 
@@ -1006,7 +1051,7 @@ function loop(){
 
        var an= number.value;
 
-       console.log(an);
+      //  console.log(an);
 
        var qan2=qan.textContent;
 
@@ -1018,6 +1063,7 @@ function loop(){
 
     if(qan2==""){
       console.log("始まってない")
+      number.focus();
     }else{
       if(an==qan2){
         
@@ -1059,6 +1105,7 @@ function loop(){
                   var audioElem = new Audio();
                   audioElem.src = "music/incorrect1.mp3";
                   audioElem.play();
+                  number.focus();
 
          }
 
