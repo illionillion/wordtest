@@ -38,6 +38,7 @@
   body{
     text-align: center;
     margin: 0 auto;
+    background: #191919;
   }
 
   #ans{
@@ -47,16 +48,19 @@
   #form{
     margin: 0 auto;
     width: 320px;
+    padding: 5px;
   }
 
   #Q{
         width: 300px;
         height: 80px;
-        border: 4px solid #EAB857;
+        border: 4px solid #2ecc71;
+        /* background: #2ecc71; */
         text-align:center;
         font-size: 40px;
         margin: 0 auto;
-        
+        color: white;
+        border-radius: 25px;
       }
 
   ul{
@@ -72,8 +76,9 @@
       #pl li{
         list-style: none;
         /*background: linear-gradient(#ff6347,#dc143c);*/
-        background: yellow;
-        border: 1px solid black;
+        color: #3498db;
+        background: none;
+        border: 1px solid #3498db;
         padding: 5px;
         width: 310px;
         height: 50px;
@@ -107,7 +112,8 @@
         grid-area: p2;
         width: 100px;
         margin: 0 auto;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid #2ecc71;
+        color: #2ecc71;
       }
 
       #course{
@@ -130,11 +136,14 @@
 
       #yans{
         grid-area: p5;
+        color: #2ecc71;
       }
 
       .p{
-        background: linear-gradient(#ff6347,#dc143c) !important;
-        color: white;
+        /* background: linear-gradient(white,#2ecc71) !important; */
+        background: #2ecc71 !important;
+        border: 1px solid #2ecc71 !important;
+        color: white !important;
         margin-left: 15px !important;
         /* margin-left: 50.5% !important; */
       }
