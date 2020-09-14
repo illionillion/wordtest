@@ -214,6 +214,8 @@
           <option value="14">p152~p157</option>          
           <option value="15">p158~p163</option>          
           <option value="16">p164~p169</option>          
+          <option value="17">p170~p175</option>          
+          <option value="18">p176~p181</option>          
          
         </optgroup>
         <optgroup label="cloud">
@@ -281,7 +283,7 @@
 
         var d=number.value;
 
-        console.log(d);
+        // console.log(d);
 
         switch(Number(d)){
           case 1:
@@ -491,12 +493,20 @@
           
           case '16':
 
-          var Eword={'despite':'～にもかかわらず','beyond':'～を越えて ～の向こうに ～の他に','beneath':'～の下に ～に値しない','besides':'～の他に,～に加えて そのうえ,さらに;その他に','throughout':'～のいたるところに ～の間ずっと すっかり','therefore':'したがって,それゆえに','anyway':'とにかく,いずれにせよ どうにかして','once':'一度,かつて 一度[いったん]～すると','high':'(高さ・位置が)高い (価値・給料が)高い 高く','low':'(高さ・位置が)低いい (価値・給料が)低い[安い] 低く','expensive':'(品物が)高価な,費用のかかる','cheap':'(品物が)安い,安物の,安っぽい','large':'(数・量が)多い (形・面積・容量が)大きい,広い','small':'(数・量が)少ない,わずかな (形・面積・容量が)小さい,せまい','estimate':'(を)見積もる を評価する 見積もり,見積もりの金額','measure':'(を)測定する を評価する 対策 基準','divide':'を分ける;を分類する (を)割る','add':'(を)足す を加える;を付け加える','amount':'…に達する 結局…になる 総計,総額 量,額','able':'できる,有能な','capable':'能力がある,有能な','possible':'可能な,可能性のある できる限りの','attitude':'態度,心構え 姿勢','manner':'方法,やり方 行儀 態度','habit':'(個人の)習慣,くせ','appointment':'(面会の)約束,(医者などの)予約 任命','concern':'関心,心配 関係;関連 を心配させる に関係する','affair':'情勢,問題,事情 事件','consensus':'意見の一致,合意','announce':'を公表する,を知らせる','greet':'にあいさつをする,を迎える','scold':'(を)しかる,(に)小言を言う','scream':'悲鳴を上げる,叫ぶ 悲鳴,絶叫','quarrel':'呼吸する,息をする','sigh':'ため息をつく ため息'};
+          var Eword={'despite':'～にもかかわらず','beyond':'～を越えて ～の向こうに ～の他に','beneath':'～の下に ～に値しない','besides':'～の他に,～に加えて そのうえ,さらに;その他に','throughout':'～のいたるところに ～の間ずっと すっかり','therefore':'したがって,それゆえに','anyway':'とにかく,いずれにせよ どうにかして','once':'一度,かつて 一度[いったん]～すると','high':'(高さ・位置が)高い (価値・給料が)高い 高く','low':'(高さ・位置が)低いい (価値・給料が)低い[安い] 低く','expensive':'(品物が)高価な,費用のかかる','cheap':'(品物が)安い,安物の,安っぽい','large':'(数・量が)多い (形・面積・容量が)大きい,広い','small':'(数・量が)少ない,わずかな (形・面積・容量が)小さい,せまい','estimate':'(を)見積もる を評価する 見積もり,見積もりの金額','measure':'(を)測定する を評価する 対策 基準','divide':'を分ける;を分類する (を)割る','add':'(を)足す を加える;を付け加える','amount':'…に達する 結局…になる 総計,総額 量,額','able':'できる,有能な','capable':'能力がある,有能な','possible':'可能な,可能性のある できる限りの','attitude':'態度,心構え 姿勢','manner':'方法,やり方 行儀 態度','habit':'(個人の)習慣,くせ','appointment':'(面会の)約束,(医者などの)予約 任命','concern':'関心,心配 関係;関連 を心配させる に関係する','affair':'情勢,問題,事情 事件','consensus':'意見の一致,合意','announce':'を公表する,を知らせる','greet':'にあいさつをする,を迎える','scold':'(を)しかる,(に)小言を言う','scream':'悲鳴を上げる,叫ぶ 悲鳴,絶叫','quarrel':'口論する,言い争う 口論,言い争い','breathe':'呼吸する,息をする','sigh':'ため息をつく ため息'};
 
           var lang='eng';
 
           break;
           
+          case '17':
+
+          var Eword={'normal':'標準的な;正常な','ordinary':'ふつうの 平凡な','average':'平均的な,普通の 平均','regular':'規則的な,定期的な','rare':'まれな,珍しい','particular':'特定の 特別の 詳しい','relative':'相対的な 関係のある 親戚','publish':'(を)出版する (を)公表する','print':'(を)印刷する (を)出版する 出版物,活字','broadcast':'を放送する,を放映する 放送番組','create':'を創作する,を創造する','design':'を設計する,をデザインする を計画する 設計(図),デザイン 計画,意図','media':'(マス)メディア,マスコミ マスゴミ','murder':'(人)を殺す 殺人(事件)','arrest':'を逮捕する の注意を引く 逮捕','seize':'を押収する;を奪い取る をつかむ','surround':'を囲む を包囲する','oppress':'(権力などで)を虐げる,圧迫する','dangerous':'危険な 危害を加えそうな','useless':'無駄な 役に立たない','impossible':'不可能な,ありえない どうしようもない','convenient':'便利な,都合のよい','necessary':'必要な 必需品','topic':'話題,議題','direction':'指揮,管理 方向 方針','result':'結果,成績 ...に原因がある ...という結果になる','conclusion':'結論;終末','opportunity':'機会,好機,チャンス','principal':'主な,主要な;最も重要な 支配者;社長,校長','opposite':'正反対の,逆の 向かい側の,反対側の 反対の人 ～の向かいに','poll':'世論調査;投票 投票する;一定の票を得る','respect':'を尊敬する;を重視する 尊敬;重視 点,事項 関係','admire':'に感心する,を称賛する を鑑賞する','appreciate':'の良さが分かる,を認識する を鑑賞する を感謝する'};
+
+          var lang='eng';
+
+          break;
+
           // case '':
 
           // var Eword={'':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':''};
@@ -611,8 +621,8 @@
               if(idx >= 0){
                   Eword2.splice(idx, 1);
                   Jword.splice(idx,1);
-                  console.log(Eword2);
-                  console.log(Jword);
+                  // console.log(Eword2);
+                  // console.log(Jword);
               }
 
           }
@@ -715,6 +725,47 @@
 
         var Aword=Jword[QEword];
           console.log(Aword);//英単語の答え
+                  
+         
+
+         
+        
+
+          var minus=Elength-nnn;
+
+          if(minus<3){
+            console.log("球切れ");
+            var datalist = JSON.parse(sessionStorage.getItem("wordlog"));
+            var Dlength=Object.keys(datalist).length;
+            var deleteword=[];
+
+            for(let step=0; step < Dlength; step++){
+              // deleteword.push(Object.keys(datalist)[step]);
+              deleteword.push(datalist [Object.keys(datalist)[step]]);
+                       
+          }
+
+          console.log(deleteword);
+          
+          
+          var idx3 = deleteword.indexOf(Aword);
+          if(idx3 >= 0){
+            deleteword.splice(idx3, 1); 
+            console.log(deleteword);
+            Dlength=Dlength-1;
+
+            for(let step=0; step < Dlength; step++){
+              // deleteword.push(Object.keys(datalist)[step]);
+              Jword.push(deleteword[step]);
+                       
+          }
+            console.log(Jword);
+          }
+
+
+          }
+
+          
               
           var num=['1','2','3','4'];
 
@@ -743,11 +794,8 @@
                 a4.innerHTML='4.'+Aword;
               break;
             }
-                  
-         
-
-         
-        Jword.splice(QEword,1);
+          
+          Jword.splice(QEword,1);
           console.log(Jword);
 
           num.splice(NR,1);
@@ -755,8 +803,9 @@
           console.log(num);
 
 
-        var Aword1=Math.floor(Math.random()* Jword.length);
+          var Aword1=Math.floor(Math.random()* Jword.length);
           console.log(Jword[Aword1]);//ダミー1
+
 
           var NR2=Math.floor(Math.random()* num.length); 
             console.log(num[NR2]);
@@ -850,17 +899,18 @@ a1.onclick=function A1(){
 
   var ran=qan.innerHTML;
   
-  console.log(ran);
+  // console.log(ran);
 
   if(ran<1){
 
    
-    console.log('AAA');
+    // console.log('AAA');
   }else{
       number.value="1";
     if( a1.classList.contains('p') == true ){
       //何か処理を書く
       number.value="";
+      number.focus();
       }
     
     
@@ -868,6 +918,7 @@ a1.onclick=function A1(){
   a2.classList.remove('p');
   a3.classList.remove('p');
   a4.classList.remove('p');
+  number.focus();
   }
   
 }
@@ -875,13 +926,13 @@ a2.onclick=function A2(){
 
   var ran=qan.innerHTML;
   
-  console.log(ran);
+  // console.log(ran);
 
 
   if(ran<1){
 
    
-console.log('AAA');
+// console.log('AAA');
 }else{
   number.value="2";
   if( a2.classList.contains('p') == true ){
@@ -893,18 +944,20 @@ console.log('AAA');
   a3.classList.remove('p');
   a4.classList.remove('p');
 }
+
+number.focus();
 }
 a3.onclick=function A3(){
 
   var ran=qan.innerHTML;
   
-  console.log(ran);
+  // console.log(ran);
 
 
   if(ran<1){
 
    
-console.log('AAA');
+// console.log('AAA');
 }else{
   number.value="3";
   if( a3.classList.contains('p') == true ){
@@ -916,18 +969,20 @@ console.log('AAA');
   a1.classList.remove('p');
   a4.classList.remove('p');
 }
+
+number.focus();
 }
 a4.onclick=function A4(){
 
   var ran=qan.innerHTML;
   
-  console.log(ran);
+  // console.log(ran);
 
 
   if(ran<1){
 
    
-console.log('AAA');
+// console.log('AAA');
 }else{
   number.value="4";
   if( a4.classList.contains('p') == true ){
@@ -940,7 +995,7 @@ console.log('AAA');
   a1.classList.remove('p');
 }
 
-
+number.focus();
 }
 
 
@@ -1006,7 +1061,7 @@ function loop(){
 
        var an= number.value;
 
-       console.log(an);
+      //  console.log(an);
 
        var qan2=qan.textContent;
 
@@ -1018,6 +1073,7 @@ function loop(){
 
     if(qan2==""){
       console.log("始まってない")
+      number.focus();
     }else{
       if(an==qan2){
         
@@ -1059,6 +1115,7 @@ function loop(){
                   var audioElem = new Audio();
                   audioElem.src = "music/incorrect1.mp3";
                   audioElem.play();
+                  number.focus();
 
          }
 
