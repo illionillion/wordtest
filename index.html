@@ -38,6 +38,7 @@
   body{
     text-align: center;
     margin: 0 auto;
+    background: #191919;
   }
 
   #ans{
@@ -47,16 +48,19 @@
   #form{
     margin: 0 auto;
     width: 320px;
+    padding: 5px;
   }
 
   #Q{
         width: 300px;
         height: 80px;
-        border: 4px solid #EAB857;
+        border: 2px solid #2ecc71;
+        /* background: #2ecc71; */
         text-align:center;
         font-size: 40px;
         margin: 0 auto;
-        
+        color: white;
+        border-radius: 25px;
       }
 
   ul{
@@ -72,8 +76,9 @@
       #pl li{
         list-style: none;
         /*background: linear-gradient(#ff6347,#dc143c);*/
-        background: yellow;
-        border: 1px solid black;
+        color: #3498db;
+        background: none;
+        border: 1px solid #3498db;
         padding: 5px;
         width: 310px;
         height: 50px;
@@ -99,19 +104,32 @@
         ;
       } */
 
-      #number{
+      /* #number{
         grid-area: p1;
-      }
+        background: #191919;
+        color: white;
+        border: 2px solid #2ecc71;
+      } */
 
       #mondaic{
         grid-area: p2;
         width: 100px;
         margin: 0 auto;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid #2ecc71;
+        color: #2ecc71;
+      }
+
+      select{
+        background: #191919;
+        color: #3498db;
+        border: 2px solid #2ecc71
       }
 
       #course{
         grid-area: p3;
+        background: #191919;
+        color: #3498db;
+        border: 2px solid #2ecc71
       }
 
       /* #btns{
@@ -125,16 +143,32 @@
         margin-top: 10px;
         width: 100px;
         height: 100px;
-        
+        background: none;
+        color: white;
+        border: 2px solid #3498db;
+        transition: 0.5s;
       }
+
+      #btns input:hover{
+        border: 2px solid #2ecc71;
+        color: #2ecc71;
+      }
+
+      #btns input:focus{
+          outline: 0;
+          
+        }
 
       #yans{
         grid-area: p5;
+        color: #2ecc71;
       }
 
       .p{
-        background: linear-gradient(#ff6347,#dc143c) !important;
-        color: white;
+        /* background: linear-gradient(white,#2ecc71) !important; */
+        background: #2ecc71 !important;
+        border: 1px solid #2ecc71 !important;
+        color: white !important;
         margin-left: 15px !important;
         /* margin-left: 50.5% !important; */
       }
@@ -147,6 +181,8 @@
       #mondaic{
         height: 25px;
       }
+
+      
       
 </style>
 
@@ -493,7 +529,7 @@
           
           case '16':
 
-          var Eword={'despite':'～にもかかわらず','beyond':'～を越えて ～の向こうに ～の他に','beneath':'～の下に ～に値しない','besides':'～の他に,～に加えて そのうえ,さらに;その他に','throughout':'～のいたるところに ～の間ずっと すっかり','therefore':'したがって,それゆえに','anyway':'とにかく,いずれにせよ どうにかして','once':'一度,かつて 一度[いったん]～すると','high':'(高さ・位置が)高い (価値・給料が)高い 高く','low':'(高さ・位置が)低いい (価値・給料が)低い[安い] 低く','expensive':'(品物が)高価な,費用のかかる','cheap':'(品物が)安い,安物の,安っぽい','large':'(数・量が)多い (形・面積・容量が)大きい,広い','small':'(数・量が)少ない,わずかな (形・面積・容量が)小さい,せまい','estimate':'(を)見積もる を評価する 見積もり,見積もりの金額','measure':'(を)測定する を評価する 対策 基準','divide':'を分ける;を分類する (を)割る','add':'(を)足す を加える;を付け加える','amount':'…に達する 結局…になる 総計,総額 量,額','able':'できる,有能な','capable':'能力がある,有能な','possible':'可能な,可能性のある できる限りの','attitude':'態度,心構え 姿勢','manner':'方法,やり方 行儀 態度','habit':'(個人の)習慣,くせ','appointment':'(面会の)約束,(医者などの)予約 任命','concern':'関心,心配 関係;関連 を心配させる に関係する','affair':'情勢,問題,事情 事件','consensus':'意見の一致,合意','announce':'を公表する,を知らせる','greet':'にあいさつをする,を迎える','scold':'(を)しかる,(に)小言を言う','scream':'悲鳴を上げる,叫ぶ 悲鳴,絶叫','quarrel':'口論する,言い争う 口論,言い争い','breathe':'呼吸する,息をする','sigh':'ため息をつく ため息'};
+          var Eword={'despite':'～にもかかわらず','beyond':'～を越えて ～の向こうに ～の他に','beneath':'～の下に ～に値しない','besides':'～の他に,～に加えて そのうえ,さらに;その他に','throughout':'～のいたるところに ～の間ずっと すっかり','therefore':'したがって,それゆえに','anyway':'とにかく,いずれにせよ どうにかして','once':'一度,かつて 一度[いったん]～すると','high':'(高さ・位置が)高い (価値・給料が)高い 高く','low':'(高さ・位置が)低い (価値・給料が)低い[安い] 低く','expensive':'(品物が)高価な,費用のかかる','cheap':'(品物が)安い,安物の,安っぽい','large':'(数・量が)多い (形・面積・容量が)大きい,広い','small':'(数・量が)少ない,わずかな (形・面積・容量が)小さい,せまい','estimate':'(を)見積もる を評価する 見積もり,見積もりの金額','measure':'(を)測定する を評価する 対策 基準','divide':'を分ける;を分類する (を)割る','add':'(を)足す を加える;を付け加える','amount':'…に達する 結局…になる 総計,総額 量,額','able':'できる,有能な','capable':'能力がある,有能な','possible':'可能な,可能性のある できる限りの','attitude':'態度,心構え 姿勢','manner':'方法,やり方 行儀 態度','habit':'(個人の)習慣,くせ','appointment':'(面会の)約束,(医者などの)予約 任命','concern':'関心,心配 関係;関連 を心配させる に関係する','affair':'情勢,問題,事情 事件','consensus':'意見の一致,合意','announce':'を公表する,を知らせる','greet':'にあいさつをする,を迎える','scold':'(を)しかる,(に)小言を言う','scream':'悲鳴を上げる,叫ぶ 悲鳴,絶叫','quarrel':'口論する,言い争う 口論,言い争い','breathe':'呼吸する,息をする','sigh':'ため息をつく ため息'};
 
           var lang='eng';
 
@@ -507,6 +543,14 @@
 
           break;
 
+          case '18':
+
+          var Eword={'board':'委員会,会議 掲示板,板 に乗る;搭乗する','committee':'委員会,(全)委員','statement':'声明,陳述','strategy':'戦略,計画','gain':'を得る を増す;進む 利益 増加','obtain':'手に入れる,を得る','score':'(得点・点数)を取る;得点する 得点,点数','lack':'を欠く,がない 不足,欠如','decrease':'減る;を減らす 減少','replace':'に取ってかわる を取り替える','remove':'を取り去る,取り除く','adopt':'を採用する を養子にする','stare':'(を)じっと見る,(を)凝視する','discover':'を発見する','seek':'(を)捜す;(を)求める ～しようと努める','search':'(場所)を捜す 捜す;求める 捜索 調査','recognize':'が誰[何]だか分かる,を認識する を認める','advice':'忠告,アドバイス','baggage':'手荷物','furniture':'家具','information':'情報,知識 案内','machinery':'機械装置','news':'報道,ニュース 便り,消息,お知らせ','flock':'(鳥や羊の)群れ','herd':'(馬や羊の)群れ','school':'(魚の)群れ','shade':'(日)陰 日よけ','shadow':'影','dentist':'歯科医','surgeon':'外科医','physician':'医者;内科医','homework':'宿題','housework':'家事','poetry':'(集合的に)詩','scenery':'風景','fun':'楽しみ,おもしろいもの'};
+
+          var lang='eng';
+
+          break;
+          
           // case '':
 
           // var Eword={'':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':''};
