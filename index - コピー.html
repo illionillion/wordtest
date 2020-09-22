@@ -49,7 +49,6 @@
     margin: 0 auto;
     width: 320px;
     padding: 5px;
-    
   }
 
   #Q{
@@ -61,7 +60,7 @@
         font-size: 40px;
         margin: 0 auto;
         color: white;
-        border-radius: 25px;overflow-y: auto;
+        border-radius: 25px;
       }
 
   ul{
@@ -89,7 +88,7 @@
         /* margin:5px auto; */
         text-align: left;
         margin-bottom: 5px;
-        overflow-x: auto;
+
       }
 
      
@@ -183,25 +182,12 @@
         height: 25px;
       }
 
-      #cover{
-        height: 600px;
-        width: 320px;
-        border: 1px solid white;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        }
-      .hide{
-        display: none;
-      }
+      
+      
 </style>
 
   </head>
   <body>
-    <div id="cover" class="hide">
-      AA
-    </div>
     <form id="form">
     <div id="Q">
 
@@ -266,9 +252,6 @@
           <option value="16">p164~p169</option>          
           <option value="17">p170~p175</option>          
           <option value="18">p176~p181</option>          
-          <option value="19">p182,p202~p205</option>          
-          <option value="20">p206~p211</option>          
-          <!-- <option value="21">p208~p211</option>           -->
          
         </optgroup>
         <optgroup label="cloud">
@@ -568,14 +551,6 @@
 
           break;
           
-          case '19':
-
-          var Eword={'economy':'経済(活動) 節約','price':'価格;物価 代償 に値段をつける','trade':'貿易,取引 商売,  ～業 貿易する に交換する','industry':'産業,工業 勤勉','loss':'損失,損害','consumer':'消費者','duty':'関税,税金 義務 職務','balance':'残高,収支 釣り合い,バランス と釣り合う','guarantee':'を保証する;を約束する 保証,保証書','join':'(人や団体)に加わる を接合する に参加する','participate':'(活動)に参加する','organize':'(行事・活動など)を準備する をまとめる を組織する','unite':'団結[協力]する;団結[協力]させる 結合する;を結合させる','profit':'(金銭的な)利益,利潤 利益を得る,得をする','benefit':'利益 恩恵 手当 利益を得る','wealth':'富;財産','value':'価値;価格　を評価する,を重んじる','capital':'資本(金) 首都 大文字 主要な 大文字の','share':'分け前 割り当て 株(式) (を)分け合う;(を)共有する','arms':'武器,兵器','force':'軍隊,部隊','goods':'商品','means':'手段,方法 資産,財産','spirits':'気分','height':'高さ,身長 高度,海抜','borad':'広い;広々とした','huge':'巨大な,莫大な','tiny':'とても小さい;ごくわずかの','single':'たった1つの 独身の 1人用の','depth':'深さ,奥行き','fare':'(鉄道などの)運賃,料金','fee':'(入学,入会などの)料金 報酬,謝礼','charge':'(サービスに対する)料金 責任,義務 (料金など)を請求する を非難する,を告発する (を)充電する','bill':'請求書,勘定 紙幣 法案','admission':'入場料,入場許可','tax':'税金 に税金をかける'};
-
-          var lang='eng';
-
-          break;
-
           // case '':
 
           // var Eword={'':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':''};
@@ -675,7 +650,7 @@
 
             var calling =JSON.parse(sessionStorage.getItem("wordlog"));
 
-              // console.log(calling);
+              console.log(calling);
 
               var key =Object.keys(calling);
 
@@ -699,12 +674,6 @@
            
 
         }
-
-        // if(nnn>Elength){
-        //   documet.getElementById("cover").classList.toggle('hide');
-        //   concole.log("cover");
-        // }
-
             console.log(Eword2);
             console.log(Jword);
         var QEword=Math.floor(Math.random()* Eword2.length);
@@ -735,11 +704,11 @@
 
             poo= JSON.parse(poo);
 
-            // for (var i = 0; i < poo.length; i++) {
-            //     for (var key in poo[i]) {
-            //       console.log(poo[i][key]);
-            //     }
-            //   }
+            for (var i = 0; i < poo.length; i++) {
+                for (var key in poo[i]) {
+                  console.log(poo[i][key]);
+                }
+              }
 
 
             }
@@ -847,7 +816,7 @@
 
             var NR=Math.floor(Math.random()* num.length);
 
-              // console.log(num[NR]);
+              console.log(num[NR]);
 
               //return{NR:NR};
 
