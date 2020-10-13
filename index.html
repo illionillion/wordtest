@@ -268,7 +268,10 @@
           <option value="18">p176~p181</option>          
           <option value="19">p182,p202~p205</option>          
           <option value="20">p206~p211</option>          
-          <!-- <option value="21">p208~p211</option>           -->
+          <option value="21">p212~p217</option>          
+          <option value="22">p218~p223</option>          
+          <option value="23">p224~p231</option>          
+          <!-- <option value="24">p230~p223</option>           -->
          
         </optgroup>
         <optgroup label="cloud">
@@ -584,6 +587,22 @@
 
           break;
 
+          case '21':
+
+          var Eword={'carriage':'馬車;車 客車','freight':'貨物 貨物運送','load':'積み荷,荷物 重み,重さ;負担 に荷を積む,を載せる','wheel':'ハンドル 車輪','hard':'厳しく 熱心に,賢命に 固い 難しい 熱心な','hardly':'ほとんど～ない','just':'ちょうど 単に 公正な 正確な','justly':'公正に,正当に 正確に 当然のことながら','late':'遅れて,遅く 遅れた,遅い 後半に,遅い時間に','lately':'最近,近ごろ','near':'～の近くに 近くに 近い','nearly':'ほとんど,もう少しで','living':'生きている','priceless':'大変貴重な','worthless':'価値のない','very':'まさにその...','most':'最も 最も多くの;大部分の 大部分,ほとんど 最も多くあるもの','mostly':'たいていは,主として','pretty':'かなり かわいい,きれいな','prettily':'かわいらしく,きれいに','sharp':'きっかりと,正確に 鋭い,とがった 急な','sharply':'鋭く;厳しく','figure':'数字;桁 図形 姿 を計算する;を合計する 目立つ …と考える;判断する','sum':'合計,総額 を合計する 要約する','quantity':'量;分量,数量','quarter':'4分の1 15分 四半期','double':'2倍になる;2倍にする 2倍 2倍の;二重の','transport':'を輸送する 輸送機関','transfer':'転勤する;を転勤させる  移る;を移す 乗り換える 転勤,移動;乗り換え','wander':'歩き回る,さまよう,放浪する','shift':'少し動く;少し動かす 移る;を移す 転換 勤務時間','depart':'出発する','convey':'を伝える を輸送する','descend':'(を)降りる(を)下る 伝わる','immigrate':'外国から移住する'};
+
+          var lang='eng';
+
+          break;
+
+          case '22':
+
+          var Eword={'chairperson':'議長;司会者 委員長','conference':'会議,協議会 相談,協議','financial':'財政上の','firm':'会社,商店 堅い;断固とした','item':'(新聞)記事 項目;品目 1品,アイテム','manager':'経営者;支配人','secretary':'秘書 長官','signature':'署名,サイン','undertake':'を引き受ける に着手する;企てる','fulfill':'(義務・約束)を果たす (要求・条件)を満たす','establish':'を設立する;を確立する','construct':'を建設する を組み立てる','maintain':'を維持する と主張する を扶養する','engage':'…に従事している  …と婚約している を引き付ける','slip':'紙片,伝票 小さなミス 滑ること 滑る;を滑らせる 滑り落ちる','staff':'職員;スタッフ','suit':'スーツ 訴訟 に適する に似合う','manual':'手で行う;肉体の 手引き(書)','deal':'…を扱う,…に対処する を分配する 商取引 量','brand':'銘柄,ブランド,商標;品種,等級','congratulate':'を祝う,に祝辞を述べる','assure':'に確信させる,保証する','declare':'を宣言する,と断言する を申告する','illustrate':'に説明する;を図解する','demonstrate':'を明確に示す を実演する','exhibit':'を展示する 展示(品)','holy':'信心深い 神聖な','mercy':'慈悲,情け 幸運','religious':'宗教の;信心深い','sin':'(宗教・道徳上の)罪','faith':'信頼,信用 信仰,信念','belief':'信念;信じること','glory':'栄光,栄誉,名誉 恵み 賛美','sacred':'神聖な,聖なる;(神などを)祭った','eternal':'永遠の,永久の','worship':'を拝む,を崇拝する 崇拝;礼拝','pray':'(を)祈る','bless':'を祝福する','confess':'(罪など)を告白する,(を)白状する;を認める','sacrifice':'を犠牲にする 犠牲;生贄'};
+
+          var lang='eng';
+
+          break;
+
           // case '':
 
           // var Eword={'':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':''};
@@ -757,7 +776,7 @@
 
             if ('speechSynthesis' in window) {
               console.log("このブラウザは音声合成に対応しています! ^_^");
-
+              var sound={};
               switch(lang){
 
               case 'eng':
@@ -765,8 +784,10 @@
                 ssup.text=Eword2[QEword];
                 ssup.lang='en-EN';
                 speechSynthesis.speak(ssup);
+                
+                sound[ssup.lang]=Eword2[QEword];
 
-                sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
+                sessionStorage.setItem("sound",JSON.stringify(sound));//保存
               break;
 
               case 'ja':
@@ -779,7 +800,9 @@
               
               speechSynthesis.speak(ssup);
 
-              sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
+              sound[ssup.lang]=Eword2[QEword];
+
+              sessionStorage.setItem("sound",JSON.stringify(sound));//保存
               break;
 
               case 'cha':
@@ -792,7 +815,9 @@
               
               speechSynthesis.speak(ssup);
 
-              sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
+              sound[ssup.lang]=Eword2[QEword];
+
+              sessionStorage.setItem("sound",JSON.stringify(sound));//保存
               break;
 
 
@@ -807,6 +832,13 @@
             
 
         var Aword=Jword[QEword];
+
+          var Wdata={};
+
+          Wdata[Eword2[QEword]]=Aword;
+
+          sessionStorage.setItem("Wdata",JSON.stringify(Wdata));
+
           console.log(Aword);//英単語の答え
                   
          
@@ -1087,58 +1119,6 @@ function loop(){
 }
 
 
-// function repeatname(){
-
-//   var lang=sessionStorage.getItem(ssup.lang,Eword2[QEword]);
-
-//   if ('speechSynthesis' in window) {
-//               console.log("このブラウザは音声合成に対応しています! ^_^");
-
-//               switch(lang){
-
-//               case 'eng':
-//                 var ssup=new SpeechSynthesisUtterance();
-//                 ssup.text=Eword2[QEword];
-//                 ssup.lang='en-EN';
-//                 speechSynthesis.speak(ssup);
-
-//                 sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
-//               break;
-
-//               case 'ja':
-
-//               var ssup = new SpeechSynthesisUtterance();
-              
-//               ssup.text =Eword2[QEword];
-              
-//               ssup.lang = 'ja-JP';
-              
-//               speechSynthesis.speak(ssup);
-
-//               sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
-//               break;
-
-//               case 'cha':
-
-//               var ssup = new SpeechSynthesisUtterance();
-              
-//               ssup.text =Eword2[QEword];
-                           
-//               ssup.lang='zh-CN';
-              
-//               speechSynthesis.speak(ssup);
-
-//               sessionStorage.setItem(ssup.lang,Eword2[QEword]);//保存
-//               break;
-
-
-//             }
-//             } else {
-
-//               console.log("このブラウザは音声合成に対応していません。 T_T");
-//             }
-// }
-
         
  go.onclick=function Go(){
 
@@ -1200,6 +1180,77 @@ function loop(){
                   audioElem.play();
                   number.focus();
 
+                  var Wdata = JSON.parse(sessionStorage.getItem("Wdata"));
+
+                  
+                  var Eword=[];
+                  var Jword=[];
+
+                  // Eword.push(Object.keys(datalist)[0]);
+            
+                  // Jword.push(Eword [Object.keys(datalist)[0]]);
+
+                  var Elength=Object.keys(Wdata).length;
+               
+
+                    
+
+
+                  if(sessionStorage.hasOwnProperty('missword')) {
+
+                  var datalist = JSON.parse(sessionStorage.getItem("missword"));
+                  
+
+                  for(let step=0; step < Elength; step++){
+                      Eword.push(Object.keys(Wdata)[step]);
+                      
+
+                      Jword.push(Eword [Object.keys(Wdata)[step]]);
+
+                      datalist[Eword[step]]=Jword[step];
+                    }
+                  //保存する
+                  sessionStorage.setItem("missword", JSON.stringify(datalist));
+
+                  }else{
+
+                  var datalist={};
+
+                  for(let step=0; step < Elength; step++){
+                      Eword.push(Object.keys(Wdata)[step]);
+                      
+
+                      Jword.push(Eword [Object.keys(Wdata)[step]]);
+
+                      datalist[Eword[step]]=Jword[step];
+                    }
+
+                  sessionStorage.setItem('missword',JSON.stringify(datalist));
+
+                  }
+
+
+
+
+                  // if(sessionStorage.hasOwnProperty('missword')){
+
+                  //   var datalist=JSON.parse(sessionStorage.getItem("missword"));
+
+                  // }else{
+
+                  //   var datalist={};
+
+
+                  // } 
+
+                  
+                  
+                  
+
+                  //   console.log(datalist);
+
+                  // sessionStorage.setItem("missword",JSON.stringify(datalist));
+                 
          }
 
          
