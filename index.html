@@ -191,16 +191,41 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.842);
+        text-align: center;
         }
       .hide{
         display: none;
+      }
+      .appear{
+        display: block;
+      }
+
+      #misslist{
+        text-align: center;
+        height: 450px;
+        overflow-y: auto;
+      }
+      .missli{
+        text-align: left;
+      }
+
+      #close{
+        border: 1px solid black;
       }
 </style>
 
   </head>
   <body>
     <div id="cover" class="hide">
-      AA
+      <h3>結果</h3>
+      <ul id="misslist">間違えた単語
+        <!-- <li></li>
+        <li></li>
+        <li></li>
+        <li></li> -->
+      </ul>
+      <div id="close">閉じる</div>
     </div>
     <form id="form">
     <div id="Q">
@@ -271,6 +296,7 @@
           <option value="21">p212~p217</option>          
           <option value="22">p218~p223</option>          
           <option value="23">p224~p231</option>          
+          <option value="demo">demo</option>          
           <!-- <option value="24">p230~p223</option>           -->
          
         </optgroup>
@@ -334,6 +360,13 @@
       const momo=document.getElementById('mondaic');
       const reset=document.getElementById('reset');
       const ccc=document.getElementById('course');
+      const cover=document.getElementById('cover');
+      const close=document.getElementById('close');
+
+      close.onclick=function close(){
+        cover.classList.toggle('appear');
+        cover.classList.toggle('hide');
+      }
 
       number.onchange=function touch(){
 
@@ -603,6 +636,14 @@
 
           break;
 
+          case 'demo':
+
+          var Eword={'A':'a','B':'b','C':'c','D':'d'};
+
+          var lang='eng';
+
+          break;
+
           // case '':
 
           // var Eword={'':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':'','':''};
@@ -847,7 +888,7 @@
         
 
           var minus=Elength-nnn;
-
+          console.log("minus="+minus);
           if(minus<3){
             console.log("球切れ");
             var datalist = JSON.parse(sessionStorage.getItem("wordlog"));
@@ -858,9 +899,11 @@
               // deleteword.push(Object.keys(datalist)[step]);
               deleteword.push(datalist [Object.keys(datalist)[step]]);
                        
-          }
+              }
 
-          console.log(deleteword);
+          
+
+              console.log(deleteword);
           
           
           var idx3 = deleteword.indexOf(Aword);
@@ -879,7 +922,70 @@
 
 
           }
+          if(0>minus){
+            QD.innerHTML="終了";
+            // console.log("終了");
 
+            var datalist = JSON.parse(sessionStorage.getItem("missword"));
+
+            // console.log(datalist);
+
+            cover.classList.toggle('appear');
+            cover.classList.toggle('hide');
+
+            var miss=document.getElementById('misslist');
+
+            if(sessionStorage.hasOwnProperty('missword')) {
+
+              var datalist=JSON.parse(sessionStorage.getItem('missword'));
+
+              var datacount=Object.keys(datalist).length;
+
+              
+
+                // document.getElementById('t').innerHTML='↓クリックして表示';
+
+                var Ekey=[];
+                var Jvalue=[];
+
+                for(let step=0; step < datacount; step++){
+                  Ekey.push(Object.keys(datalist)[step]);
+                  
+
+                  Jvalue.push(datalist[Object.keys(datalist)[step]]);
+                  
+                }
+
+                console.log(Ekey);
+                console.log(Jvalue);
+
+                for (let step = 0; step < datacount; step++) {
+
+                  var calling =Ekey[step];
+                  var calling2 =Jvalue[step];
+
+                  const make =document.createElement('li');
+
+                  misslist.appendChild(make);
+
+                  var name="li"+step
+
+                  make.id=name;
+
+                  var made=document.getElementById(name);
+
+                  made.innerHTML=calling+':'+calling2;
+
+                  // made.style.textAlign= 'left';
+                  // made.style.width= '200px';
+                }
+              
+              }else{
+              console.log('no data...');
+                miss.innerHTML='ノーミスクリア！！';
+              }
+
+            }
           
               
           var num=['1','2','3','4'];
@@ -1183,8 +1289,7 @@ function loop(){
                   var Wdata = JSON.parse(sessionStorage.getItem("Wdata"));
 
                   
-                  var Eword=[];
-                  var Jword=[];
+                  
 
                   // Eword.push(Object.keys(datalist)[0]);
             
@@ -1200,13 +1305,14 @@ function loop(){
 
                   var datalist = JSON.parse(sessionStorage.getItem("missword"));
                   
-
+                  
                   for(let step=0; step < Elength; step++){
-                      Eword.push(Object.keys(Wdata)[step]);
-                      
+                      var Eword=Object.keys(Wdata)
 
-                      Jword.push(Eword [Object.keys(Wdata)[step]]);
+                      var Jword=[];
 
+                      Jword.push(Wdata [Object.keys(Wdata)[step]]);
+                      // var Jword=Wdata[Object.keys(Wdata)[step]];
                       datalist[Eword[step]]=Jword[step];
                     }
                   //保存する
@@ -1216,11 +1322,16 @@ function loop(){
 
                   var datalist={};
 
-                  for(let step=0; step < Elength; step++){
-                      Eword.push(Object.keys(Wdata)[step]);
-                      
+                  
+                    
 
-                      Jword.push(Eword [Object.keys(Wdata)[step]]);
+                  for(let step=0; step < Elength; step++){
+                      
+                      var Eword=Object.keys(Wdata)
+
+                      var Jword=[];
+
+                      Jword.push(Wdata [Object.keys(Wdata)[step]]);
 
                       datalist[Eword[step]]=Jword[step];
                     }
@@ -1232,52 +1343,24 @@ function loop(){
 
 
 
-                  // if(sessionStorage.hasOwnProperty('missword')){
-
-                  //   var datalist=JSON.parse(sessionStorage.getItem("missword"));
-
-                  // }else{
-
-                  //   var datalist={};
-
-
-                  // } 
-
-                  
-                  
-                  
-
-                  //   console.log(datalist);
-
-                  // sessionStorage.setItem("missword",JSON.stringify(datalist));
+                 
                  
          }
 
          
 
-        // document.getElementById( 'music/Quiz-Wrong_Buzzer01-mp3/Quiz-Wrong_Buzzer01-1.mp3' ).play() ;
-
-        // dcoument.getElementById('sound-file2').play();
+        
        }
        
        
-       //setInterval ('Start()',1000);
+       
     }
 
        
  }           
             
        
-//  function sample(name) {
 
-//   var age=Math.floor(Math.random()*90);
- 
-//  console.log(name + 'さんの年齢は' + age + 'です！');
-
-// }
-
-// //引数に値を渡す
-// sample('太郎');
 
 
 
