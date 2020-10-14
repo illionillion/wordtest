@@ -193,24 +193,35 @@
         transform: translate(-50%, -50%);
         background: rgba(255, 255, 255, 0.842);
         text-align: center;
+
         }
       .hide{
         display: none;
+        
       }
       .appear{
         display: block;
+
       }
 
       #misslist{
         text-align: center;
-        height: 450px;
+        height: 430px;
         overflow-y: auto;
+        width: 250px;
+        margin: 0 auto;
       }
       .missli{
         text-align: left;
+        margin: 15px auto;
+        border-bottom: 1px solid black;
       }
 
       #close{
+        border: 1px solid black;
+        cursor: pointer;
+      }
+      #percent{
         border: 1px solid black;
       }
 </style>
@@ -225,6 +236,7 @@
         <li></li>
         <li></li> -->
       </ul>
+      <div id="percent">%</div>
       <div id="close">閉じる</div>
     </div>
     <form id="form">
@@ -362,11 +374,14 @@
       const ccc=document.getElementById('course');
       const cover=document.getElementById('cover');
       const close=document.getElementById('close');
+      const percent=document.getElementById('percent');
 
       close.onclick=function close(){
         cover.classList.toggle('appear');
         cover.classList.toggle('hide');
       }
+
+      
 
       number.onchange=function touch(){
 
@@ -821,6 +836,7 @@
             }
             
             const lp =nnn+'/'+Elength;
+            var EElength=Elength;
             momo.innerHTML=lp; 
 
             if ('speechSynthesis' in window) {
@@ -935,7 +951,7 @@
             // console.log("終了");
 
             var datalist = JSON.parse(sessionStorage.getItem("missword"));
-
+            
             // console.log(datalist);
 
             cover.classList.toggle('appear');
@@ -967,6 +983,9 @@
                 console.log(Ekey);
                 console.log(Jvalue);
 
+                var Npercent=EElength-datacount/EElength*100;
+                percent.innerHTML="正答率 "+Npercent+" ％";
+
                 for (let step = 0; step < datacount; step++) {
 
                   var calling =Ekey[step];
@@ -977,13 +996,14 @@
                   misslist.appendChild(make);
 
                   var name="li"+step
-
+                  var step2=step+1;
                   make.id=name;
 
                   var made=document.getElementById(name);
 
-                  made.innerHTML=calling+':'+calling2;
+                  made.innerHTML=step2+"."+calling+':'+calling2;
 
+                  made.className="missli";
                   // made.style.textAlign= 'left';
                   // made.style.width= '200px';
                 }
