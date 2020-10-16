@@ -294,6 +294,8 @@
       <select id="course">
 
         <optgroup label="データベース">
+          <option value="demo">demo</option>
+          <!-- <option value="demo2">demo2</option> -->
           <option value="0">p14~p19</option>          
           <option value="0.5">p20~p25</option>          
           <option value="1">p26~p31</option>          
@@ -319,7 +321,7 @@
           <option value="21">p212~p217</option>          
           <option value="22">p218~p223</option>          
           <option value="23">p224~p231</option>          
-          <option value="demo">demo</option>          
+                    
           <!-- <option value="24">p230~p223</option>           -->
          
         </optgroup>
@@ -670,6 +672,14 @@
 
           break;
 
+          case 'demo2':
+
+          var Eword={'E':'e','F':'f','G':'g','H':'h'};
+
+          var lang='eng';
+
+          break;
+
           case '23':
 
           var Eword={'court':'法廷,裁判所 宮廷 コート','lawyer':'弁護士;法律家','proof':'証拠(品);証明','victim':'(事故などの)犠牲者,被害者','witness':'目撃者 証拠;証言 を目撃する を証言する','trial':'裁判,公判 試験 試練','fog':'霧,もや','flood':'洪水 を水浸しにする;を溢れさせる','typical':'典型的な 特有の','breeze':'そよ風','frost':'霜 霜が降りる','moist':'湿った,ぬれた','humid':'湿気の多い','thermometer':'温度計,寒暖計','thunder':'雷(鳴) 雷が鳴る;大きな音を立てる','contract':'契約(書) (の)契約を結ぶ を収縮させる','innocent':'無実の,無罪の 無邪気な','justice':'公正;正義 司法;裁判(官)','legal':'合法的な 法律上の','prison':'刑務所 拘置','expose':'を(危険や光に)さらす を暴露する','emerge':'現れる,出て来る 明らかになる','reveal':'を明らかにする,を暴露する','imply':'を示唆する,をほのめかす','arise':'(問題などが)生まれる,発生する;起こる','generate':'生み出す,を発生させる,を起こす','ache':'(心身の鋭い)痛み (心身が)痛む','ambulance':'救急車','comfort':'を慰める 慰め;心地よさ','deaf':'耳が聞こえない (忠告・嘆願などを)聞こうとしない','drug':'薬 麻薬 (飲食物)に薬物を入れる','fatigue':'疲労 を疲れさせる','muscle':'筋肉 腕力,体力','remedy':'治療,手当 改善策 を治療する','symptom':'症状 兆候','sweat':'汗 汗をかく 精を出して働く','bacteria':'バクテリア,細菌','prepare':'を用意する,を準備する 備える','equip':'を備えつける を身に着けさせる','furnish':'に家具を備えつける を供給する','beast':'けだもの,野獣 (四足歩行の)動物','biology':'生物学','botany':'植物学','cell':'細胞 電池 独房;小部屋','ecology':'生態(学),エコロジー','feather':'羽毛,羽 鳥類 を羽毛で覆う','fur':'毛皮;やわらかい毛','insect':'昆虫','instinct':'本能 素質','evolution':'(生物の)進化 発展','educate':'を教育する','comprehend':'を理解する を包む','examine':'を調査する;を試験する'};
@@ -966,6 +976,32 @@
             
             // console.log(datalist);
 
+                var pages=ccc.value;
+                var percentage=percent.innerHTML;
+                if(localStorage.hasOwnProperty('Ewordtestlogdata')){
+
+                  var datas=JSON.parse(localStorage.getItem('Ewordtestlogdata'));
+                  var datas2={};
+
+                  datas2['words']=datalist;
+                  datas2['%']=percentage;
+                  datas[pages]=datas2;
+
+                  localStorage.setItem("Ewordtestlogdata",JSON.stringify(datas));
+
+
+                }else{
+                  var datas={};
+                  var datas2={};
+
+                  datas2['words']=datalist;
+                  datas2['%']=percentage;
+                  datas[pages]=datas2;
+                  
+                  localStorage.setItem("Ewordtestlogdata",JSON.stringify(datas));
+
+                }
+
             cover.classList.toggle('appear');
             cover.classList.toggle('hide');
 
@@ -1025,7 +1061,32 @@
                   // made.style.textAlign= 'left';
                   // made.style.width= '200px';
                 }
-              
+                var pages=ccc.value;
+                var percentage=percent.innerHTML;
+                if(localStorage.hasOwnProperty('Ewordtestlogdata')){
+
+                  var datas=JSON.parse(localStorage.getItem('Ewordtestlogdata'));
+                  var datas2={};
+
+                  datas2['words']=datalist;
+                  datas2['%']=percentage;
+                  datas[pages]=datas2;
+
+                  localStorage.setItem("Ewordtestlogdata",JSON.stringify(datas));
+
+
+                }else{
+                  var datas={};
+                  var datas2={};
+
+                  datas2['words']=datalist;
+                  datas2['%']=percentage;
+                  datas[pages]=datas2;
+                  
+                  localStorage.setItem("Ewordtestlogdata",JSON.stringify(datas));
+
+                }
+
               }else{
               console.log('no data...');
                 miss.innerHTML='ノーミスクリア！！';
