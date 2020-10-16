@@ -236,7 +236,7 @@
         }
       }
 </style>
-
+<link rel="stylesheet" href="css/responsive.css">
   </head>
   <body>
     <div id="cover" class="hide">
@@ -250,10 +250,37 @@
       <div id="percent">%</div>
       <div id="close">閉じる</div>
     </div>
+
+    <!-- 🍔 -->
+    <input id="menu" type="checkbox" />
+    <label for="menu" class="open">🍔</label>
+    <label for="menu" class="back"></label>
+    <!-- 🍔 -->
+
+    <aside>
+        <!-- 🍔 -->
+        <label for="menu" class="close">×</label>
+        <!-- 🍔 -->
+
+        <nav>
+            <ul id="loglist">
+                <!-- <li>list1</li>
+                <li>list2</li>
+                <li>list3</li>
+                <li>list4</li>
+                <li>list5</li> -->
+            </ul>
+        </nav>
+        <div>
+            side footer
+        </div>
+    </aside>
+
     <form id="form">
     <div id="Q">
 
     </div>
+    
     
 
     <ul id="pl" class="k">
@@ -294,7 +321,7 @@
       <select id="course">
 
         <optgroup label="データベース">
-          <option value="demo">demo</option>
+          <option value="demo">選択してください</option>
           <!-- <option value="demo2">demo2</option> -->
           <option value="0">p14~p19</option>          
           <option value="0.5">p20~p25</option>          
@@ -388,6 +415,13 @@
       const cover=document.getElementById('cover');
       const close=document.getElementById('close');
       const percent=document.getElementById('percent');
+      const loglistA=document.getElementById("loglist")
+
+
+      // window.onload=function dataload(){
+
+      // }
+
 
       close.onclick=function close(){
         cover.classList.toggle('appear');
@@ -1481,6 +1515,22 @@ function loop(){
         
        ccc.onchange=function lolo(){
         sessionStorage.clear();
+
+        var pagename=ccc.value;
+
+        // if(localStorage.hasOwnProperty('Ewordtestlogdata')){
+
+        //   var datas=JSON.parse(localStorage.getItem('Ewordtestlogdata'));
+        //   // var datas2=
+        //   var word=pagename['words'];
+        //   var numbers=pagename['%'];
+        //   console.log(word);
+        //   console.log(numbers);
+        //   var count=Object.keys(word).length;
+
+          
+
+        // }
        }
 
         
