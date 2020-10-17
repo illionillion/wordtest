@@ -1528,6 +1528,8 @@ function loop(){
        ccc.onchange=function lolo(){
         sessionStorage.clear();
 
+        loglistA.innerHTML="";
+
         var pagename=ccc.value;
         console.log(pagename);
         if(localStorage.hasOwnProperty('Ewordtestlogdata')){
