@@ -195,6 +195,12 @@
         text-align: center;
 
         }
+
+      /* .open{
+        color: blanchedalmond;
+        font-size: 2rem;
+      } */
+
       .hide{
         display: none;
         
@@ -216,10 +222,18 @@
         margin: 15px auto;
         border-bottom: 1px solid black;
       }
+      .missli2{
+        text-align: left;
+        width: 200px;
+        margin: 10px auto;
+        border-bottom: 1px solid black;
+      }
 
       #close{
         border: 1px solid black;
         cursor: pointer;
+        font-size: 2rem;
+        border: 1px solid black;
       }
       #percent{
         border: 1px solid black;
@@ -253,7 +267,7 @@
 
     <!-- 🍔 -->
     <input id="menu" type="checkbox" />
-    <label for="menu" class="open">🍔</label>
+    <label for="menu" class="open">＊</label>
     <label for="menu" class="back"></label>
     <!-- 🍔 -->
 
@@ -263,7 +277,7 @@
         <!-- 🍔 -->
 
         <nav>
-            <ul id="loglist">
+            <ul id="loglist">間違えた単語
                 <!-- <li>list1</li>
                 <li>list2</li>
                 <li>list3</li>
@@ -271,9 +285,7 @@
                 <li>list5</li> -->
             </ul>
         </nav>
-        <div>
-            side footer
-        </div>
+        <div id="percent2"></div>
     </aside>
 
     <form id="form">
@@ -322,7 +334,7 @@
 
         <optgroup label="データベース">
           <option value="demo">選択してください</option>
-          <!-- <option value="demo2">demo2</option> -->
+          <option value="demo2">demo2</option>
           <option value="0">p14~p19</option>          
           <option value="0.5">p20~p25</option>          
           <option value="1">p26~p31</option>          
@@ -1517,24 +1529,82 @@ function loop(){
         sessionStorage.clear();
 
         var pagename=ccc.value;
+        console.log(pagename);
+        if(localStorage.hasOwnProperty('Ewordtestlogdata')){
 
-        // if(localStorage.hasOwnProperty('Ewordtestlogdata')){
+          var datas=JSON.parse(localStorage.getItem('Ewordtestlogdata'));
+          console.log(datas);
 
-        //   var datas=JSON.parse(localStorage.getItem('Ewordtestlogdata'));
-        //   // var datas2=
-        //   var word=pagename['words'];
-        //   var numbers=pagename['%'];
-        //   console.log(word);
-        //   console.log(numbers);
-        //   var count=Object.keys(word).length;
+          if (pagename in datas) {
+          //存在する場合の処理
+
+          var datas2=datas[pagename]
+          console.log(datas2);
+                    
+          var word=datas2['words'];        
+          var numbers=datas2['%'];
+          console.log(word);
+          console.log(numbers);
+
+          if (numbers == '正答率 100 ％') {
+            //console.log('val_null == null');
+            var count =0;
+          }else{
+            var count=Object.keys(word).length;
+          }
+         
+
+          var Ekey=[];
+          var Jvalue=[];
+
+          for(let step=0; step < count; step++){
+            Ekey.push(Object.keys(word)[step]);
+            
+
+            Jvalue.push(word[Object.keys(word)[step]]);
+            
+          }
 
           
 
-        // }
-       }
+          for (let step = 0; step < count; step++) {
+
+          var calling =Ekey[step];
+          var calling2 =Jvalue[step];
+
+          const make =document.createElement('li');
+
+          loglistA.appendChild(make);
+
+          var name="LI"+step
+          var step2=step+1;
+          make.id=name;
+
+          var made=document.getElementById(name);
+
+          made.innerHTML=step2+"."+calling+':'+calling2;
+
+          made.className="missli2";
+          // made.style.textAlign= 'left';
+          // made.style.width= '200px';
+          }
+          document.getElementById('percent2').innerHTML=numbers;
+
+          }
+
+
+          
+          
+      }
+
+          
+    }
 
         
       
+    // var a={};
+    // console.log(a);
+    // console.log(Object.keys(a).length);
 
     </script>
   </body>

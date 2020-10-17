@@ -9,7 +9,17 @@ input[type="checkbox"] {
   position: absolute;
   top: 0;
   left: 0;
+  color: blanchedalmond;
+  font-size: 2rem;
 }
+
+.close{
+  font-size: 2rem;
+  /* border: 1px solid black; */
+  padding: 0 90px;
+  text-align: right;
+}
+
 aside {
   position: absolute;
   left: -250px;
