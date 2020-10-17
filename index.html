@@ -277,7 +277,7 @@
         <!-- 🍔 -->
 
         <nav>
-            <ul id="loglist">間違えた単語
+            <ul id="loglist">
                 <!-- <li>list1</li>
                 <li>list2</li>
                 <li>list3</li>
@@ -1556,7 +1556,7 @@ function loop(){
         sessionStorage.clear();
 
         loglistA.innerHTML="間違えた単語";
-
+        document.getElementById('percent2').innerHTML="";
         var pagename=ccc.value;
         console.log(pagename);
         if(localStorage.hasOwnProperty('Ewordtestlogdata')){
