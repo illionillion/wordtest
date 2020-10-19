@@ -24,11 +24,16 @@ aside {
   position: absolute;
   left: -250px;
   height: 100%;
-  width: 200px;
+  width: 250px;
   transition: all 0.2s;
   background: #ffffff;
   overflow-y: auto;
 }
+
+#loglist{
+  list-style: none;
+}
+
 input[type="checkbox"]:checked ~ aside {
   left: 0;
 }
