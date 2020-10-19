@@ -11,6 +11,7 @@ input[type="checkbox"] {
   left: 0;
   color: blanchedalmond;
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .close{
@@ -18,6 +19,7 @@ input[type="checkbox"] {
   /* border: 1px solid black; */
   padding: 0 90px;
   text-align: right;
+  cursor: pointer;
 }
 
 aside {
