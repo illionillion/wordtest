@@ -27,6 +27,7 @@ aside {
   width: 200px;
   transition: all 0.2s;
   background: #ffffff;
+  overflow-y: auto;
 }
 input[type="checkbox"]:checked ~ aside {
   left: 0;

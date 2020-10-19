@@ -233,7 +233,7 @@
         border: 1px solid black;
         cursor: pointer;
         font-size: 2rem;
-        border: 1px solid black;
+        
       }
       #percent{
         border: 1px solid black;
@@ -1487,16 +1487,16 @@ function loop(){
                   
                   
                   for(let step=0; step < Elength; step++){
-                      var Eword=Object.keys(Wdata)
+                        var Eword=Object.keys(Wdata)
 
-                      var Jword=[];
+                        var Jword=[];
 
-                      Jword.push(Wdata [Object.keys(Wdata)[step]]);
-                      // var Jword=Wdata[Object.keys(Wdata)[step]];
-                      datalist[Eword[step]]=Jword[step];
-                    }
-                  //保存する
-                  sessionStorage.setItem("missword", JSON.stringify(datalist));
+                        Jword.push(Wdata [Object.keys(Wdata)[step]]);
+                        // var Jword=Wdata[Object.keys(Wdata)[step]];
+                        datalist[Eword[step]]=Jword[step];
+                      }
+                      //保存する
+                      sessionStorage.setItem("missword", JSON.stringify(datalist));
 
                   }else{
 
@@ -1518,7 +1518,7 @@ function loop(){
 
                   sessionStorage.setItem('missword',JSON.stringify(datalist));
 
-                  }
+                }
 
 
 
@@ -1537,7 +1537,7 @@ function loop(){
     }
 
        
- }           
+   }           
             
        
 
