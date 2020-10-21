@@ -12,7 +12,7 @@
     <meta name="description" content="四択クイズです。おいでませ。">
     <meta property="og:title" content="四択!!英単語クイズ" />
     <meta property="og:type"        content="website" />
-    <meta property="og:url"         content="https://illionillion.github.io/wordtest/" />
+    <meta property="og:url"         content="https://illionillion.github.io/wordtest/index.html" />
     <meta property="og:description" content="四択クイズです。おいでませ。" />
     <meta property="og:site_name" content="四択!!英単語クイズ" />
     <meta property="og:image" content="https://illionillion.github.io/wordtest/img/98306.jpg" />
@@ -241,6 +241,43 @@
         border: 1px solid black;
       }
 
+      #cap{
+        width: 100%;
+        height: 100%;
+        /* border: 1px solid black; */
+        background: white ;
+        position: fixed;
+        
+        text-align: center;
+      }
+
+      .kick{
+        display: block;
+
+      }
+
+      .punch{
+        display: none;
+      }
+
+      
+
+      /* #imgframe{
+        
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+
+      } */
+
+      #Eimg{
+        width: 100px;
+        height: 100px;
+        
+      }
+
       @media screen and (max-width: 450px) {
 /* 768pxまでの幅の場合に適応される */
      /* body {
@@ -255,6 +292,8 @@
 <link rel="stylesheet" href="css/responsive.css">
   </head>
   <body>
+    <div id="cap" class="punch"><div id="imgframe"><img src="img/98306.jpg" alt="img" id="Eimg"></div></div>
+    
     <div id="cover" class="hide">
       <h3>結果</h3>
       <ul id="misslist">間違えた単語
@@ -269,7 +308,7 @@
 
     <!-- 🍔 -->
     <input id="menu" type="checkbox" />
-    <label for="menu" class="open">＊</label>
+    <label for="menu" class="open">三</label>
     <label for="menu" class="back"></label>
     <!-- 🍔 -->
 
@@ -435,12 +474,35 @@
       const close=document.getElementById('close');
       const percent=document.getElementById('percent');
       const loglistA=document.getElementById("loglist")
-
+      const cap=document.getElementById('cap');
 
       // window.onload=function dataload(){
 
       // }
 
+      // ビジーwaitを使う方法
+      function sleep() {
+        // var startMsec = new Date();
+      
+        // // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
+        // while (new Date() - startMsec < waitMsec);
+        if(sessionStorage.hasOwnProperty('swich')){
+          // cap.classList.add('kick');
+
+        }else{
+          
+          cap.classList.add('kick');
+          
+          cap.classList.add('punch');
+          sessionStorage.setItem("swich","on");
+        }
+      }    
+      
+      window.onload=function setup(){
+
+        setTimeout("sleep()", 1500);
+
+      }
 
       close.onclick=function close(){
         cover.classList.toggle('appear');
@@ -502,6 +564,7 @@
         
 
       }
+
       stbtn.onclick=function Start(){
 
         a1.classList.remove('p');
@@ -1010,60 +1073,71 @@
             
             const lp =nnn+'/'+Elength;
             var EElength=Elength;
+
             momo.innerHTML=lp; 
+            var minus=Elength-nnn;
 
-            if ('speechSynthesis' in window) {
-              console.log("このブラウザは音声合成に対応しています! ^_^");
-              var sound={};
-              switch(lang){
+              if(0>minus){
+              var audioElem = new Audio();
+              audioElem.src = "music/end/people-performance-cheer1.mp3";
+              audioElem.play();
+              }else{
+                if ('speechSynthesis' in window) {
+                console.log("このブラウザは音声合成に対応しています! ^_^");
+                console.log(lang);
+                var sound={};
+                switch(lang){
 
-              case 'eng':
-                var ssup=new SpeechSynthesisUtterance();
-                ssup.text=Eword2[QEword];
-                ssup.lang='en-EN';
-                speechSynthesis.speak(ssup);
+                case 'eng':
+                  var ssup=new SpeechSynthesisUtterance();
+                  ssup.text=Eword2[QEword];
+                  ssup.lang='en-EN';
+                  speechSynthesis.speak(ssup);
+                  
+                  sound[ssup.lang]=Eword2[QEword];
+
+                  sessionStorage.setItem("sound",JSON.stringify(sound));//保存
+                break;
+
+                case 'ja':
+
+                var ssup = new SpeechSynthesisUtterance();
                 
+                ssup.text =Eword2[QEword];
+                
+                ssup.lang = 'ja-JP';
+                
+                speechSynthesis.speak(ssup);
+
                 sound[ssup.lang]=Eword2[QEword];
 
                 sessionStorage.setItem("sound",JSON.stringify(sound));//保存
-              break;
+                break;
 
-              case 'ja':
+                case 'cha':
 
-              var ssup = new SpeechSynthesisUtterance();
-              
-              ssup.text =Eword2[QEword];
-              
-              ssup.lang = 'ja-JP';
-              
-              speechSynthesis.speak(ssup);
+                var ssup = new SpeechSynthesisUtterance();
+                
+                ssup.text =Eword2[QEword];
+                            
+                ssup.lang='zh-CN';
+                
+                speechSynthesis.speak(ssup);
 
-              sound[ssup.lang]=Eword2[QEword];
+                sound[ssup.lang]=Eword2[QEword];
 
-              sessionStorage.setItem("sound",JSON.stringify(sound));//保存
-              break;
+                sessionStorage.setItem("sound",JSON.stringify(sound));//保存
+                break;
 
-              case 'cha':
-
-              var ssup = new SpeechSynthesisUtterance();
-              
-              ssup.text =Eword2[QEword];
-                           
-              ssup.lang='zh-CN';
-              
-              speechSynthesis.speak(ssup);
-
-              sound[ssup.lang]=Eword2[QEword];
-
-              sessionStorage.setItem("sound",JSON.stringify(sound));//保存
-              break;
-
-
-            }
-            } else {
+                }
+              } else {
 
               console.log("このブラウザは音声合成に対応していません。 T_T");
             }
+           
+          }
+            
+              
 
             
 
@@ -1084,7 +1158,7 @@
          
         
 
-          var minus=Elength-nnn;
+          // var minus=Elength-nnn;
           console.log("minus="+minus);
           if(minus<3){
             console.log("球切れ");
@@ -1653,14 +1727,20 @@ function loop(){
 
         reset.onclick=function Reset(){
 
-          sessionStorage.clear();
+          sessionStorage.removeItem("wordlog");
+          sessionStorage.removeItem("sound");
+          sessionStorage.removeItem("Wdata");
+          sessionStorage.removeItem("missword");
           location.reload();
 
         }
         
         
        ccc.onchange=function lolo(){
-        sessionStorage.clear();
+          sessionStorage.removeItem("wordlog");
+          sessionStorage.removeItem("sound");
+          sessionStorage.removeItem("Wdata");
+          sessionStorage.removeItem("missword");
 
         loglistA.innerHTML="";
         document.getElementById('percent2').innerHTML="";
