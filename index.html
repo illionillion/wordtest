@@ -181,6 +181,11 @@
         opacity:0;
       }
 
+      .kk{
+        transition-delay:0.8s;
+        opacity: 1;
+      }
+
       #mondaic{
         height: 25px;
       }
@@ -232,13 +237,16 @@
       }
 
       #close{
-        border: 1px solid black;
+        border: 1px solid orange;
+        border-radius: 25px;
         cursor: pointer;
         font-size: 2rem;
-        
+        background: orange;
+        color: white;
       }
       #percent{
-        border: 1px solid black;
+        border-bottom: 1px solid black;
+        margin-bottom: 5px;
       }
 
       #cap{
@@ -284,6 +292,9 @@
         background-color:#f10010;
     } */
 
+
+
+
         #Number{
           display: none;
         }
@@ -317,8 +328,8 @@
         <label for="menu" class="close">×</label>
         <!-- 🍔 -->
 
-        <nav>
-            <ul id="loglist">
+        <nav>英単語テスト
+            <ul id="loglist" style="list-style: none;">
                 <!-- <li>list1</li>
                 <li>list2</li>
                 <li>list3</li>
@@ -336,7 +347,7 @@
     
     
 
-    <ul id="pl" class="k">
+    <ul id="pl" class="k kk">
       <li id="A1" class="k1"></li>
       <li id="A2" class="k2"></li>
       <li id="A3" class="k1"></li>
@@ -579,6 +590,7 @@
         a4.classList.remove('p');
      
         tl.classList.remove('k');
+        tl.classList.add('kk');
 
         const course=ccc.value;
         console.log(course);
@@ -1089,10 +1101,7 @@
 
         }
 
-        // if(nnn>Elength){
-        //   documet.getElementById("cover").classList.toggle('hide');
-        //   concole.log("cover");
-        // }
+        
 
             console.log(Eword2);
             console.log(Jword);
@@ -1124,11 +1133,7 @@
 
             poo= JSON.parse(poo);
 
-            // for (var i = 0; i < poo.length; i++) {
-            //     for (var key in poo[i]) {
-            //       console.log(poo[i][key]);
-            //     }
-            //   }
+            
 
 
             }
@@ -1326,7 +1331,7 @@
 
                 console.log(Npercent);
 
-                percent.innerHTML="正答率 "+Npercent+" ％";
+                percent.innerHTML="正答率 "+parseInt(Npercent)+" ％";
 
                 for (let step = 0; step < datacount; step++) {
 
