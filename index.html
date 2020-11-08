@@ -212,11 +212,11 @@
       } */
 
       .hide{
-        display: none;
+        visibility: hidden;
         
       }
       .appear{
-        display: block;
+        visibility:visible;
 
       }
 
@@ -243,9 +243,11 @@
         border: 1px solid orange;
         border-radius: 25px;
         cursor: pointer;
-        font-size: 2rem;
+        font-size: 20px;
         background: orange;
         color: white;
+        width: 220px;
+        margin: 0 auto;
       }
       #percent{
         border-bottom: 1px solid black;
@@ -271,8 +273,20 @@
         display: none;
       }
 
-      
+      #Tbtn{
+        border: 1px solid #1DA1F2;
+        border-radius: 25px;
+        cursor: pointer;
+        width: 220px;
+        font-size: 20px;
+        background: #1DA1F2;       
+        margin: 3px auto;
+      }
 
+      #TW_a{
+        text-decoration: none;
+        color: white;
+      }
       /* #imgframe{
         
         top: 0;
@@ -310,14 +324,15 @@
     
     <div id="cover" class="hide">
       <h3>結果</h3>
-      <ul id="misslist">間違えた単語
-        <!-- <li></li>
-        <li></li>
-        <li></li>
-        <li></li> -->
-      </ul>
+      <ul id="misslist">間違えた単語</ul>
+      
+      
       <div id="percent">%</div>
+      <!-- <div id="Tbtn"></div> -->
+      <!-- <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-size="large" data-text="英単語テストWebアプリ" style="opacity: 0;">ツイートで共有</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
       <div id="close">閉じる</div>
+      
     </div>
 
     <!-- 🍔 -->
@@ -339,7 +354,10 @@
                 <li>list4</li>
                 <li>list5</li> -->
             </ul>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-size="large" data-url="https://illionillion.github.io/wordtest/index.html" data-text="英単語テストWebアプリ">ツイートで共有</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </nav>
+
         <div id="percent2"></div>
     </aside>
 
@@ -385,68 +403,7 @@
 
       <div id="mondaic"></div>
 
-      <select id="course">
-        <!-- <optgroup label="デモ">
-          <option value="demo">選択してください</option>
-          <option value="demo2">demo</option>
-        </optgroup>
-        <optgroup label="データベース">
-          
-          <option value="0">p14~p19</option>          
-          <option value="1">p20~p25</option>          
-          <option value="2">p26~p31</option>          
-          <option value="3">p32~p37</option>          
-          <option value="4">p38~p43</option>          
-          <option value="5">p44~p49</option>          
-          <option value="6">p50~p55</option>          
-          <option value="7">p56~p79</option>          
-          <option value="8">p80~p85</option>          
-          <option value="9">p86~p91</option>          
-          <option value="10">p104~p109</option>          
-          <option value="11">p110~p115</option>          
-          <option value="12">p116~p121</option>          
-          <option value="13">p140~p145</option>          
-          <option value="14">p146~p151</option>          
-          <option value="15">p152~p157</option>          
-          <option value="16">p158~p163</option>          
-          <option value="17">p164~p169</option>          
-          <option value="18">p170~p175</option>          
-          <option value="19">p176~p181</option>          
-          <option value="20">p182,p202~p205</option>          
-          <option value="21">p206~p211</option>          
-          <option value="22">p212~p217</option>          
-          <option value="23">p218~p223</option>          
-          <option value="24">p224~p231</option>          
-          <option value="25">p232~p237</option>          
-          <option value="26">p238~p243</option>          
-          <option value="27">p244~p251</option>          
-          <option value="28">p262~p267</option>          
-          <option value="29">p268~p273</option>          
-          <option value="30">p274~p277</option>          
-          <option value="31">p278~p283</option>          
-          <option value="32">p284~p289</option>          
-          <option value="33">p290~p297</option>          
-                    
-
-         
-        </optgroup> 
-        <optgroup label="cloud">
-          <option value="C1">Unit1</option>
-          <option value="C2">Unit2</option>
-          <option value="C3">Unit3</option>
-          <option value="C4">Unit4</option>
-        </optgroup>
-        <optgroup label="古文単語">
-          <option value="A1">p230~p247</option>
-        </optgroup>
-        <optgroup label="中国語">
-          <option value="B1">基本動詞</option>
-          <option value="B2">基本形容詞</option>
-          <option value="B1.5">基本動詞(逆)</option>
-          <option value="B2.5">基本形容詞(逆)</option>
-        </optgroup>-->
-        
-      </select>
+      <select id="course"></select>
     <div id="btns">
     
     <input type="button" id="stbtn" value="問題を出す">
@@ -1368,7 +1325,11 @@
 
             cover.classList.toggle('appear');
             cover.classList.toggle('hide');
+                // var turl="https://twitter.com/share?ref_src=twsrc%5Etfw";
+                // var turl2="https://platform.twitter.com/widgets.js";
+                // var Qlink="https://illionillion.github.io/wordtest/index.html";
 
+                // document.getElementById("Tbtn").innerHTML='<a  id="TW_a" href='+turl+' class="twitter-share-button" data-show-count="false" data-text='+Qlink+' target="_blank">Tweetで結果を共有</a><script async src='+turl2+' charset="utf-8">'+'<'+'/script>';
             var miss=document.getElementById('misslist');
 
             if(sessionStorage.hasOwnProperty('missword')) {
