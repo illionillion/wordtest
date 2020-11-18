@@ -22,6 +22,10 @@ aside{
   overflow-y: auto;
 }
 
+#loglist{
+  list-style: none;
+  
+}
 @media screen and (max-width: 1000px) {
 input[type="checkbox"] {
   display: block;
@@ -58,9 +62,7 @@ aside {
   overflow-y: auto;
 }
 
-#loglist{
-  list-style: none;
-}
+
 
 input[type="checkbox"]:checked ~ aside {
   left: 0;
