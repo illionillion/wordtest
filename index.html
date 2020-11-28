@@ -1507,7 +1507,7 @@
                   // made.style.width= '200px';
                 }
                 var pages=ccc.value;
-                var percentage=percent.innerHTML;
+                var percentage="正答率 "+parseInt(Npercent)+"%";
                 if(localStorage.hasOwnProperty('Ewordtestlogdata')){
 
                   var datas=JSON.parse(localStorage.getItem('Ewordtestlogdata'));
@@ -1978,6 +1978,7 @@ function loop(){
                       
             var word=datas2['words'];        
             var numbers=datas2['%'];
+            var times=datas2['time'];
             console.log(word);
             console.log(numbers);
 
@@ -2024,7 +2025,7 @@ function loop(){
           // made.style.textAlign= 'left';
           // made.style.width= '200px';
           }
-          document.getElementById('percent2').innerHTML=numbers;
+          document.getElementById('percent2').innerHTML=numbers+"<br>タイム "+times;
 
           }
 
