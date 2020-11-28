@@ -474,6 +474,58 @@
           sessionStorage.setItem("swich","on");
         }
       }    
+
+      function time_count(){
+
+        let on=sessionStorage.getItem("time-swich");
+
+        switch (on) {
+          case "on":
+
+          if(sessionStorage.hasOwnProperty('timer-count')) {
+            let count=sessionStorage.getItem('timer-count');
+            count=Number(count)+1;
+            sessionStorage.setItem('timer-count',count);
+          }else{
+            let count=0;
+            // count=count+1;
+            sessionStorage.setItem('timer-count',count);
+          }
+
+            break;
+        
+          default:
+            break;
+        }
+      }     
+
+      setInterval("time_count()",1000);
+      
+      function toHms(t) {
+        //数値を時間に直させる関数
+        var hms = "";
+        var h = t / 3600 | 0;
+        var m = t % 3600 / 60 | 0;
+        var s = t % 60;
+
+        if (h != 0) {
+          hms = h + "時間" + padZero(m) + "分" + padZero(s) + "秒";
+        } else if (m != 0) {
+          hms = m + "分" + padZero(s) + "秒";
+        } else {
+          hms = s + "秒";
+        }
+
+        return hms;
+
+        function padZero(v) {
+          if (v < 10) {
+            return "0" + v;
+          } else {
+            return v;
+          }
+        }
+      }
       
       window.onload=function setup(){
 
@@ -596,6 +648,8 @@
       }
 
       stbtn.onclick=function Start(){
+
+        sessionStorage.setItem("time-swich","on");//timer
 
         a1.classList.remove('p');
         a2.classList.remove('p');
@@ -1364,7 +1418,7 @@
             lang="";
             tl.classList.remove('kk');
             tl.classList.add('k');
-            percent.innerHTML="正答率 "+"100"+" ％";
+            percent.innerHTML="正答率 "+"100"+" ％<br>タイム "+toHms(sessionStorage.getItem('timer-count'));
             // console.log("終了");
 
             var datalist = JSON.parse(sessionStorage.getItem("missword"));
@@ -1399,11 +1453,7 @@
 
             cover.classList.toggle('appear');
             cover.classList.toggle('hide');
-                // var turl="https://twitter.com/share?ref_src=twsrc%5Etfw";
-                // var turl2="https://platform.twitter.com/widgets.js";
-                // var Qlink="https://illionillion.github.io/wordtest/index.html";
-
-                // document.getElementById("Tbtn").innerHTML='<a  id="TW_a" href='+turl+' class="twitter-share-button" data-show-count="false" data-text='+Qlink+' target="_blank">Tweetで結果を共有</a><script async src='+turl2+' charset="utf-8">'+'<'+'/script>';
+                
             var miss=document.getElementById('misslist');
 
             if(sessionStorage.hasOwnProperty('missword')) {
@@ -1411,10 +1461,6 @@
               var datalist=JSON.parse(sessionStorage.getItem('missword'));
 
               var datacount=Object.keys(datalist).length;
-
-              
-
-                // document.getElementById('t').innerHTML='↓クリックして表示';
 
                 var Ekey=[];
                 var Jvalue=[];
@@ -1437,7 +1483,7 @@
 
                 console.log(Npercent);
 
-                percent.innerHTML="正答率 "+parseInt(Npercent)+" ％";
+                percent.innerHTML="正答率 "+parseInt(Npercent)+" ％<br>タイム "+toHms(sessionStorage.getItem('timer-count'));
 
                 for (let step = 0; step < datacount; step++) {
 
@@ -1469,6 +1515,7 @@
 
                   datas2['words']=datalist;
                   datas2['%']=percentage;
+                  datas2['time']=toHms(sessionStorage.getItem('timer-count'));
                   datas[pages]=datas2;
 
                   localStorage.setItem("Ewordtestlogdata",JSON.stringify(datas));
@@ -1480,6 +1527,8 @@
 
                   datas2['words']=datalist;
                   datas2['%']=percentage;
+                  datas2['time']=toHms(sessionStorage.getItem('timer-count'));
+
                   datas[pages]=datas2;
                   
                   localStorage.setItem("Ewordtestlogdata",JSON.stringify(datas));
@@ -1490,7 +1539,8 @@
               console.log('no data...');
                 miss.innerHTML='ノーミスクリア！！';
               }
-
+              sessionStorage.setItem("time-swich","");
+              sessionStorage.setItem("timer-count","0");
             }
           
               
@@ -1876,21 +1926,11 @@ function loop(){
                   sessionStorage.setItem('missword',JSON.stringify(datalist));
 
                 }
-
-
-
-
-                 
-                 
+                               
          }
-
-         
-
         
        }
-       
-       
-       
+             
     }
 
        
