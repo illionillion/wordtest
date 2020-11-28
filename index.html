@@ -1947,6 +1947,8 @@ function loop(){
           sessionStorage.removeItem("sound");
           sessionStorage.removeItem("Wdata");
           sessionStorage.removeItem("missword");
+          sessionStorage.setItem("time-swich","");
+          sessionStorage.setItem("timer-count","0");
           location.reload();
 
         }
@@ -1957,44 +1959,45 @@ function loop(){
           sessionStorage.removeItem("sound");
           sessionStorage.removeItem("Wdata");
           sessionStorage.removeItem("missword");
+          sessionStorage.setItem("time-swich","");
+          sessionStorage.setItem("timer-count","0");
+          loglistA.innerHTML="";
+          document.getElementById('percent2').innerHTML="";
+          var pagename=ccc.value;
+          console.log(pagename);
+          if(localStorage.hasOwnProperty('Ewordtestlogdata')){
 
-        loglistA.innerHTML="";
-        document.getElementById('percent2').innerHTML="";
-        var pagename=ccc.value;
-        console.log(pagename);
-        if(localStorage.hasOwnProperty('Ewordtestlogdata')){
+            var datas=JSON.parse(localStorage.getItem('Ewordtestlogdata'));
+            console.log(datas);
 
-          var datas=JSON.parse(localStorage.getItem('Ewordtestlogdata'));
-          console.log(datas);
+            if (pagename in datas) {
+            //存在する場合の処理
 
-          if (pagename in datas) {
-          //存在する場合の処理
+            var datas2=datas[pagename]
+            console.log(datas2);
+                      
+            var word=datas2['words'];        
+            var numbers=datas2['%'];
+            console.log(word);
+            console.log(numbers);
 
-          var datas2=datas[pagename]
-          console.log(datas2);
-                    
-          var word=datas2['words'];        
-          var numbers=datas2['%'];
-          console.log(word);
-          console.log(numbers);
+            if (numbers == '正答率 100 ％') {
+              //console.log('val_null == null');
+              var count =0;
+            }else{
+              var count=Object.keys(word).length;
+              loglistA.innerHTML="間違えた単語";
+            }
+          
 
-          if (numbers == '正答率 100 ％') {
-            //console.log('val_null == null');
-            var count =0;
-          }else{
-            var count=Object.keys(word).length;
-            loglistA.innerHTML="間違えた単語";
-          }
-         
+            var Ekey=[];
+            var Jvalue=[];
 
-          var Ekey=[];
-          var Jvalue=[];
+            for(let step=0; step < count; step++){
+              Ekey.push(Object.keys(word)[step]);
+              
 
-          for(let step=0; step < count; step++){
-            Ekey.push(Object.keys(word)[step]);
-            
-
-            Jvalue.push(word[Object.keys(word)[step]]);
+              Jvalue.push(word[Object.keys(word)[step]]);
             
           }
 
