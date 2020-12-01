@@ -115,11 +115,21 @@
       } */
 
       #mondaic{
-        grid-area: p2;
+        /* grid-area: p2; */
+        background: none;
         width: 100px;
         margin: 0 auto;
         border-bottom: 1px solid #2ecc71;
         color: #2ecc71;
+      }
+
+      .time{
+        background: none;
+        border-bottom: 1px solid #2ecc71;
+        width: 70px;
+        margin: 10px auto;
+        color: #2ecc71;
+        text-align: center;
       }
 
       select{
@@ -129,7 +139,7 @@
       }
 
       #course{
-        grid-area: p3;
+        /* grid-area: p3; */
         background: #191919;
         color: #3498db;
         border: 2px solid #2ecc71
@@ -141,7 +151,7 @@
               grid-area: p4;
             } */
       
-      #btns input{
+      #btns input[type="button"]{
         border-radius: 50px;
         margin-top: 10px;
         width: 100px;
@@ -153,7 +163,7 @@
         cursor: pointer;
       }
 
-      #btns input:hover{
+      #btns input[type="button"]:hover{
         border: 2px solid #2ecc71;
         color: #2ecc71;
       }
@@ -409,7 +419,7 @@
     <input type="button" id="stbtn" value="問題を出す">
     <input type="button" id="go"value="解答する">
     <input type="button" id="reset"value="リセットする">
-    
+    <div id="time" class="time">00:00</div>
     </div>
 
     <div id="yans"></div>
@@ -452,6 +462,8 @@
       const percent=document.getElementById('percent');
       const loglistA=document.getElementById("loglist")
       const cap=document.getElementById('cap');
+      const timer=document.getElementById('time');
+
 
       // window.onload=function dataload(){
 
@@ -486,6 +498,7 @@
             let count=sessionStorage.getItem('timer-count');
             count=Number(count)+1;
             sessionStorage.setItem('timer-count',count);
+            timer.innerHTML=toHms(count);
           }else{
             let count=0;
             // count=count+1;
@@ -509,11 +522,11 @@
         var s = t % 60;
 
         if (h != 0) {
-          hms = h + "時間" + padZero(m) + "分" + padZero(s) + "秒";
+          hms = padZero(h) + ":" + padZero(m) + ":" + padZero(s);
         } else if (m != 0) {
-          hms = m + "分" + padZero(s) + "秒";
+          hms = padZero(m) + ":" + padZero(s) ;
         } else {
-          hms = s + "秒";
+          hms = "00:"+padZero(s);
         }
 
         return hms;
