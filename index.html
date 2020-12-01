@@ -127,7 +127,7 @@
         background: none;
         border-bottom: 1px solid #2ecc71;
         width: 70px;
-        margin: 10px auto;
+        margin: 0 auto;
         color: #2ecc71;
         text-align: center;
       }
@@ -1911,7 +1911,7 @@ function loop(){
                         Jword.push(Wdata [Object.keys(Wdata)[step]]);
                         // var Jword=Wdata[Object.keys(Wdata)[step]];
                         datalist[Eword[step]]=Jword[step];
-                        yans.innerHTML="不正解！！<br><u>解答　"+qan2+"."+Jword[step]+"</u>";
+                        yans.innerHTML="<u>不正解！！ 解答　"+qan2+"."+Jword[step]+"</u>";
                       }
                       //保存する
                       sessionStorage.setItem("missword", JSON.stringify(datalist));
@@ -1933,7 +1933,7 @@ function loop(){
 
                       datalist[Eword[step]]=Jword[step];
 
-                      yans.innerHTML="不正解！！<br><u>解答　"+qan2+"."+Jword[step]+"</u>";
+                      yans.innerHTML="<u>不正解！！解答　"+qan2+"."+Jword[step]+"</u>";
                     }
 
                   sessionStorage.setItem('missword',JSON.stringify(datalist));
