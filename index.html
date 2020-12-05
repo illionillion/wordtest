@@ -378,7 +378,7 @@
     
     
 
-    <ul id="pl" class="k ">
+    <ul id="pl" class="k">
       <li id="A1" class="k1"></li>
       <li id="A2" class="k2"></li>
       <li id="A3" class="k1"></li>
@@ -1554,6 +1554,11 @@
               }
               sessionStorage.setItem("time-swich","");
               sessionStorage.setItem("timer-count","0");
+              sessionStorage.removeItem("wordlog");
+              sessionStorage.removeItem("sound");
+              sessionStorage.removeItem("missword");
+              timer.innerHTML="00:00";
+              momo.innerHTML="";
             }
           
               
