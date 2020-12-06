@@ -43,6 +43,14 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
+.open span{
+        display: block;
+        width: 40px;
+        height: 5px;
+        background: white;
+        margin: 12px 5px;
+}
+
 .close{
   display: block;
   font-size: 2rem;
