@@ -19,6 +19,10 @@ aside{
   width: 250px;
   transition: all 0.2s;
   background: #ffffff;
+  
+}
+
+.side_nav{
   overflow-y: auto;
 }
 
