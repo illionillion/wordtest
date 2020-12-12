@@ -472,7 +472,40 @@
       const cap=document.getElementById('cap');
       const timer=document.getElementById('time');
 
+      function timer2(num){
+      var ret;
+      if(num<10){
+        ret="0"+num;
+      }else{
+        ret=num;
+      }
+      return ret;
+      }
 
+      function NowDate(){
+        var now=new Date();
+        var year=timer2(now.getFullYear());
+        var month=now.getMonth();
+        var date=timer2(now.getDate());
+        var hour=timer2(now.getHours());
+        var min=timer2(now.getMinutes());
+        var sec=timer2(now.getSeconds());
+
+        month=timer2(month+1);
+
+
+        var now=year+'/'+month+'/'+date+' '+hour+':'+min+':'+sec;
+
+        return now;
+      }
+
+      function not(s){
+        if(s="undefined"){
+          var c="なし";
+          return c;
+        }
+      }
+      
       // window.onload=function dataload(){
 
       // }
@@ -1455,6 +1488,7 @@
 
                   datas2['words']=datalist;
                   datas2['%']=percentage;
+
                   datas[pages]=datas2;
 
                   localStorage.setItem("Ewordtestlogdata",JSON.stringify(datas));
@@ -1466,6 +1500,7 @@
 
                   datas2['words']=datalist;
                   datas2['%']=percentage;
+
                   datas[pages]=datas2;
                   
                   localStorage.setItem("Ewordtestlogdata",JSON.stringify(datas));
@@ -1537,6 +1572,8 @@
                   datas2['words']=datalist;
                   datas2['%']=percentage;
                   datas2['time']=toHms(sessionStorage.getItem('timer-count'));
+                  datas2['Today']=NowDate();
+                  console.log('PPPPPPPPPPPP');
                   datas[pages]=datas2;
 
                   localStorage.setItem("Ewordtestlogdata",JSON.stringify(datas));
@@ -1549,9 +1586,9 @@
                   datas2['words']=datalist;
                   datas2['%']=percentage;
                   datas2['time']=toHms(sessionStorage.getItem('timer-count'));
-
-                  datas[pages]=datas2;
-                  
+                  datas2['Today']=NowDate();
+                  console.log('PPPPPPPPPPPP');
+                  datas[pages]=datas2;                  
                   localStorage.setItem("Ewordtestlogdata",JSON.stringify(datas));
 
                 }
@@ -2005,8 +2042,10 @@ function loop(){
             var word=datas2['words'];        
             var numbers=datas2['%'];
             var times=datas2['time'];
+            var today=datas2['Today'];
             console.log(word);
             console.log(numbers);
+            console.log(today);
 
             if (numbers == '正答率 100 ％') {
               //console.log('val_null == null');
@@ -2051,7 +2090,8 @@ function loop(){
           // made.style.textAlign= 'left';
           // made.style.width= '200px';
           }
-          document.getElementById('percent2').innerHTML=numbers+"<br>タイム "+times;
+
+          document.getElementById('percent2').innerHTML=numbers+"<br>タイム "+not(times)+"<br>"+not(today);
 
           }
 
