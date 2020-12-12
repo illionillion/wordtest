@@ -500,7 +500,7 @@
       }
 
       function not(s){
-        if(s="undefined"){
+        if(s='undefined'){
           var c="なし";
           return c;
         }
@@ -2043,6 +2043,9 @@ function loop(){
             var numbers=datas2['%'];
             var times=datas2['time'];
             var today=datas2['Today'];
+
+            if(times.includes(key)){console.log("あるよ")}
+
             console.log(word);
             console.log(numbers);
             console.log(today);
@@ -2091,7 +2094,7 @@ function loop(){
           // made.style.width= '200px';
           }
 
-          document.getElementById('percent2').innerHTML=numbers+"<br>タイム "+not(times)+"<br>"+not(today);
+          document.getElementById('percent2').innerHTML=numbers+"<br>タイム "+times+"<br>"+today;
 
           }
 
