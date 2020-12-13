@@ -21,13 +21,14 @@ aside{
   background: #ffffff;
   
 }
-
+/* 
 .side_nav{
   overflow-y: auto;
-}
+} */
 
 #loglist{
   list-style: none;
+  overflow-y: auto;
   
 }
 @media screen and (max-width: 1000px) {
